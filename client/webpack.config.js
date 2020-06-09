@@ -8,7 +8,7 @@ module.exports = {
 
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".json", ".scss"],
   },
 
   module: {
@@ -35,6 +35,34 @@ module.exports = {
         enforce: "pre",
         test: /\.js$/,
         loader: "source-map-loader",
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          // Creates `style` nodes from JS strings
+          "style-loader",
+          // Translates CSS into CommonJS
+
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+              sourceMap: true,
+            },
+          },
+          // Compiles Sass to CSS
+          {
+            loader: "sass-loader",
+            options: {
+              // Prefer `dart-sass`
+              implementation: require("node-sass"),
+              sassOptions: {
+                fiber: require("fibers"),
+              },
+              sourceMap: true,
+            },
+          },
+        ],
       },
     ],
   },
