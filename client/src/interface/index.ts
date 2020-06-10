@@ -1,0 +1,1 @@
+export { IText } from "./style";
