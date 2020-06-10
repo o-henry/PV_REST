@@ -1,1 +1,1 @@
-export { IText } from "./style";
+export { IText, IButton } from "./style";

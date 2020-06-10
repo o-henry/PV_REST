@@ -1,10 +1,11 @@
 import React from "react";
-import { Card } from "@/components";
+import { Card, SelectButton } from "@/components";
 
 const MainTemplate = () => {
   return (
     <>
       <div>
+        <SelectButton style={"select"} />
         <Card />
       </div>
     </>
