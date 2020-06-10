@@ -156,14 +156,14 @@ html,
 body,
 #root,
 #root > div {
-  font-family: "S-CoreDream-3Light", Open Sans, sans-serif !important;
+  font-family: "S-CoreDream-2ExtraLight", Open Sans, sans-serif !important;
   height: 100% !important;
   min-height: 100vh;
   // background: white !important;
 }
 
 * {
-  font-family: "SF Mono", Open Sans, sans-serif !important;
+  font-family: "SF Mono", S-CoreDream-2ExtraLight, Open Sans, sans-serif !important;
 }
 *:focus {
   outline: none;
