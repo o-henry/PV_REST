@@ -1,10 +1,10 @@
 import React from "react";
+import { Main } from "@/pages";
 
 const App = () => {
-  console.log("check");
   return (
     <>
-      <h1>Hello</h1>
+      <Main />
     </>
   );
 };
