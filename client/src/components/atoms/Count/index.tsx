@@ -1,9 +1,11 @@
 import React from "react";
+import classNames from "classnames";
+import { ICount } from "@/interface";
 
-const Count = () => {
+const Count = ({ children, style }: ICount): React.ReactElement => {
   return (
     <>
-      <div>Count</div>
+      <div className={classNames("Count", style)}>{children}</div>
     </>
   );
 };

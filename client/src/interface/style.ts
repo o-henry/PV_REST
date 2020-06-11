@@ -1,21 +1,21 @@
-export interface IText {
+export interface IProps {
   /**
-   * @style : 조건부 렌더링을 위한 props
-   * @children : inner text
+   * @children : prop text
+   * @style : 조건부 CSS 위한 props
    */
 
+  children?: string;
   style?: string;
-  children: string;
 }
 
-export interface IButton {
+export interface IText extends IProps {}
+
+export interface ICount extends IProps {}
+
+export interface IButton extends IProps {
   /**
-   * @style : 조건부 렌더링을 위한 props
-   * @children : inner text
    * @onclick : click events
    */
 
-  style?: string;
-  children?: string;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }

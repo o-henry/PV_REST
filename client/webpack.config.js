@@ -49,16 +49,12 @@ module.exports = {
 
           {
             loader: "css-loader",
-            options: {
-              modules: true,
-              sourceMap: true,
-            },
           },
+
           // Compiles Sass to CSS
           {
             loader: "sass-loader",
             options: {
-              // Prefer `dart-sass`
               implementation: require("node-sass"),
               sassOptions: {
                 fiber: require("fibers"),
