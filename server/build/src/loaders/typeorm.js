@@ -8,13 +8,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("./express"));
-const typeorm_1 = __importDefault(require("./typeorm"));
-exports.default = ({ expressApp }) => __awaiter(void 0, void 0, void 0, function* () {
-    yield express_1.default({ app: expressApp });
-    yield typeorm_1.default();
+const typeormLoader = () => __awaiter(void 0, void 0, void 0, function* () {
+    // const loadedConnectionOptions = await getConnectionOptions();
+    // const connectionOptions = Object.assign(loadedConnectionOptions, {
+    //   type: config.typeorm.connection,
+    //   host: config.typeorm.host,
+    //   port: config.typeorm.port,
+    //   username: config.typeorm.username,
+    //   password: config.typeorm.password,
+    //   database: config.typeorm.database,
+    // });
+    // const connection: Connection = await createConnection(connectionOptions);
+    // return connection;
 });
+exports.default = typeormLoader;

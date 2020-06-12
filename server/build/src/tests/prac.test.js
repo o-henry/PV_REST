@@ -1,9 +1,9 @@
 "use strict";
-test("two plus two", function () {
+test("two plus two", () => {
     expect(2 + 2).toBe(4);
 });
-describe("Sample Test", function () {
-    it("can add 2 numbers", function () {
+describe("Sample Test", () => {
+    it("can add 2 numbers", () => {
         expect(5 + 2).toBe(7);
     });
 });

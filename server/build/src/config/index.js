@@ -3,10 +3,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var dotenv_1 = __importDefault(require("dotenv"));
+const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 process.env.NODE_ENV = process.env.NODE_ENV || "development";
-var envFound = dotenv_1.default.config();
+const envFound = dotenv_1.default.config();
 if (envFound.error) {
     // This error should crash whole process
     throw new Error("⚠️  Couldn't find .env file  ⚠️");
@@ -17,9 +17,23 @@ exports.default = {
      */
     port: process.env.PORT,
     /**
-     * That long string from mlab
+     * Typeorm db
      */
-    databaseURL: process.env.MONGODB_URI,
+    typeorm: {
+        connection: process.env.TYPEORM_CONNECTION,
+        host: process.env.TYPEORM_HOST,
+        port: process.env.TYPEORM_PORT,
+        username: process.env.TYPEORM_USERNAME,
+        password: process.env.TYPEORM_PASSWORD,
+        database: process.env.TYPEORM_DATABASE,
+    },
+    /**
+     * food opensource
+     */
+    foods: {
+        key: process.env.FOOD_NOURISHMENT_KEY,
+        url: process.env.FOOD_URL,
+    },
     /**
      * Used by winston logger
      */

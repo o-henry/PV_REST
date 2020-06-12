@@ -12,9 +12,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("./express"));
-const typeorm_1 = __importDefault(require("./typeorm"));
-exports.default = ({ expressApp }) => __awaiter(void 0, void 0, void 0, function* () {
-    yield express_1.default({ app: expressApp });
-    yield typeorm_1.default();
+const axios_1 = __importDefault(require("axios"));
+const index_1 = __importDefault(require("@config/index"));
+const options = {
+    headers: {
+        Authoriazation: index_1.default.foods.key,
+    },
+};
+const getFood = () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const response = yield axios_1.default.get(`${index_1.default.foods.url}`, options);
+        return response;
+    }
+    catch (err) {
+        console.error(err);
+    }
 });
+exports.default = getFood;

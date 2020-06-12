@@ -29,6 +29,14 @@ export default {
   },
 
   /**
+   * food opensource
+   */
+  foods: {
+    key: process.env.FOOD_NOURISHMENT_KEY,
+    url: process.env.FOOD_URL,
+  },
+
+  /**
    * Used by winston logger
    */
   logs: {
