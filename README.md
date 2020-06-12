@@ -12,3 +12,12 @@
 5. file Structure
    > [Reference](https://ui.toast.com/weekly-pick/ko_20200213/)
 6. semantic web
+
+# Server
+
+## Requirements
+
+1. Mysql
+
+2. TypeORM
+   > [Reference](https://typeorm.io/#/connection)

@@ -4,8 +4,15 @@ import config from "./config";
 
 import express from "express";
 
-const app = express();
+async function startServer() {
+  const app = express();
+  const server = require("http").Server(app);
 
-app.listen(config.port, () => {
-  console.log(`server running on ${config.port}`);
-});
+  await require("./loaders").default({ expressApp: app });
+
+  server.listen(config.port, () => {
+    console.log(`Server listening on port: ${config.port}`);
+  });
+}
+
+startServer();
