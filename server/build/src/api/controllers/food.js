@@ -22,10 +22,11 @@ const options = {
 const getFood = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const response = yield axios_1.default.get(`${index_1.default.foods.url}`, options);
+        console.log("res", response);
         return response;
     }
     catch (err) {
-        console.error(err);
+        console.error("error", err);
     }
 });
 exports.default = getFood;

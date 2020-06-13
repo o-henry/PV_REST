@@ -47,7 +47,10 @@
     "winston": "^3.2.1"
   },
   "_moduleAliases": {
-    "@config": "build/config",
-    "@services": "build/services"
+    "@config": "src/config",
+    "@services": "src/services",
+    "@api": "src/api",
+    "@controllers": "src/api/controllers",
+    "@interface": "src/interface"
   }
 }

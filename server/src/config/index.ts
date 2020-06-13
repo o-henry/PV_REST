@@ -33,7 +33,7 @@ export default {
    */
   foods: {
     key: process.env.FOOD_NOURISHMENT_KEY,
-    url: process.env.FOOD_URL,
+    url: process.env.FOOD_URL || "none",
   },
 
   /**

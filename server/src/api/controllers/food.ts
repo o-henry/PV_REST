@@ -1,3 +1,4 @@
+import { Request, Response } from "express";
 import axios from "axios";
 import config from "@config/index";
 
@@ -7,13 +8,17 @@ const options = {
   },
 };
 
-const getFood = async () => {
+/**
+ * @GET /
+ * Food
+ */
+
+export const getFood = async (req: Request, res: Response) => {
   try {
-    const response = await axios.get(`${config.foods.url}`, options);
-    return response;
-  } catch (err) {
-    console.error("error", err);
+    const response = await axios.get(config.foods.url);
+    console.log("res", response);
+    return res.status(200).send(response);
+  } catch (error) {
+    console.error("error", error);
   }
 };
-
-export default getFood;

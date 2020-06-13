@@ -13,6 +13,7 @@
     "resolveJsonModule": true,
     "baseUrl": "./src",
     "paths": {
+      "@interface/*": ["interface/*"],
       "@api/*": ["api/*"],
       "@config/*": ["config/*"],
       "@controllers/*": ["api/controllers/*"],
