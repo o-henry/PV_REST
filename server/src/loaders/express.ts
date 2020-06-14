@@ -1,7 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
-import axios from "axios";
 import config from "@config/index";
 
 // Controllers ( route handlers )
@@ -13,13 +12,8 @@ const expressLoader = async ({ app }: { app: express.Application }) => {
     res.status(200).end("Good");
   });
 
-  // app.get(config.api.prefix, async (req, res) => {
-  //   const response = await axios.get("www.naver.com");
-  //   console.log(response);
-  //   res.status(200).send(response);
-  // });
+  app.use(config.api.prefix, foodsController.getFood);
 
-  app.get(config.api.prefix, foodsController.getFood);
   // Enable Cross Origin Resource Sharing to all origins by default
   app.use(cors());
 

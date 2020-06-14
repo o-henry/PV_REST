@@ -32,8 +32,9 @@ export default {
    * food opensource
    */
   foods: {
-    key: process.env.FOOD_NOURISHMENT_KEY,
-    url: process.env.FOOD_URL || "none",
+    keyId: process.env.FOOD_NOURISHMENT_KEY,
+    url: process.env.FOOD_URL,
+    serviceId: process.env.FOOD_SERVICE_ID,
   },
 
   /**
