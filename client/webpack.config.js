@@ -24,6 +24,9 @@ module.exports = {
           {
             loader: "ts-loader",
           },
+          {
+            loader: require.resolve("react-docgen-typescript-loader"),
+          },
         ],
       },
       {
@@ -49,6 +52,9 @@ module.exports = {
 
           {
             loader: "css-loader",
+            options: {
+              importLoaders: 1,
+            },
           },
 
           // Compiles Sass to CSS
