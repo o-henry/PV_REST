@@ -1,8 +1,9 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const path = require("path");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
-  mode: "production",
+  mode: "development",
 
   // Enable sourcemaps for debugging webpack's output.
   devtool: "source-map",
@@ -78,5 +79,6 @@ module.exports = {
       template: "./public/index.html",
       filename: "./index.html",
     }),
+    new Dotenv(),
   ],
 };
