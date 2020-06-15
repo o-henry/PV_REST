@@ -15,6 +15,12 @@
    > [Reference](https://ui.toast.com/weekly-pick/ko_20200213/)
 7. semantic web
 
+8. 음성 인식
+
+   > [Reference](https://github.com/mdn/web-speech-api/blob/master/speech-color-changer/script.js)
+
+   > [Reference](https://medium.com/@amanda.k.hussey/a-basic-tutorial-on-how-to-incorporate-speech-recognition-with-react-6dff9763cea5)
+
 # Server
 
 ## Requirements

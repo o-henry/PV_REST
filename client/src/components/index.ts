@@ -8,3 +8,4 @@ export { default as SelectButton } from "./molecules/SelectButton";
 export { default as SpeechButton } from "./molecules/SpeechButton";
 
 /* organisms */
+export { default as Speech } from "./organisms/Speech";
