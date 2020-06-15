@@ -7,11 +7,13 @@
    > [Reference](https://www.valentinog.com/blog/babel/)
 3. css
    > [Reference](https://webpack.js.org/loaders/sass-loader/)
-4. absolute Path
+4. dotenv
+   > [Reference](https://stackoverflow.com/questions/59243719/setting-up-env-variables-without-create-react-app)
+5. absolute Path
    > [Reference](https://im-developer.tistory.com/186)
-5. file Structure
+6. file Structure
    > [Reference](https://ui.toast.com/weekly-pick/ko_20200213/)
-6. semantic web
+7. semantic web
 
 # Server
 
@@ -25,5 +27,7 @@
 ### Structure
 
 | src/api/controllers | route controller include openAPI |
+
 | src/services | business logic |
+
 | src/loaders | configure app |
