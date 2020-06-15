@@ -7,5 +7,8 @@ export class EventStore {
   onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     this.isClicked = !this.isClicked;
+
+    /* isTrue ? */
+    console.log("isTrue? :", this.isClicked);
   };
 }

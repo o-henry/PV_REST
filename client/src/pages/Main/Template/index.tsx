@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, SelectButton } from "@/components";
+import { Card, SelectButton, SpeechButton } from "@/components";
 
 const MainTemplate = () => {
   return (
@@ -7,6 +7,7 @@ const MainTemplate = () => {
       <div>
         <SelectButton style={"select"} />
         <Card />
+        <SpeechButton />
       </div>
     </>
   );
