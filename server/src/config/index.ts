@@ -49,5 +49,7 @@ export default {
    */
   api: {
     prefix: "/api",
+    food: "/food",
+    speech: "/speech",
   },
 };

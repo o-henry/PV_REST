@@ -53,6 +53,7 @@
     "@services": "src/services",
     "@api": "src/api",
     "@controllers": "src/api/controllers",
-    "@interface": "src/interface"
+    "@interface": "src/interface",
+    "@util": "src/util"
   }
 }

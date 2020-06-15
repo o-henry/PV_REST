@@ -17,7 +17,8 @@
       "@api/*": ["api/*"],
       "@config/*": ["config/*"],
       "@controllers/*": ["api/controllers/*"],
-      "@services/*": ["services/*"]
+      "@services/*": ["services/*"],
+      "@util/*": ["util/*"]
     }
   },
   "exclude": ["node_modules", "tests"]

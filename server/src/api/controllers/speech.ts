@@ -1,0 +1,17 @@
+import { Request, Response } from "express";
+import { fetchKakao } from "@util/axios";
+
+/**
+ * @param GET /
+ * Speech Module
+ */
+
+export const getSpeech = async (req: Request, res: Response) => {
+  try {
+    const response = await fetchKakao.post("/v1/recognize");
+    console.log("speech: ", response);
+    // return res.status(200).send(response);
+  } catch (error) {
+    console.error("error :", error);
+  }
+};
