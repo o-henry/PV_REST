@@ -16,7 +16,7 @@
 
 - semantic web
 
-- 음성 인식 | [Kakao](https://developers.kakao.com/docs/latest/ko/voice/rest-api) | [WEB API](https://github.com/mdn/web-speech-api/blob/master/speech-color-changer/script.js) | [Reference](https://medium.com/@amanda.k.hussey/a-basic-tutorial-on-how-to-incorporate-speech-recognition-with-react-6dff9763cea5)
+- 음성 인식 | [Kakao](https://developers.kakao.com/docs/latest/ko/voice/rest-api) | [WEB API](https://github.com/mdn/web-speech-api/blob/master/speech-color-changer/script.js) | [Reference](https://medium.com/@amanda.k.hussey/a-basic-tutorial-on-how-to-incorporate-speech-recognition-with-react-6dff9763cea5) | [Codesandbox](https://codesandbox.io/s/k0w6v?file=/src/index.js:61-124)
 
 ---
 
