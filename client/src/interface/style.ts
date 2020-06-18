@@ -4,7 +4,7 @@ export interface IProps {
    * @style : 조건부 CSS 위한 props
    */
 
-  children?: string;
+  children?: any;
   style?: string;
 }
 
