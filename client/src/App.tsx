@@ -1,12 +1,24 @@
 import React, { useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Main } from "@/pages";
+import { kakaoAPI } from "@/util/kakaoAPI";
 
 const App = () => {
-  useEffect(() => {});
+  const kakao = kakaoAPI();
+
+  useEffect(() => {
+    kakao.initKakao();
+  });
 
   return (
     <>
-      <Main />
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Main />
+          </Route>
+        </Switch>
+      </Router>
     </>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import { SpeechButton } from "@/components";
-import { speechRecognition } from "@/util/speechRecognition";
+import { speechRecognition } from "@/util/speechAPI";
 import { observer } from "mobx-react";
 import useStores from "@/hooks/useStore";
 
