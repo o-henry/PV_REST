@@ -6,13 +6,19 @@ export function kakaoAPI() {
     console.log("Kakao Test:", window.Kakao.isInitialized());
   }
 
+  function authKakao() {
+    window.Kakao.Auth.authorize({
+      redirectUri: "http://developers.kakao.com/kakaoLogin.jsp",
+    });
+  }
+
   function loginKakao() {
     window.Kakao.Auth.login({
-      success: function (response) {
-        console.log(response);
+      success: function (response: any) {
+        console.log("response: ", response);
       },
-      fail: function (error) {
-        console.error(error);
+      fail: function (error: any) {
+        console.error("error: ", error);
       },
     });
   }
@@ -20,5 +26,6 @@ export function kakaoAPI() {
   return {
     initKakao,
     loginKakao,
+    authKakao,
   };
 }

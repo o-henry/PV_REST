@@ -44,17 +44,10 @@ module.exports = {
         test: /\.js$/,
         loader: "source-map-loader",
       },
-      // asset
+      // asset (image)
       {
         test: /\.(png|jpg|svg)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "/images/[name]-[hash:8].[ext]",
-            },
-          },
-        ],
+        use: ["file-loader"],
       },
       // CSS Setting
       {

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Main, Login } from "@/pages";
-import { kakaoAPI } from "@/util/kakaoAPI";
+import { kakaoAPI } from "@/utils/kakaoAPI";
 
 const App = () => {
   const kakao = kakaoAPI();

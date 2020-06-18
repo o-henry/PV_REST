@@ -1,8 +1,8 @@
 import React from "react";
 import { SpeechButton } from "@/components";
-import { speechRecognition } from "@/util/speechAPI";
+import { speechRecognition } from "@/utils/speechAPI";
 import { observer } from "mobx-react";
-import useStores from "@/hooks/useStore";
+import { useStores } from "@/hooks";
 
 const Speech = observer(() => {
   const { event } = useStores();
