@@ -2,9 +2,11 @@ import React from "react";
 import { LoginTemplate } from "@/pages";
 
 const Login = () => {
-  <>
-    <LoginTemplate />
-  </>;
+  return (
+    <>
+      <LoginTemplate />
+    </>
+  );
 };
 
 export default Login;

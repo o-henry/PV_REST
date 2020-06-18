@@ -44,6 +44,7 @@ module.exports = {
         test: /\.js$/,
         loader: "source-map-loader",
       },
+      // CSS Setting
       {
         test: /\.scss$/,
         use: [
@@ -81,4 +82,9 @@ module.exports = {
     }),
     new Dotenv(),
   ],
+
+  /* Router */
+  devServer: {
+    historyApiFallback: true,
+  },
 };
