@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Main, Login } from "@/pages";
 import { kakaoAPI } from "@/utils/kakaoAPI";
 
-const App = () => {
+const App: React.FC = () => {
   const kakao = kakaoAPI();
 
   useEffect(() => {
@@ -14,12 +14,8 @@ const App = () => {
     <>
       <Router>
         <Switch>
-          <Route exact path="/">
-            <Main />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
+          <Route exact path="/" component={Main} />
+          <Route path="/login" component={Login} />
         </Switch>
       </Router>
     </>

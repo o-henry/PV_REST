@@ -6,16 +6,28 @@ export function kakaoAPI() {
     console.log("Kakao Test:", window.Kakao.isInitialized());
   }
 
-  function authKakao() {
-    window.Kakao.Auth.authorize({
-      redirectUri: "http://developers.kakao.com/kakaoLogin.jsp",
+  function requestKakao() {
+    window.Kakao.API.request({
+      url: "/v2/user/me",
+      success: function (response: any) {
+        console.log("request data: ", JSON.stringify(response));
+      },
+      fail: function (error: any) {
+        alert(
+          "login success, but failed to request user information: " +
+            JSON.stringify(error)
+        );
+      },
     });
   }
 
   function loginKakao() {
     window.Kakao.Auth.login({
+      scope: "age_range,gender",
       success: function (response: any) {
         console.log("response: ", response);
+        window.localStorage.setItem("token", response.access_token);
+        requestKakao();
       },
       fail: function (error: any) {
         console.error("error: ", error);
@@ -26,6 +38,5 @@ export function kakaoAPI() {
   return {
     initKakao,
     loginKakao,
-    authKakao,
   };
 }
