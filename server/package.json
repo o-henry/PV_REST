@@ -54,6 +54,7 @@
     "@api": "src/api",
     "@controllers": "src/api/controllers",
     "@interface": "src/interface",
-    "@util": "src/util"
+    "@util": "src/util",
+    "@models": "src/models"
   }
 }
