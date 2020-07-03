@@ -16,7 +16,11 @@ const typeormLoader = async () => {
   };
 
   const connection = await createConnection(connectionOptions);
-  console.log(connection);
+  try {
+    console.log("DB 연결에 성공하셨습니다.", connection);
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 export default typeormLoader;

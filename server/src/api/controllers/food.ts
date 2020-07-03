@@ -3,7 +3,7 @@ import { fetchFood } from "@lib/axios";
 
 /**
  * @param GET /
- * Food
+ * fetch To Food DB
  */
 
 export const getFood = async (req: Request, res: Response) => {

@@ -4,7 +4,7 @@ import config from "./config";
 
 import express from "express";
 
-async function startServer() {
+export async function startServer() {
   const app = express();
   const server = require("http").Server(app);
 

@@ -1,4 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
+import { IsNotEmpty } from "class-validator";
 import { Food } from "./Food";
 /**
  * @param Entity : 개체
@@ -12,12 +13,15 @@ export class User {
   @PrimaryGeneratedColumn()
   public id!: number;
 
+  @IsNotEmpty()
   @Column({ type: "uuid", length: 30 })
   public name!: string;
 
+  @IsNotEmpty()
   @Column()
   public gender!: string;
 
+  @IsNotEmpty()
   @Column("int")
   public age!: number;
 
