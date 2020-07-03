@@ -4,6 +4,7 @@ import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
  * @param Entity : 개체
  * @param PrimaryGeneratedColumn : Auto PK
  * @param Column : Column
+ * @param id : PK
  */
 
 @Entity()

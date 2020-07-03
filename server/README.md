@@ -10,6 +10,4 @@
 
 - Mysql
 
-  > Error ( mysql.sock exists ) = [Reference](https://stackoverflow.com/questions/22436028/cant-connect-to-local-mysql-server-through-socket-tmp-mysql-sock-2)
-
 - TypeORM ([Reference](https://typeorm.io/#/))
