@@ -16,7 +16,6 @@ const typeormLoader = async () => {
         database: index_1.default.typeorm.database,
         entities: ["models/*.*"],
         synchronize: true,
-        debug: true,
     };
     const connection = await typeorm_1.createConnection(connectionOptions);
     try {

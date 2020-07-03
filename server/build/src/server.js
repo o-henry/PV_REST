@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.startServer = void 0;
-require("module-alias/register"); // for absolute paths
+require("module-alias/register");
 const config_1 = __importDefault(require("./config"));
 const express_1 = __importDefault(require("express"));
 async function startServer() {

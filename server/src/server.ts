@@ -1,4 +1,4 @@
-import "module-alias/register"; // for absolute paths
+import "module-alias/register";
 
 import config from "./config";
 

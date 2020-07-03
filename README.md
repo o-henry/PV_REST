@@ -1,6 +1,6 @@
 # Client
 
-## Requirements
+## > Requirements
 
 - React
 
@@ -22,17 +22,23 @@
 
 # Server
 
-## Requirements
+## > Requirements
 
 - Typescript Setting [Reference](https://khalilstemmler.com/blogs/typescript/node-starter-project/)
 
 - Absolute path setting [Reference](https://dev.to/larswaechter/path-aliases-with-typescript-in-nodejs-4353)
 
+## > Logging
+
+- winston
+
+## > DB
+
 - Mysql
 
-- TypeORM | [Reference](https://typeorm.io/#/connection)
+- TypeORM ([Reference](https://typeorm.io/#/))
 
-## Structure
+## > Structure
 
 - src/api/controllers - route controller include openAPI
 

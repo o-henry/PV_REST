@@ -6,7 +6,7 @@ const typeormLoader = async () => {
   const connectionOptions = {
     type: config.typeorm.connection as any,
     host: config.typeorm.host,
-    port: (config.typeorm.port as unknown) as number | undefined,
+    port: config.typeorm.port,
     username: config.typeorm.username,
     password: config.typeorm.password,
     database: config.typeorm.database,
@@ -16,7 +16,9 @@ const typeormLoader = async () => {
 
   const connection = await createConnection(connectionOptions);
   try {
-    console.log("DB 연결에 성공하셨습니다.", connection);
+    if (connection) {
+      console.log("DB 연결에 성공하셨습니다.");
+    }
   } catch (err) {
     console.error(err);
   }
