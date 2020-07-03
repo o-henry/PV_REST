@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { fetchKakao } from "@util/axios";
+import { fetchKakao } from "@lib/axios";
 
 /**
  * @param GET /

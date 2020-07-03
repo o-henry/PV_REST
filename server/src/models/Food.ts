@@ -3,6 +3,7 @@ import {
   Column,
   PrimaryGeneratedColumn,
   CreateDateColumn,
+  ManyToOne,
 } from "typeorm";
 import { User } from "./User";
 
@@ -26,4 +27,7 @@ export class Food {
 
   @CreateDateColumn()
   public createdDate!: Date;
+
+  @ManyToOne((type) => User, (user) => user.foods)
+  public user!: User;
 }

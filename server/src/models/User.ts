@@ -1,5 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
-
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
+import { Food } from "./Food";
 /**
  * @param Entity : 개체
  * @param PrimaryGeneratedColumn : Auto PK
@@ -20,4 +20,7 @@ export class User {
 
   @Column("int")
   public age!: number;
+
+  @OneToMany((type) => Food, (food) => food.user)
+  public foods!: Food[];
 }

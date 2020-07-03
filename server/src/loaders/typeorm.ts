@@ -1,6 +1,5 @@
 import "reflect-metadata";
 import { createConnection } from "typeorm";
-import { User } from "@models/User";
 import config from "@config/index";
 
 const typeormLoader = async () => {
@@ -11,8 +10,9 @@ const typeormLoader = async () => {
     username: config.typeorm.username,
     password: config.typeorm.password,
     database: config.typeorm.database,
-    entities: [User],
+    entities: ["models/*.*"],
     synchronize: true,
+    debug: true,
   };
 
   const connection = await createConnection(connectionOptions);
