@@ -1,19 +1,22 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es2017",
+    "lib": ["es2017", "esnext.asynciterable"],
+    "types": ["reflect-metadata", "jest"],
+    "typeRoots": ["./types", "./node_modules/@types"],
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "module": "commonjs",
-    "lib": ["es6"],
-    "outDir": "build",
-    "rootDir": ".",
-    "strict": true,
-    "allowJs": true,
-    "noImplicitAny": true,
-    "esModuleInterop": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "resolveJsonModule": true,
+    "pretty": true,
     "baseUrl": "./src",
+    "sourceMap": true,
+    "outDir": "./build",
+    "allowJs": true,
+    "noEmit": false,
+    "esModuleInterop": true,
     "paths": {
       "@interface/*": ["interface/*"],
       "@api/*": ["api/*"],
@@ -24,5 +27,13 @@
       "@models/*": ["models/*"]
     }
   },
-  "exclude": ["node_modules", "tests"]
+  "include": [
+    "./src/**/*",
+    "./tests/*/*.ts",
+    "**/*.test.ts",
+    "src",
+    "tests",
+    "**/*.spec.ts"
+  ],
+  "exclude": ["node_modules", "test.ts", "**/*.spec.ts"]
 }

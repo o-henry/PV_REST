@@ -4,7 +4,7 @@ module.exports = {
       tsConfig: "tsconfig.json",
     },
   },
-  roots: ["<rootDir>", "src/"],
+  roots: ["<rootDir>", "src/", "<rootDir>/src"],
   moduleNameMapper: {
     "@root/(.*)": "<rootDir>/$1",
     "@config/(.*)": "<rootDir>/src/config/$1",
