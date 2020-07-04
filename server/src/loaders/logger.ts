@@ -1,8 +1,9 @@
 import { format, transports, createLogger } from "winston";
 import "winston-daily-rotate-file";
+import config from "@config/index";
 
 const { combine, timestamp, colorize, printf } = format;
-const env = process.env.NODE_ENV || "development";
+
 const logDir = "logs";
 
 const transport = new transports.DailyRotateFile({
@@ -14,7 +15,7 @@ const transport = new transports.DailyRotateFile({
 });
 
 const logger = createLogger({
-  level: env === "development" ? "debug" : "info",
+  level: config.logs.level,
   format: combine(timestamp({ format: "YYYY-MM-DD HH:mm:ss" }), format.json()),
   transports: [
     new transports.Console({

@@ -55,6 +55,7 @@
     "@services": "src/services",
     "@api": "src/api",
     "@controllers": "src/api/controllers",
+    "@middlewares": "src/api/middlewares",
     "@interface": "src/interface",
     "@lib": "src/lib",
     "@models": "src/models",

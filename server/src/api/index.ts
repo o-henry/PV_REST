@@ -1,9 +1,9 @@
 import { Router } from "express";
-import * as foodsController from "@controllers/food";
-import * as speechController from "@controllers/speech";
+import food from "@controllers/food";
 
 export default () => {
   const app = Router();
-  foodsController(app);
-  speechController(app);
+  food(app);
+
+  return app;
 };
