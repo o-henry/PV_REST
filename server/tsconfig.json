@@ -24,7 +24,8 @@
       "@controllers/*": ["api/controllers/*"],
       "@services/*": ["services/*"],
       "@lib/*": ["lib/*"],
-      "@models/*": ["models/*"]
+      "@models/*": ["models/*"],
+      "@loaders/*": ["loaders/*"]
     }
   },
   "include": [

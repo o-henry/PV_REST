@@ -57,6 +57,7 @@
     "@controllers": "src/api/controllers",
     "@interface": "src/interface",
     "@lib": "src/lib",
-    "@models": "src/models"
+    "@models": "src/models",
+    "@loaders": "src/loaders"
   }
 }
