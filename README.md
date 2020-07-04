@@ -30,7 +30,9 @@
 
 ## > Logging
 
-- winston
+- winston [Reference](https://thisdavej.com/using-winston-a-versatile-logging-library-for-node-js/)
+
+- winston-daily-rotate-file [Reference](https://github.com/winstonjs/winston-daily-rotate-file#readme)
 
 ## > Test
 
