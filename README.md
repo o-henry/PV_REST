@@ -32,6 +32,10 @@
 
 - winston
 
+## > Test
+
+- jest
+
 ## > DB
 
 - Mysql
@@ -40,8 +44,10 @@
 
 ## > Structure
 
-- src/api/controllers - route controller include openAPI
+- src/api/controllers - fetching | Request | Response
 
-- src/services - business logic
+- src/config - Environment variables and configuration related stuff
+
+- src/services - Business Logic
 
 - src/loaders - configure app

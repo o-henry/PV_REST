@@ -6,8 +6,10 @@
     "module": "commonjs",
     "esModuleInterop": true,
     "target": "es6",
+    "noImplicitAny": true,
     "jsx": "react",
     "baseUrl": ".",
+    "lib": ["DOM", "dom", "dom.iterable"],
     "experimentalDecorators": true,
     "paths": {
       "@/*": ["src/*"]
