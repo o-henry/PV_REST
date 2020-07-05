@@ -49,5 +49,6 @@ export default {
    */
   api: {
     prefix: "/api",
+    versioning: "/v1",
   },
 };

@@ -10,7 +10,7 @@ const route = Router();
  */
 
 export default (app: Router) => {
-  app.use("/foods", route);
+  app.use(route);
 
   route.get(
     "/food",

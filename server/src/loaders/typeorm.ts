@@ -1,6 +1,7 @@
 import "reflect-metadata";
 import { createConnection } from "typeorm";
 import config from "@config/index";
+import Logger from "@loaders/logger";
 
 const typeormLoader = async () => {
   const connectionOptions = {
@@ -15,12 +16,13 @@ const typeormLoader = async () => {
   };
 
   const connection = await createConnection(connectionOptions);
+
   try {
     if (connection) {
-      console.log("DB 연결에 성공하셨습니다.");
+      Logger.info("DB 연결에 성공하셨습니다.");
     }
   } catch (err) {
-    console.error(err);
+    Logger.error(err);
   }
 };
 

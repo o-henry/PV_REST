@@ -16,7 +16,7 @@ const expressLoader = async ({ app }: { app: express.Application }) => {
   app.use(bodyParser.json());
 
   // Load API routes
-  app.use(config.api.prefix, controllers());
+  app.use(config.api.versioning, controllers());
 
   // Enable Cross Origin Resource Sharing to all origins by default
   app.use(cors());

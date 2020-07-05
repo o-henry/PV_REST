@@ -14,11 +14,11 @@ import { User } from "./User";
 
 @Entity()
 export class Food {
-  @PrimaryGeneratedColumn()
-  public id!: number;
+  @PrimaryGeneratedColumn("uuid")
+  public id!: string;
 
   @IsNotEmpty()
-  @Column()
+  @Column({ type: "uuid", length: 30 })
   public name!: string;
 
   @IsNotEmpty()
