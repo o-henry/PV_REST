@@ -1,8 +1,8 @@
 import "module-alias/register";
 
-import config from "@config/index";
-
 import express from "express";
+
+import config from "@config/index";
 
 import Logger from "@loaders/logger";
 
