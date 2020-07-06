@@ -13,7 +13,7 @@ export default (app: Router) => {
   app.use(route);
 
   route.get(
-    "/food",
+    "/foods",
     middlewares.getFood,
     async (req: Request, res: Response, error: ErrorRequestHandler) => {
       if (error) {

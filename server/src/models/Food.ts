@@ -9,7 +9,7 @@ import { IsNotEmpty } from "class-validator";
 import { User } from "./User";
 
 /**
- * @param id : PK
+ * @param { id } : PK
  */
 
 @Entity()

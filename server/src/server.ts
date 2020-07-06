@@ -1,8 +1,9 @@
 import "module-alias/register";
 
-import config from "./config";
+import config from "@config/index";
 
 import express from "express";
+
 import Logger from "@loaders/logger";
 
 export async function startServer() {

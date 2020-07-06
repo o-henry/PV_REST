@@ -1,5 +1,5 @@
 import { Router } from "express";
-import food from "@controllers/food";
+import food from "@api/controllers/food.controller";
 
 export default () => {
   const app = Router();
