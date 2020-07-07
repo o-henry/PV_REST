@@ -22,4 +22,16 @@ export default (app: Router) => {
       return res.status(200).send("Connect on FOOD OPEN API");
     }
   );
+
+  route.post(
+    "/foods",
+    async (req: Request, res: Response, error: ErrorRequestHandler) => {
+      if (error) {
+        Logger.error(error);
+      }
+      return res.status(200).json({
+        message: "Success Save Food",
+      });
+    }
+  );
 };
