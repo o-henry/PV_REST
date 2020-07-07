@@ -45,6 +45,16 @@ export default {
   },
 
   /**
+   * Swagger
+   */
+  swagger: {
+    name: process.env.DOCS_NAME,
+    version: process.env.DOCS_VERSION,
+    description: process.env.DOCS_DESCRIPTION,
+    host: process.env.DOCS_HOST,
+  },
+
+  /**
    * API configs
    */
   api: {
