@@ -2,9 +2,8 @@
 const SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
 const recognition = new SpeechRecognition();
 
-recognition.continuous = true;
-recognition.interimResults = true;
 recognition.lang = "ko-KR";
+recognition.maxAlternatives = 3;
 
 export function speechRecognition() {
   function startListening() {
@@ -16,9 +15,9 @@ export function speechRecognition() {
   }
 
   function stopListening() {
-    recognition.stop();
-    recognition.onend = () => {
+    recognition.onspeechend = () => {
       console.log("Stopped listening per click");
+      recognition.stop();
     };
   }
 
@@ -28,9 +27,19 @@ export function speechRecognition() {
     };
   }
 
-  function endListening() {
-    recognition.onresult = (event: { results: { transcript: any }[][] }) => {
-      console.log("event", event.results);
+  /**
+   * @param {event.results confidence} : 정확도
+   * @param {event.results transcript} : 텍스트
+   */
+  function endListening(words): any {
+    recognition.onresult = (event: {
+      results: { transcript: any; confidence: any }[][];
+    }) => {
+      words.push([
+        event.results[0][0].transcript,
+        event.results[0][0].confidence,
+      ]);
+      return words;
     };
   }
 
