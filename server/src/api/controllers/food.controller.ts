@@ -29,6 +29,7 @@ export default (app: Router) => {
       if (error) {
         Logger.error(error);
       }
+      console.log("request", req.body, req.body.name);
       return res.status(200).json({
         message: "Success Save Food",
       });

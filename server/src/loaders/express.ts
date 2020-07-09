@@ -7,6 +7,9 @@ import config from "@config/index";
 import controllers from "@api/index";
 
 const expressLoader = async ({ app }: { app: express.Application }) => {
+  // Enable Cross Origin Resource Sharing to all origins by default
+  app.use(cors());
+
   /* Health Check endpoints */
   app.get("/", async (req, res) => {
     res.status(200).end("Good");
@@ -17,9 +20,6 @@ const expressLoader = async ({ app }: { app: express.Application }) => {
 
   // Load API routes
   app.use(config.api.versioning, controllers());
-
-  // Enable Cross Origin Resource Sharing to all origins by default
-  app.use(cors());
 };
 
 export default expressLoader;
