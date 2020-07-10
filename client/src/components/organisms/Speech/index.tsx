@@ -52,12 +52,6 @@ const Speech = observer(() => {
     };
   }
 
-  function errorListening(): any {
-    recognition.onerror = (event) => {
-      console.log("error", event);
-    };
-  }
-
   const runSpeech = () => {
     event.isClicked ? startListening() : stopListening();
     initStart();
