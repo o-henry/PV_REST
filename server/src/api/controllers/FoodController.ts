@@ -1,9 +1,8 @@
-import { Router, Request, Response, ErrorRequestHandler } from "express";
-import middlewares from "@middlewares/index";
+import { Router, Request, Response, NextFunction } from "express";
 import Logger from "@loaders/logger";
+import middlewares from "@middlewares/index";
 
 const route = Router();
-let data: any;
 
 /**
  * @param {GET} : fetch To Food DB
@@ -12,29 +11,19 @@ let data: any;
 export default (app: Router) => {
   app.use(route);
 
-  // route.get(
-  //   "/foods-api",
-  //   middlewares.getFood(data),
-  //   async (req: Request, res: Response, error: ErrorRequestHandler) => {
-  //     if (error) {
-  //       Logger.error(error);
-  //     }
-  //     return res.status(200).send("Connect on FOOD OPEN API");
-  //   }
-  // );
-
   route.post(
     "/foods",
-    async (req: Request, res: Response, error: ErrorRequestHandler) => {
-      if (error) {
-        Logger.error(error);
+    middlewares.FoodMiddleware,
+    async (req: Request, res: Response, next: NextFunction) => {
+      try {
+        res.status(200).json({
+          message: "Success Save Food",
+        });
+        next();
+      } catch (error) {
+        Logger.error(" error : ", error);
+        return next(error);
       }
-      data = req.body.name;
-      return res.status(200).json({
-        message: "Success Save Food",
-      });
     }
   );
-
-  route.get("/", middlewares.getFood(data));
 };

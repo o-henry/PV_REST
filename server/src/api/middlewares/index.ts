@@ -1,5 +1,5 @@
-import getFood from "@middlewares/getFood";
+import FoodMiddleware from "@api/middlewares/FoodMiddleware";
 
 export default {
-  getFood,
+  FoodMiddleware,
 };
