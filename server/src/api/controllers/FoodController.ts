@@ -21,7 +21,7 @@ export default (app: Router) => {
         });
         next();
       } catch (error) {
-        Logger.error(" error : ", error);
+        Logger.error(error);
         return next(error);
       }
     }

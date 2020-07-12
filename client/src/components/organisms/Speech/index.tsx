@@ -7,7 +7,7 @@ import { createFood } from "@/api/foods";
 
 const Speech = observer(() => {
   const { event } = useStores();
-  const [words, setWords] = useState([]);
+  const [words, setWords] = useState("");
 
   const SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
 
@@ -31,9 +31,9 @@ const Speech = observer(() => {
 
   function startListening() {
     recognition.start();
-    recognition.onend = () => {
-      console.log("...continue listening ...");
-    };
+    // recognition.onend = () => {
+    //   console.log("...continue listening ...");
+    // };
   }
 
   function stopListening() {
@@ -48,19 +48,22 @@ const Speech = observer(() => {
       results: { transcript: any; confidence: any }[][];
     }) => {
       console.log(event.results);
-      setWords([...words, event.results[0][0].transcript]);
+      setWords(event.results[0][0].transcript);
     };
   }
 
   const runSpeech = () => {
-    event.isClicked ? startListening() : stopListening();
     initStart();
+    event.isClicked ? startListening() : stopListening();
   };
 
   useEffect(() => {
     endListening();
     console.log("==========", words);
-    createFood(words[words.length - 1]);
+    // input이 들어오면 요청 하도록 조건 추가
+    if (!event.isClicked && words !== "") {
+      createFood(words);
+    }
   });
 
   return (
@@ -68,7 +71,7 @@ const Speech = observer(() => {
       <div>
         <SpeechButton />
         {runSpeech()}
-        {words[words.length - 1]}
+        {words}
       </div>
     </>
   );
