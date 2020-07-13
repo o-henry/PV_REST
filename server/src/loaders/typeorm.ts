@@ -11,7 +11,7 @@ const typeormLoader = async () => {
     username: config.typeorm.username,
     password: config.typeorm.password,
     database: config.typeorm.database,
-    entities: ["models/*.*"],
+    entities: ["src/models/*.*"],
     synchronize: true,
   };
 
@@ -21,8 +21,8 @@ const typeormLoader = async () => {
     if (connection) {
       Logger.info("DB 연결에 성공하셨습니다.");
     }
-  } catch (err) {
-    Logger.error(err);
+  } catch (error) {
+    Logger.error(error);
   }
 };
 

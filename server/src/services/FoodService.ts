@@ -1,6 +1,9 @@
-import { Service, Inject } from "typedi";
+import { Service } from "typedi";
+import { Food } from "@models/Food";
 
 @Service()
-export default class FoodService {
-  constructor(@Inject("foodModel") private foodModel) {}
+export class FoodService {
+  public async create(food: Food): Promise<Food> {
+    return;
+  }
 }
