@@ -6,7 +6,6 @@ const FoodMiddleware = async (
   res: Response,
   next: NextFunction
 ) => {
-  console.log("=========REQUEST=========", req.body.name);
   await getFood(encodeURI(req.body.name));
   next();
 };

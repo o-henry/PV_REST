@@ -1,8 +1,14 @@
 import axios from "axios";
 import config from "@config/index";
 
-/* Fetch Food DB */
+export const xhrAPI = (url: string, headers?: object) => {
+  return axios.create({
+    baseURL: url,
+    headers: headers || {},
+  });
+};
 
+/* Fetch Food DB */
 export const fetchFood = axios.create({
   baseURL: `${config.foods.url}`,
 });

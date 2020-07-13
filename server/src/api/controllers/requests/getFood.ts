@@ -1,13 +1,11 @@
-import { fetchFood } from "@lib/axios";
+import { FoodProvider } from "@providers/FoodProvider";
 import Logger from "@loaders/logger";
 
 const getFood = async (query: string) => {
-  try {
-    console.log("query-----", query);
+  const xhr = new FoodProvider();
 
-    const response = await fetchFood.get(`/xml/1/5/DESC_KOR=${query}`);
-    console.log("response to food API", response);
-    return response;
+  try {
+    await xhr.getFoodData(query);
   } catch (error) {
     Logger.error(" error : ", error);
   }
