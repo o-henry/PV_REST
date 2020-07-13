@@ -15,6 +15,7 @@ module.exports = {
     "@interface/(.*)": "<rootDir>/src/interface/$1",
     "@models/(.*)": "<rootDir>/src/models/$1",
     "@providers/(.*)": "<rootDir>/src/providers/$1",
+    "@repositories/(.*)": "<rootDir>/src/repositories/$1",
   },
   moduleFileExtensions: ["ts", "js"],
   transform: {

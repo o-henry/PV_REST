@@ -27,7 +27,8 @@
       "@models/*": ["models/*"],
       "@loaders/*": ["loaders/*"],
       "@middlewares/*": ["api/middlewares/*"],
-      "@providers/*": ["providers/*"]
+      "@providers/*": ["providers/*"],
+      "@repositories/*": ["repositories/*"]
     }
   },
   "include": [
