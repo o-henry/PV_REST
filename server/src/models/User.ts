@@ -1,6 +1,7 @@
+import { Food } from "./Food";
+
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
 import { IsNotEmpty } from "class-validator";
-import { Food } from "./Food";
 
 /**
  * @param { Entity } : 개체

@@ -1,9 +1,14 @@
-import { Service } from "typedi";
 import { Food } from "@models/Food";
+import { FoodRepository } from "@repositories/FoodRepository";
+
+import { Service } from "typedi";
 
 @Service()
 export class FoodService {
+  constructor(private FoodRepository: FoodRepository) {}
+
   public async create(food: Food): Promise<Food> {
-    return;
+    const createFood = await this.FoodRepository.save(food);
+    return createFood;
   }
 }

@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from "express";
+
 import getFood from "@controllers/requests/getFood";
 
 const FoodMiddleware = async (

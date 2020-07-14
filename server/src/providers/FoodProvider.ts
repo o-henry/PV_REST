@@ -1,5 +1,6 @@
 import { BaseProvider } from "@providers/BaseProvider";
 import config from "@config/index";
+
 import { Service } from "typedi";
 
 @Service()

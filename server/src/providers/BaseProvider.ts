@@ -1,4 +1,5 @@
 import { xhrAPI } from "@lib/axios";
+
 import { AxiosInstance } from "axios";
 
 export abstract class BaseProvider {
