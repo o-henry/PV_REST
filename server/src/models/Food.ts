@@ -11,6 +11,9 @@ import { IsNotEmpty } from "class-validator";
 
 /**
  * @param { id } : PK
+ * @param { calorie } : NUTR_CONT1
+ * @param { sugar } : NUTR_CONT5
+ * @param { natrium } : NUTR_CONT6
  */
 
 @Entity()
@@ -32,7 +35,7 @@ export class Food {
 
   @IsNotEmpty()
   @Column()
-  public Natrium!: number;
+  public natrium!: number;
 
   @IsNotEmpty()
   @CreateDateColumn()

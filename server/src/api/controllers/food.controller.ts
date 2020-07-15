@@ -2,8 +2,6 @@ import { Router, Request, Response, NextFunction } from "express";
 import Logger from "@loaders/logger";
 import middlewares from "@middlewares/index";
 
-import { FoodProvider } from "@providers/food.provider";
-
 const route = Router();
 
 /**
@@ -12,7 +10,6 @@ const route = Router();
 
 export default (app: Router) => {
   app.use(route);
-  const xhr = new FoodProvider();
 
   route.post(
     "/foods",
