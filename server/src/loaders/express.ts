@@ -5,6 +5,7 @@ import config from "@config/index";
 
 // Controllers ( route handlers )
 import controllers from "@api/index";
+import middlewares from "@middlewares/index";
 
 const expressLoader = async ({ app }: { app: express.Application }) => {
   // Enable Cross Origin Resource Sharing to all origins by default
@@ -20,6 +21,9 @@ const expressLoader = async ({ app }: { app: express.Application }) => {
 
   // Load API routes
   app.use(config.api.versioning, controllers());
+
+  // Load Middleware
+  app.use(middlewares.FoodMiddleware);
 };
 
 export default expressLoader;

@@ -13,12 +13,14 @@ export default (app: Router) => {
 
   route.post(
     "/foods",
-    middlewares.FoodMiddleware,
+    // middlewares.FoodMiddleware,
     async (req: Request, res: Response, next: NextFunction) => {
       try {
-        return res.status(200).json({
+        console.log("========", req.body);
+        res.status(200).json({
           message: "Success Save Food",
         });
+        return next();
       } catch (error) {
         Logger.error(error);
         return next(error);
