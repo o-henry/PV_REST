@@ -1,4 +1,4 @@
-import { BaseProvider } from "@providers/BaseProvider";
+import { BaseProvider } from "@providers/base.provider";
 import config from "@config/index";
 
 import { Service } from "typedi";
@@ -9,15 +9,15 @@ export class FoodProvider extends BaseProvider {
     super();
   }
 
-  async getFoodData(query: string) {
+  async getIngredients(query: string) {
     this.setInstance(config.foods.url, {});
 
     const response = await this.getInstance()?.get(
-      `/xml/1/5/DESC_KOR=${query}`
+      `/json/1/10/DESC_KOR=${query}`
     );
 
-    console.log("response Food API", response);
+    console.log("response", response);
 
-    return response?.data;
+    return response?.data.I2790.row;
   }
 }

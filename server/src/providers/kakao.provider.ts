@@ -1,4 +1,4 @@
-import { BaseProvider } from "@providers/BaseProvider";
+import { BaseProvider } from "@providers/base.provider";
 
 export class KakaoProvider extends BaseProvider {
   constructor() {

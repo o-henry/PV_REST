@@ -31,6 +31,10 @@ export class Food {
   public sugar!: number;
 
   @IsNotEmpty()
+  @Column()
+  public Natrium!: number;
+
+  @IsNotEmpty()
   @CreateDateColumn()
   public createdDate!: Date;
 

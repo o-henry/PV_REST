@@ -1,5 +1,5 @@
 import { Food } from "@models/Food";
-import { FoodRepository } from "@repositories/FoodRepository";
+import { FoodRepository } from "@repositories/food.repository";
 
 import { Service } from "typedi";
 

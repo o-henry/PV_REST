@@ -1,4 +1,4 @@
-import FoodMiddleware from "@api/middlewares/FoodMiddleware";
+import FoodMiddleware from "@api/middlewares/food.middleware";
 
 export default {
   FoodMiddleware,
