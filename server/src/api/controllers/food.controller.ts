@@ -5,7 +5,7 @@ import middlewares from "@middlewares/index";
 const route = Router();
 
 /**
- * @param {GET} : fetch To Food DB
+ * @param { GET } : fetch To Food DB
  */
 
 export default (app: Router) => {

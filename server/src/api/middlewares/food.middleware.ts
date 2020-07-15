@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 
 import { FoodProvider } from "@providers/food.provider";
-import { FoodService } from "@services/FoodService";
+import { FoodService } from "@services/food.services";
 import { Food } from "@models/Food";
 import Logger from "@loaders/logger";
 
