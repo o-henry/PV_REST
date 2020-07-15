@@ -1,7 +1,6 @@
 import { Router } from "express";
 
-// import food from "@api/controllers/food.controller";
-import food from "@controllers/FoodController";
+import food from "@api/controllers/food.controller";
 
 export default () => {
   const app = Router();

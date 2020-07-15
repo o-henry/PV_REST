@@ -14,7 +14,6 @@ export class FoodService {
 
   public async create(food: Food): Promise<Food> {
     const createFood = await this.FoodRepository.save(food);
-
     return createFood;
   }
 }
