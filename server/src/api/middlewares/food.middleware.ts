@@ -16,9 +16,8 @@ const FoodMiddleware = async (
     next();
   } catch (error) {
     Logger.error(error);
+    next(error);
   }
-
-  next();
 };
 
 export default FoodMiddleware;

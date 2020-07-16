@@ -13,9 +13,10 @@ export class FoodProvider extends BaseProvider {
     this.setInstance(config.foods.url, {});
 
     const response = await this.getInstance()?.get(
-      `/json/1/10/DESC_KOR=${query}`
+      `/json/1/100/DESC_KOR=${query}`
     );
 
+    console.log(response);
     return response?.data.I2790.row;
   }
 }

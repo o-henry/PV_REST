@@ -1,6 +1,7 @@
 import { Food } from "@models/Food";
 import { FoodRepository } from "@repositories/food.repository";
 
+import { Response, Request } from "express";
 import { Service } from "typedi";
 import { getConnection } from "typeorm";
 
@@ -12,8 +13,15 @@ export class FoodService {
     this.FoodRepository = getConnection().getRepository(Food);
   }
 
+  public async preProcess(req: Request, data: Response): Promise<void> {
+    try {
+    } catch (error) {}
+  }
+
   public async create(food: Food): Promise<Food> {
-    const createFood = await this.FoodRepository.save(food);
-    return createFood;
+    try {
+      const createFood = await this.FoodRepository.save(food);
+      return createFood;
+    } catch (error) {}
   }
 }
