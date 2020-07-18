@@ -64,7 +64,7 @@
     "@controllers": "src/api/controllers",
     "@middlewares": "src/api/middlewares",
     "@interface": "src/interface",
-    "@lib": "src/lib",
+    "@util": "src/util",
     "@models": "src/models",
     "@loaders": "src/loaders",
     "@providers": "src/providers",

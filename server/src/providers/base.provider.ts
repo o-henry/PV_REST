@@ -1,4 +1,4 @@
-import { xhrAPI } from "@lib/axios";
+import { xhrAPI } from "@util/axios";
 
 import { AxiosInstance } from "axios";
 

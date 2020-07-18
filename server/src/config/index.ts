@@ -53,6 +53,14 @@ export default {
   },
 
   /**
+   * Kakao
+   */
+  kakao: {
+    id: process.env.KAKAO_REST_KEY,
+    redirect: process.env.KAKAO_REDIRECT,
+  },
+
+  /**
    * API configs
    */
   api: {

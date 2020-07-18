@@ -1,3 +1,6 @@
+import config from "@config/index";
+import { User } from "@models/User";
+
 import passport from "passport";
 import Kakao from "passport-kakao";
 
@@ -7,12 +10,13 @@ export default () => {
   passport.use(
     new KakaoStrategy(
       {
-        clientID: "",
+        clientID: config.kakao.id,
         clientSecret: "",
-        callbackURL: "",
+        callbackURL: config.kakao.redirect,
       },
       async (accessToken, refreshToken, profile, done) => {
         try {
+          //   const exUser = await User.findOne({})
         } catch (error) {
           console.error(error);
           done(error);

@@ -4,10 +4,11 @@ import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
 import { IsNotEmpty } from "class-validator";
 
 /**
- * @param { Entity } : 개체
- * @param { PrimaryGeneratedColumn } : Auto PK
- * @param { Column } : Column
- * @param { id } : PK
+ * @param { age } : user age
+ * @param { gender } : user gender
+ * @param { name } : user name
+ * @param { id } : sns id
+ * @param { provider } : sns login ex) kakao ..
  */
 
 @Entity()
@@ -26,6 +27,10 @@ export class User {
   @IsNotEmpty()
   @Column("int")
   public age!: number;
+
+  @IsNotEmpty()
+  @Column({ default: "local" })
+  public provider!: string;
 
   @OneToMany((type) => Food, (food) => food.user)
   public foods!: Food[];

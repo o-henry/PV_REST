@@ -23,7 +23,7 @@
       "@config/*": ["config/*"],
       "@controllers/*": ["api/controllers/*"],
       "@services/*": ["services/*"],
-      "@lib/*": ["lib/*"],
+      "@util/*": ["util/*"],
       "@models/*": ["models/*"],
       "@loaders/*": ["loaders/*"],
       "@middlewares/*": ["api/middlewares/*"],
