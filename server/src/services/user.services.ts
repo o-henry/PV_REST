@@ -1,5 +1,6 @@
 import { User } from "@models/User";
 import { UserRepository } from "@repositories/user.repository";
+import { IUser } from "@interface/IUser";
 
 import { Service } from "typedi";
 import { getConnection } from "typeorm";
@@ -12,11 +13,15 @@ export class UserService {
     this.UserRepository = getConnection().getRepository(User);
   }
 
-  public findOne(id: string, provider: string): Promise<User | undefined> {
+  public async create(user: User): Promise<User> {
+    return;
+  }
+
+  public findOne(user: IUser): Promise<User | undefined> {
     return this.UserRepository.findOne({
       where: {
-        id: id,
-        provider: provider,
+        id: user.id,
+        provider: user.provider,
       },
     });
   }

@@ -58,6 +58,7 @@ export default {
   kakao: {
     id: process.env.KAKAO_REST_KEY,
     redirect: process.env.KAKAO_REDIRECT,
+    secret: process.env.KAKAO_SECRET,
   },
 
   /**

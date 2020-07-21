@@ -33,7 +33,6 @@
     "cors": "^2.8.5",
     "jest": "^26.0.1",
     "nodemon": "^2.0.4",
-    "npm-check": "^5.9.2",
     "rimraf": "^3.0.2",
     "routing-controllers": "^0.9.0-alpha.4",
     "routing-controllers-openapi": "^2.0.1",
@@ -41,6 +40,7 @@
     "ts-jest": "^26.1.0",
     "ts-node": "^8.10.2",
     "typedi": "^0.8.0",
+    "typeorm-typedi-extensions": "^0.2.3",
     "typescript": "^3.9.3"
   },
   "dependencies": {
