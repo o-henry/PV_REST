@@ -14,7 +14,8 @@ export class UserService {
   }
 
   public async create(user: User): Promise<User> {
-    return;
+    const newUser = await this.UserRepository.save(user);
+    return newUser;
   }
 
   public findOne(user: IUser): Promise<User | undefined> {

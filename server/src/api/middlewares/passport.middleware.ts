@@ -1,6 +1,7 @@
 import config from "@config/index";
 import { UserService } from "@services/user.services";
 import { Provider } from "@interface/IUser";
+import { Food } from "@models/Food";
 
 import passport from "passport";
 import kakao from "passport-kakao";
@@ -24,6 +25,13 @@ passport.use(
 
         if (exUser) {
           done(null, exUser);
+        } else {
+          const newUser = await user.create({
+            sns: profile.id,
+            provider: Provider["KAKAO"],
+            name: profile.displayName,
+            foods: [new Food()],
+          });
         }
       } catch (error) {
         console.error(error);

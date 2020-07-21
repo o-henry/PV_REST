@@ -6,6 +6,7 @@ import { IsNotEmpty } from "class-validator";
 /**
  * @param { age } : user age
  * @param { gender } : user gender
+ * @param { sns } : user sns id
  * @param { name } : user name
  * @param { id } : sns id
  * @param { provider } : sns login ex) kakao ..
@@ -14,7 +15,11 @@ import { IsNotEmpty } from "class-validator";
 @Entity()
 export class User {
   @PrimaryGeneratedColumn("uuid")
-  public id!: string;
+  public id?: string;
+
+  @IsNotEmpty()
+  @Column()
+  public sns!: string;
 
   @IsNotEmpty()
   @Column({ type: "uuid", length: 30 })
@@ -22,11 +27,11 @@ export class User {
 
   @IsNotEmpty()
   @Column()
-  public gender!: string;
+  public gender?: string;
 
   @IsNotEmpty()
   @Column("int")
-  public age!: number;
+  public age?: number;
 
   @IsNotEmpty()
   @Column({ default: "local" })
