@@ -1,4 +1,5 @@
 import { Router, Request, Response, NextFunction } from "express";
+import passport from "passport";
 
 import { UserService } from "@services/user.services";
 import { User } from "@models/User";
@@ -11,11 +12,11 @@ export default (app: Router) => {
 
   route.get(
     "/login",
-    async (req: Request, res: Response, next: NextFunction) => {
-      try {
-      } catch (error) {
-        Logger.error(error);
-      }
+    passport.authenticate("kakao", {
+      failureRedirect: "/",
+    }),
+    (req: Request, res: Response, next: NextFunction) => {
+      res.redirect("/");
     }
   );
 };

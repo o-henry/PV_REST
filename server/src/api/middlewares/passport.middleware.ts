@@ -32,9 +32,12 @@ passport.use(
             name: profile.displayName,
             foods: [new Food()],
           });
+
+          done(null, newUser);
         }
       } catch (error) {
         console.error(error);
+        done(error);
       }
     }
   )
