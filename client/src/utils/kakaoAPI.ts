@@ -1,4 +1,5 @@
 //@ts-nocheck
+// before delete log for commit
 
 export function kakaoAPI() {
   function initKakao() {
