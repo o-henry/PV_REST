@@ -1,10 +1,14 @@
+import "reflect-metadata";
+
 import "module-alias/register";
 
 import express from "express";
 
 import config from "@config/index";
 
-import Logger from "@loaders/logger";
+import Logger from "@loaders/logger.loader";
+
+import { useExpressServer, createExpressServer } from "routing-controllers";
 
 export async function startServer() {
   const app = express();

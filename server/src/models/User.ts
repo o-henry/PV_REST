@@ -15,7 +15,7 @@ import { IsNotEmpty } from "class-validator";
 @Entity()
 export class User {
   @PrimaryGeneratedColumn("uuid")
-  public id?: string;
+  public id!: string;
 
   @IsNotEmpty()
   @Column()
@@ -27,11 +27,11 @@ export class User {
 
   @IsNotEmpty()
   @Column()
-  public gender?: string;
+  public gender!: string;
 
   @IsNotEmpty()
   @Column("int")
-  public age?: number;
+  public age!: number;
 
   @IsNotEmpty()
   @Column({ default: "local" })

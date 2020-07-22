@@ -1,11 +1,11 @@
-import express from "express";
+import { Application } from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 
 import config from "@config/index";
 import controllers from "@api/index";
 
-const expressLoader = async ({ app }: { app: express.Application }) => {
+const expressLoader = async ({ app }: { app: Application }) => {
   // Enable Cross Origin Resource Sharing to all origins by default
   app.use(cors());
 

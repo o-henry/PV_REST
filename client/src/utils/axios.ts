@@ -1,8 +1,6 @@
 import axios from "axios";
 
-export const xhrAPI = (url: string, headers?: object) => {
-  return axios.create({
-    baseURL: url,
-    headers: headers || {},
-  });
-};
+export const xhrClient = axios.create({
+  baseURL: `${process.env.REACT_APP_BASE_URL}`,
+  responseType: "json",
+});

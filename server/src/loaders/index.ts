@@ -1,7 +1,7 @@
-import expressLoader from "./express";
-import typeormLoader from "./typeorm";
+import expressLoader from "./express.loader";
+import typeormLoader from "./typeorm.loader";
 
-import Logger from "./logger";
+import Logger from "./logger.loader";
 
 export default async ({ expressApp }: any) => {
   Logger.info("> Express loaded");

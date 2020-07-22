@@ -2,7 +2,7 @@ import { Router, Request, Response, NextFunction } from "express";
 
 import { FoodService } from "@services/food.services";
 import { Food } from "@models/Food";
-import Logger from "@loaders/logger";
+import Logger from "@loaders/logger.loader";
 import middlewares from "@middlewares/index";
 
 const route = Router();

@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 
 import { FoodProvider } from "@providers/food.provider";
-import Logger from "@loaders/logger";
+import Logger from "@loaders/logger.loader";
 
 const FoodMiddleware = async (
   req: Request,

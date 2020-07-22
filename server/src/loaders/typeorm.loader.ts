@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import { createConnection } from "typeorm";
 import config from "@config/index";
-import Logger from "@loaders/logger";
+import Logger from "@loaders/logger.loader";
 
 const typeormLoader = async () => {
   const connectionOptions = {
