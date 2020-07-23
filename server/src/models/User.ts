@@ -19,7 +19,7 @@ export class User {
 
   @IsNotEmpty()
   @Column()
-  public sns!: string;
+  public sns!: number;
 
   @IsNotEmpty()
   @Column({ type: "uuid", length: 30 })
@@ -30,12 +30,12 @@ export class User {
   public gender!: string;
 
   @IsNotEmpty()
-  @Column("int")
-  public age!: number;
+  @Column()
+  public age!: string;
 
-  @IsNotEmpty()
-  @Column({ default: "local" })
-  public provider!: string;
+  // @IsNotEmpty()
+  // @Column({ default: "local" })
+  // public provider!: string;
 
   @OneToMany((type) => Food, (food) => food.user)
   public foods!: Food[];

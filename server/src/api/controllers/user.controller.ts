@@ -12,19 +12,30 @@ export default (app: Router) => {
   route.post(
     "/signup",
     async (req: Request, res: Response, next: NextFunction) => {
-      console.log("********** USER INFO **********", req.body);
-      const user = new User();
-      const service = new UserService();
+      try {
+        const data = req.body.kakao_account;
+        const user = new User();
+        const service = new UserService();
+        const exUser = await service.findOne(req.body.id);
 
-      if (service.findOne({ id: req.body.id, provider: req.body.provider })) {
-        return res.redirect("/");
+        if (exUser) {
+          return res
+            .status(200)
+            .json({ message: "이미 회원가입이 완료된 계정 입니다." });
+        }
+
+        user.sns = req.body.id;
+        user.name = data.profile.nickname;
+        user.gender = data.gender;
+        user.age = data.age_range;
+
+        service.create(user);
+
+        next();
+      } catch (error) {
+        Logger.error(error);
+        next();
       }
-
-      // user.sns;
-      // user.name;
-      // user.gender;
-      // user.age;
-      // user.provider;
     }
   );
 };

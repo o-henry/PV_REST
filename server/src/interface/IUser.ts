@@ -6,6 +6,6 @@ export enum Provider {
 }
 
 export interface IUser {
-  provider: Provider;
-  id: string;
+  // provider: Provider;
+  sns: number;
 }

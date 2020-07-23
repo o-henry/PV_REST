@@ -18,11 +18,10 @@ export class UserService {
     return newUser;
   }
 
-  public findOne(user: IUser): Promise<User | undefined> {
+  public findOne(sns: IUser): Promise<User | undefined> {
     return this.UserRepository.findOne({
       where: {
-        id: user.id,
-        provider: user.provider,
+        sns,
       },
     });
   }
