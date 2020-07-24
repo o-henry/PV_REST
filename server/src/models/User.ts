@@ -33,10 +33,6 @@ export class User {
   @Column()
   public age!: string;
 
-  // @IsNotEmpty()
-  // @Column({ default: "local" })
-  // public provider!: string;
-
   @OneToMany((type) => Food, (food) => food.user)
   public foods!: Food[];
 }
