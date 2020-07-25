@@ -2,6 +2,7 @@ import { Router, Request, Response, NextFunction } from "express";
 
 import { UserService } from "@services/user.services";
 import { User } from "@models/User";
+import { Food } from "@models/Food";
 import Logger from "@loaders/logger.loader";
 
 const route = Router();
@@ -15,6 +16,7 @@ export default (app: Router) => {
       try {
         const data = req.body.kakao_account;
         const user = new User();
+        const food = new Food();
         const service = new UserService();
         const exUser = await service.findOne(req.body.id);
 
@@ -28,6 +30,7 @@ export default (app: Router) => {
         user.name = data.profile.nickname;
         user.gender = data.gender;
         user.age = data.age_range;
+        user.foods = [food];
 
         service.create(user);
 

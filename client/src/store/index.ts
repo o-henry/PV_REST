@@ -1,1 +1,1 @@
-export { EventStore } from "./eventStore";
+export { EventStore } from "./event.store";
