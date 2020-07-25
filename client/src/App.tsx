@@ -23,12 +23,8 @@ const App: React.FC = () => {
     <>
       <Router>
         <Switch>
-          {/* <PrivateRoute exact path="/"> */}
-          <Main />
-          {/* </PrivateRoute> */}
-          <Route path="/login">
-            <Login />
-          </Route>
+          <PrivateRoute exact path="/" component={Main} />
+          <Route path="/login" component={Login} />
         </Switch>
       </Router>
     </>
@@ -38,14 +34,14 @@ const App: React.FC = () => {
 export default App;
 
 /* Auth Routing */
-const PrivateRoute: React.ReactElement = ({ children, ...rest }: any) => {
+function PrivateRoute({ children, ...rest }: any): React.ReactElement {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     token && setIsAuthenticated(true);
   }, [token, isAuthenticated]);
 
-  console.log(isAuthenticated);
+  console.log("nooooooo", isAuthenticated);
 
   return (
     <Route
@@ -59,4 +55,4 @@ const PrivateRoute: React.ReactElement = ({ children, ...rest }: any) => {
       }
     />
   );
-};
+}

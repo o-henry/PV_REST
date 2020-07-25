@@ -6,8 +6,6 @@ import { LoginTemplate } from "@/pages";
 import { kakaoAPI } from "@/utils/kakao.api";
 import { useStores } from "@/hooks";
 
-const token = window.localStorage.getItem("token");
-
 const Login = observer(() => {
   const { event } = useStores();
 
