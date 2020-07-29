@@ -1,5 +1,5 @@
 //@ts-nocheck
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -23,8 +23,8 @@ const App: React.FC = () => {
     <>
       <Router>
         <Switch>
-          <PrivateRoute exact path="/" component={Main} />
-          <Route path="/login" component={Login} />
+          <Route exact path="/" component={Main} />
+          <PrivateRoute path="/login" component={Login} />
         </Switch>
       </Router>
     </>
@@ -37,18 +37,18 @@ export default App;
 function PrivateRoute({ children, ...rest }: any): React.ReactElement {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+  console.log("***********", isAuthenticated, token);
+
   useEffect(() => {
     token && setIsAuthenticated(true);
   }, [token, isAuthenticated]);
-
-  console.log("nooooooo", isAuthenticated);
 
   return (
     <Route
       {...rest}
       render={({ location }) =>
         isAuthenticated ? (
-          children
+          <Main />
         ) : (
           <Redirect to={{ pathname: "/login", state: { from: location } }} />
         )

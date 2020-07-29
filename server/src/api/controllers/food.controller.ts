@@ -2,6 +2,7 @@ import { Router, Request, Response, NextFunction } from "express";
 
 import { FoodService } from "@services/food.services";
 import { Food } from "@models/Food";
+import { User } from "@models/User";
 import Logger from "@loaders/logger.loader";
 import middlewares from "@middlewares/index";
 
@@ -17,6 +18,7 @@ export default (app: Router) => {
       try {
         const data = res.locals.response;
         const food = new Food();
+        const user = new User();
         const service = new FoodService();
 
         // mapping 후, req.body.name 과 DESC_KOR 같은 값을 sorting 후 저장.
@@ -25,6 +27,7 @@ export default (app: Router) => {
         food.sugar = Number(data[0]["NUTR_CONT5"]);
         food.natrium = Number(data[0]["NUTR_CONT6"]);
         food.carbohydrate = Number(data[0]["NUTR_CONT2"]);
+        food.user = user;
 
         service.create(food);
 
