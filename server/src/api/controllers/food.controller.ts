@@ -21,15 +21,13 @@ export default (app: Router) => {
         const user = new User();
         const service = new FoodService();
 
-        console.log("user", user);
-
         // mapping 후, req.body.name 과 DESC_KOR 같은 값을 sorting 후 저장.
         food.name = data[0].DESC_KOR;
         food.calorie = Number(data[0]["NUTR_CONT1"]);
         food.sugar = Number(data[0]["NUTR_CONT5"]);
         food.natrium = Number(data[0]["NUTR_CONT6"]);
         food.carbohydrate = Number(data[0]["NUTR_CONT2"]);
-        food.user = user;
+        food.userId = user.id;
 
         service.create(food);
 

@@ -8,8 +8,6 @@ import config from "@config/index";
 
 import Logger from "@loaders/logger.loader";
 
-import { useExpressServer, createExpressServer } from "routing-controllers";
-
 export async function startServer() {
   const app = express();
 

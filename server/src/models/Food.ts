@@ -6,6 +6,7 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   ManyToOne,
+  JoinColumn,
 } from "typeorm";
 import { IsNotEmpty } from "class-validator";
 
@@ -46,6 +47,10 @@ export class Food {
   @CreateDateColumn()
   public createdDate!: Date;
 
+  @Column({ name: "user_id", nullable: true })
+  public userId!: string;
+
   @ManyToOne((type) => User, (user) => user.foods)
+  @JoinColumn({ name: "user_id" })
   public user!: User;
 }
