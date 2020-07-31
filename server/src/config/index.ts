@@ -65,7 +65,6 @@ export default {
    * API configs
    */
   api: {
-    prefix: "/api",
     versioning: "/v1",
   },
 };
