@@ -9,7 +9,6 @@ import {
 
 import { Food } from "@models/Food";
 import { FoodService } from "@services/food.services";
-import config from "@config/index";
 
 @JsonController()
 export class FoodController {
@@ -24,6 +23,9 @@ export class FoodController {
   public create(@Res() res: any) {
     const data = res.locals.response;
     const food = new Food();
+
+    console.log(typeof data[0]["NUTR_CONT1"]);
+
     food.name = data[0].DESC_KOR;
     food.calorie = Number(data[0]["NUTR_CONT1"]);
     food.sugar = Number(data[0]["NUTR_CONT5"]);

@@ -8,9 +8,11 @@ import Logger from "@loaders/logger.loader";
 export class FoodMiddleware implements ExpressMiddlewareInterface {
   public async use(req: Request, res: Response, next: NextFunction) {
     const xhr = new FoodProvider();
+
     try {
       const response = await xhr.getIngredients(encodeURI(req.body.name));
       res.locals.response = response;
+
       next();
     } catch (error) {
       Logger.error(error);

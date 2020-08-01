@@ -27,7 +27,6 @@ import { createExpressServer } from "routing-controllers";
 import { MicroframeworkLoader } from "microframework-w3tec";
 
 import { Application } from "express";
-import { FoodController } from "@controllers/FoodController";
 
 import config from "@config/index";
 
@@ -36,9 +35,8 @@ export const expressLoader: MicroframeworkLoader = () => {
     cors: true,
     routePrefix: config.api.versioning,
 
-    // controllers: [`${__dirname}/../controllers/*.[jt]s`],
-    controllers: [FoodController],
-    middlewares: [`${__dirname}/../middlewares/*.[jt]s`],
+    controllers: [`${__dirname}/../api/controllers/*.[jt]s`],
+    middlewares: [`${__dirname}/../api/middlewares/*.[jt]s`],
   });
 
   app.listen(config.port, (err) => {
