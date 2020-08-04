@@ -16,7 +16,8 @@ export class FoodProvider extends BaseProvider {
       `/json/1/100/DESC_KOR=${query}`
     );
 
-    console.log(response);
+    console.log("***************", response);
+
     return response?.data.I2790.row;
   }
 }

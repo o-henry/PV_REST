@@ -38,4 +38,9 @@ export default (app: Router) => {
       }
     }
   );
+
+  route.get(
+    "/signin",
+    async (req: Request, res: Response, next: NextFunction) => {}
+  );
 };
