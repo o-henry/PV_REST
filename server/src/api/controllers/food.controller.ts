@@ -1,45 +1,29 @@
-import { Router, Request, Response, NextFunction } from "express";
+import { Response } from "express";
+import { Get, Post, Body, Res, JsonController } from "routing-controllers";
 
-import { FoodService } from "@services/food.services";
 import { Food } from "@models/Food";
-import { User } from "@models/User";
-import Logger from "@loaders/logger.loader";
-import middlewares from "@middlewares/index";
+import { FoodService } from "@services/food.services";
+import { FoodProvider } from "@providers/food.provider";
 
-const route = Router();
+@JsonController("/foods")
+export class FoodController {
+  constructor(private foodService: FoodService) {}
 
-export default (app: Router) => {
-  app.use(route);
+  @Post()
+  public async create(@Body({ required: true }) body: any): Promise<Food> {
+    const food = new Food();
+    const xhr = new FoodProvider();
+    const data = await xhr.getIngredients(encodeURI(body.name));
 
-  route.post(
-    "/foods",
-    middlewares.FoodMiddleware,
-    async (req: Request, res: Response, next: NextFunction) => {
-      try {
-        const data = res.locals.response;
-        const food = new Food();
-        const user = new User();
-        const service = new FoodService();
+    food.name = data[0].DESC_KOR;
+    food.calorie = Number(data[0]["NUTR_CONT1"]);
+    food.sugar = Number(data[0]["NUTR_CONT5"]);
+    food.natrium = Number(data[0]["NUTR_CONT6"]);
+    food.carbohydrate = Number(data[0]["NUTR_CONT2"]);
+    food.userId = "aaa";
 
-        // mapping 후, req.body.name 과 DESC_KOR 같은 값을 sorting 후 저장.
-        food.name = data[0].DESC_KOR;
-        food.calorie = data[0]["NUTR_CONT1"];
-        food.sugar = data[0]["NUTR_CONT5"];
-        food.natrium = data[0]["NUTR_CONT6"];
-        food.carbohydrate = data[0]["NUTR_CONT2"];
-        food.userId = user.id;
+    console.log("food", food);
 
-        service.create(food);
-
-        res.status(200).json({
-          message: "Success Save Food",
-        });
-
-        next();
-      } catch (error) {
-        Logger.error(error);
-        next(error);
-      }
-    }
-  );
-};
+    return await this.foodService.create(food);
+  }
+}

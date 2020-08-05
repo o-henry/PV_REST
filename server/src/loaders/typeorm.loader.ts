@@ -1,10 +1,11 @@
 import "reflect-metadata";
+import { MicroframeworkLoader } from "microframework-w3tec";
 import { createConnection } from "typeorm";
 
 import config from "@config/index";
 import Logger from "@loaders/logger.loader";
 
-export const typeormLoader = async () => {
+export const typeormLoader: MicroframeworkLoader = async () => {
   const connectionOptions = {
     type: config.typeorm.connection as any,
     host: config.typeorm.host,
