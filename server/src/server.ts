@@ -1,21 +1,29 @@
 import "reflect-metadata";
 import "module-alias/register";
-import express from "express";
 
 import config from "@config/index";
 import Logger from "@loaders/logger.loader";
 
-export async function startServer() {
-  const app = express();
+import { bootstrapMicroframework } from "microframework-w3tec";
 
-  await require("./loaders").default({ expressApp: app });
+import { expressLoader } from "@loaders/express.loader";
+import { typeormLoader } from "@loaders/typeorm.loader";
 
-  app.listen(config.port, (err) => {
-    if (err) {
-      Logger.error(err);
-    }
-    Logger.info(`Server listening on port: ${config.port}`);
-  });
-}
+// export async function startServer() {
+//   const app = express();
 
-startServer();
+//   await require("./loaders").default({ expressApp: app });
+
+//   app.listen(config.port, (err) => {
+//     if (err) {
+//       Logger.error(err);
+//     }
+//     Logger.info(`Server listening on port: ${config.port}`);
+//   });
+// }
+
+// startServer();
+
+bootstrapMicroframework({
+  loaders: [expressLoader, typeormLoader],
+}).catch((error) => console.log(error));

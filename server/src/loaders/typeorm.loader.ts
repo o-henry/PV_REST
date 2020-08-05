@@ -4,7 +4,7 @@ import { createConnection } from "typeorm";
 import config from "@config/index";
 import Logger from "@loaders/logger.loader";
 
-const typeormLoader = async () => {
+export const typeormLoader = async () => {
   const connectionOptions = {
     type: config.typeorm.connection as any,
     host: config.typeorm.host,
@@ -26,5 +26,3 @@ const typeormLoader = async () => {
     Logger.error(error);
   }
 };
-
-export default typeormLoader;
