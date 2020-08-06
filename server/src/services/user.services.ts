@@ -1,9 +1,9 @@
+import { Service } from "typedi";
+import { getConnection } from "typeorm";
+
 import { User } from "@models/User";
 import { UserRepository } from "@repositories/user.repository";
 import { IUser } from "@interface/IUser";
-
-import { Service } from "typedi";
-import { getConnection } from "typeorm";
 
 @Service()
 export class UserService {

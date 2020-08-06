@@ -10,20 +10,20 @@ export class FoodController {
   constructor(private foodService: FoodService) {}
 
   @Post()
-  public async create(@Body({ required: true }) body: any): Promise<Food> {
+  public create(@Body({ required: true }) body: any): Promise<Food> {
     const food = new Food();
     const xhr = new FoodProvider();
-    const data = await xhr.getIngredients(encodeURI(body.name));
 
-    food.name = data[0].DESC_KOR;
-    food.calorie = Number(data[0]["NUTR_CONT1"]);
-    food.sugar = Number(data[0]["NUTR_CONT5"]);
-    food.natrium = Number(data[0]["NUTR_CONT6"]);
-    food.carbohydrate = Number(data[0]["NUTR_CONT2"]);
-    food.userId = "aaa";
+    // const data = await xhr.getIngredients(encodeURI(body.name));
 
-    console.log("food", food);
+    // food.name = data[0].DESC_KOR;
+    // food.calorie = Number(data[0]["NUTR_CONT1"]);
+    // food.sugar = Number(data[0]["NUTR_CONT5"]);
+    // food.natrium = Number(data[0]["NUTR_CONT6"]);
+    // food.carbohydrate = Number(data[0]["NUTR_CONT2"]);
 
-    return await this.foodService.create(food);
+    console.log("$$$$", this.foodService);
+
+    return this.foodService.create(food);
   }
 }

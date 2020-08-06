@@ -1,46 +1,22 @@
-import { Router, Request, Response, NextFunction } from "express";
+import { JsonController, Post, Body } from "routing-controllers";
 
-import { UserService } from "@services/user.services";
 import { User } from "@models/User";
-import Logger from "@loaders/logger.loader";
+import { UserService } from "@services/user.services";
 
-const route = Router();
+@JsonController("/users")
+export class UserController {
+  constructor(private userService: UserService) {}
 
-export default (app: Router) => {
-  app.use(route);
+  @Post()
+  public async create(@Body({ required: true }) body: any): Promise<User> {
+    const data = body.kakao_account;
+    const user = new User();
 
-  route.post(
-    "/signup",
-    async (req: Request, res: Response, next: NextFunction) => {
-      try {
-        const data = req.body.kakao_account;
-        const user = new User();
-        const service = new UserService();
-        const exUser = await service.findOne(req.body.id);
+    user.sns = body.id;
+    user.name = data.profile.nickname;
+    user.gender = data.gender;
+    user.age = data.age_range;
 
-        if (exUser) {
-          return res
-            .status(200)
-            .json({ message: "이미 회원가입이 완료된 계정 입니다." });
-        }
-
-        user.sns = req.body.id;
-        user.name = data.profile.nickname;
-        user.gender = data.gender;
-        user.age = data.age_range;
-
-        service.create(user);
-
-        next();
-      } catch (error) {
-        Logger.error(error);
-        next();
-      }
-    }
-  );
-
-  route.get(
-    "/signin",
-    async (req: Request, res: Response, next: NextFunction) => {}
-  );
-};
+    return await this.userService.create(user);
+  }
+}
