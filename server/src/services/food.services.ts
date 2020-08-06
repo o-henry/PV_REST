@@ -1,5 +1,4 @@
 import { Service } from "typedi";
-import { Response, Request } from "express";
 import { OrmRepository } from "typeorm-typedi-extensions";
 
 import { Food } from "@models/Food";

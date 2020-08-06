@@ -1,9 +1,13 @@
 import "reflect-metadata";
 import { MicroframeworkLoader } from "microframework-w3tec";
-import { createConnection } from "typeorm";
+import { createConnection, useContainer } from "typeorm";
+import { Container } from "typedi";
 
 import config from "@config/index";
 import Logger from "@loaders/logger.loader";
+
+// TypeDI Service container integration with TypeORM
+useContainer(Container);
 
 export const typeormLoader: MicroframeworkLoader = async () => {
   const connectionOptions = {
