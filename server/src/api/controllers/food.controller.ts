@@ -1,4 +1,3 @@
-import { Response } from "express";
 import { Get, Post, Body, Res, JsonController } from "routing-controllers";
 
 import { Food } from "@models/Food";

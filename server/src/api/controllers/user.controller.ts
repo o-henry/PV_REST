@@ -3,6 +3,8 @@ import { JsonController, Post, Body } from "routing-controllers";
 import { User } from "@models/User";
 import { UserService } from "@services/user.services";
 
+class BaseUser {}
+
 @JsonController("/users")
 export class UserController {
   constructor(private userService: UserService) {}
