@@ -7,7 +7,7 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import { Main, Login } from "@/pages";
+import { Onboard, Main, Login } from "@/pages";
 import { kakaoAPI } from "@/utils/kakao.api";
 
 const token = window.localStorage.getItem("token");
@@ -23,8 +23,8 @@ const App: React.FC = () => {
     <>
       <Router>
         <Switch>
-          <Route exact path="/" component={Main} />
-          <PrivateRoute path="/login" component={Login} />
+          <Route exact path="/" component={Onboard} />
+          <Route path="/login" component={Login} />
         </Switch>
       </Router>
     </>

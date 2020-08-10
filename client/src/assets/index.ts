@@ -1,5 +1,8 @@
 //@ts-nocheck
 
+/* main */
+export { default as main } from "./main-c.svg";
+
 /* banner */
 export { default as burger } from "./pngfuel.com.png";
 
