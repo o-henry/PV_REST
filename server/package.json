@@ -66,6 +66,7 @@
     "@models": "src/models",
     "@loaders": "src/loaders",
     "@providers": "src/providers",
-    "@repositories": "src/repositories"
+    "@repositories": "src/repositories",
+    "@dto": "src/dto"
   }
 }

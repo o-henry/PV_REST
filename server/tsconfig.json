@@ -28,7 +28,8 @@
       "@loaders/*": ["loaders/*"],
       "@middlewares/*": ["api/middlewares/*"],
       "@providers/*": ["providers/*"],
-      "@repositories/*": ["repositories/*"]
+      "@repositories/*": ["repositories/*"],
+      "@dto/*": ["dto/*"]
     }
   },
   "include": [
