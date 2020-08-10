@@ -68,11 +68,9 @@ const Speech = observer(() => {
 
   return (
     <>
-      <div>
-        <SpeechButton />
-        {runSpeech()}
-        {words}
-      </div>
+      <SpeechButton />
+      {runSpeech()}
+      {words}
     </>
   );
 });

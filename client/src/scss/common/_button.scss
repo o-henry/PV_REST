@@ -10,4 +10,12 @@
 
     margin: 2rem 0 0 0;
   }
+
+  &.speech {
+    border-radius: 50%;
+    display: inline-block;
+    height: 15rem;
+    width: 15rem;
+    background-color: white;
+  }
 }

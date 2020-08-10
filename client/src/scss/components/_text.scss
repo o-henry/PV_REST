@@ -1,14 +1,18 @@
 .Text {
-  &.banner_head {
+  /* login page */
+  &.login_banner_head {
     font-size: 1.8rem;
-    // font-family: $sftext !important;
-    // font-family: $mapo !important;
     font-family: $oswald !important;
-    // font-family: $rosewood !important;
   }
 
-  &.banner_body {
+  &.login_banner_body {
     font-weight: 100;
     font-size: 0.95rem;
+  }
+
+  /* main page */
+  &.main_head {
+    margin: 3rem 0 0 0;
+    color: white !important;
   }
 }
