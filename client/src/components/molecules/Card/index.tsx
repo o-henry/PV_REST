@@ -7,7 +7,7 @@ const Card = () => {
     <>
       <div>
         <Count>123</Count>
-        <TextField>blahblah</TextField>
+        <TextField>blah</TextField>
       </div>
     </>
   );

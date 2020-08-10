@@ -7,11 +7,12 @@ const MainTemplate = (): React.ReactElement => {
   return (
     <>
       <Grid container>
-        <div>
-          <SelectButton style={"select"} />
-          <Card />
-          <Speech />
-        </div>
+        <Grid item xs={12}>
+          <div>
+            <SelectButton style={"select"} />
+            <Speech />
+          </div>
+        </Grid>
       </Grid>
     </>
   );

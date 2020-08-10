@@ -1,2 +1,14 @@
 .Text {
+  &.banner_head {
+    font-size: 1.8rem;
+    // font-family: $sftext !important;
+    // font-family: $mapo !important;
+    font-family: $oswald !important;
+    // font-family: $rosewood !important;
+  }
+
+  &.banner_body {
+    font-weight: 100;
+    font-size: 0.95rem;
+  }
 }
