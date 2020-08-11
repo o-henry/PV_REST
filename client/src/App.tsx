@@ -12,12 +12,14 @@ import { kakaoAPI } from "@/utils/kakao.api";
 
 const token = window.localStorage.getItem("token");
 
-const App: React.FC = () => {
+const App = ({ hideLoader }: any) => {
   const kakao = kakaoAPI();
 
   useEffect(() => {
     kakao.initKakao();
   }, []);
+
+  useEffect(hideLoader, []);
 
   return (
     <>
