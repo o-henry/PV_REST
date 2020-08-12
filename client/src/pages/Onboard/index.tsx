@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import { OnboardTemplate } from "@/pages";
+import { BannerTemplate, StepperTemplate } from "@/pages";
 
 const Onboard = () => {
-  return (
-    <>
-      <OnboardTemplate />
-    </>
-  );
+  const [show, setShow] = useState(false);
+
+  setTimeout(() => {
+    setShow(true);
+  }, 2000);
+
+  return <>{show ? <StepperTemplate /> : <BannerTemplate />}</>;
 };
 
 export default Onboard;

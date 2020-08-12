@@ -9,8 +9,6 @@ const event = new EventStore();
 
 const loader = document.querySelector(".loader");
 
-console.log("aaaaaa", loader);
-
 const showLoader = () => loader.classList.remove("loader--hide");
 
 const hideLoader = () => loader.classList.add("loader--hide");
@@ -23,5 +21,5 @@ setTimeout(
       </Provider>,
       document.getElementById("root")
     ),
-  1000
+  2500
 );
