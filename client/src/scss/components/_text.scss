@@ -26,4 +26,16 @@
     position: absolute;
     bottom: 0px;
   }
+
+  &.step_head {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  &.step_body {
+    color: #6e6f8b !important;
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+    padding: 0 0.3rem 0 0.6rem;
+  }
 }
