@@ -26,6 +26,7 @@ const App = ({ hideLoader }: any) => {
       <Router>
         <Switch>
           <Route exact path="/" component={Onboard} />
+          <Route path="/main" component={Main} />
           <Route path="/login" component={Login} />
         </Switch>
       </Router>

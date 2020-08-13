@@ -1,8 +1,8 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import MobileStepper from "@material-ui/core/MobileStepper";
+import { Link } from "react-router-dom";
 
-import { TextField } from "@/components";
+import { TextField, Button } from "@/components";
 import { chat } from "@/assets";
 
 const StepperTemplate = (): React.ReactElement => {
@@ -24,6 +24,10 @@ const StepperTemplate = (): React.ReactElement => {
                   해당 음식의 칼로리 와 당 함량을 제공합니다.
                 </TextField>
               </div>
+
+              <Button style="start slide_right">
+                <Link to="/main">시 작</Link>
+              </Button>
             </div>
           </div>
         </Grid>
