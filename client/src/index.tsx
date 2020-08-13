@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import "./scss/main.scss";
@@ -13,13 +13,13 @@ const showLoader = () => loader.classList.remove("loader--hide");
 
 const hideLoader = () => loader.classList.add("loader--hide");
 
-setTimeout(
-  () =>
-    ReactDOM.render(
-      <Provider event={event}>
-        <App hideLoader={hideLoader} showLoader={showLoader} />
-      </Provider>,
-      document.getElementById("root")
-    ),
-  2500
-);
+setTimeout(() => {
+  ReactDOM.render(
+    <Provider event={event}>
+      <App hideLoader={hideLoader} showLoader={showLoader} />
+    </Provider>,
+    document.getElementById("root")
+  );
+
+  loader.parentNode.removeChild(loader);
+}, 2500);
