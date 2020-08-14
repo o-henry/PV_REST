@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import "./scss/main.scss";
@@ -22,4 +22,4 @@ setTimeout(() => {
   );
 
   loader.parentNode.removeChild(loader);
-}, 2500);
+}, 1500);

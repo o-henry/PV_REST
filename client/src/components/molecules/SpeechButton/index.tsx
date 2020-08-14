@@ -3,10 +3,12 @@ import { observer } from "mobx-react";
 import { useStores } from "@/hooks";
 
 import { Button } from "@/components";
-import { radio, radio_ing, mute } from "@/assets";
+import { radio } from "@/assets";
 
 const SpeechButton = observer(() => {
   const { event } = useStores();
+
+  event.isClicked = false;
 
   return (
     <>
