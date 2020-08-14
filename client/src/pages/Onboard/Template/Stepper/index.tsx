@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { TextField, Button } from "@/components";
 import { chat } from "@/assets";
 
-const StepperTemplate = ({ token }: any): React.ReactElement => {
+const StepperTemplate = ({ token, event }: any): React.ReactElement => {
   return (
     <>
       <Grid container>
@@ -25,13 +25,13 @@ const StepperTemplate = ({ token }: any): React.ReactElement => {
               </div>
 
               {token ? (
-                <Button style="start slide_right">
-                  <Link to="/main">시 작</Link>
-                </Button>
+                <Link className="start slide_right" to="/main">
+                  시 작
+                </Link>
               ) : (
-                <Button style="login">
-                  <Link to="/login">회 원 가 입</Link>
-                </Button>
+                <Link className="login slide_right" to="/login">
+                  회 원 가 입
+                </Link>
               )}
             </div>
           </div>

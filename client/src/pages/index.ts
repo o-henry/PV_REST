@@ -10,3 +10,7 @@ export { default as Login } from "./Login/index";
 export { default as BannerTemplate } from "./Onboard/Template/Banner/index";
 export { default as StepperTemplate } from "./Onboard/Template/Stepper/index";
 export { default as Onboard } from "./Onboard/index";
+
+/* statistic */
+export { default as StatisticsTemplate } from "./Statistics/Template/index";
+export { default as Statistics } from "./Statistics/index";

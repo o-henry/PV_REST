@@ -7,7 +7,7 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import { Onboard, Main, Login } from "@/pages";
+import { Onboard, Main, Login, Statistics } from "@/pages";
 import { kakaoAPI } from "@/utils/kakao.api";
 
 const token = window.localStorage.getItem("token");
@@ -28,6 +28,7 @@ const App = ({ hideLoader }: any) => {
           <Route exact path="/" component={() => <Onboard token={token} />} />
           <Route path="/main" component={Main} />
           <Route path="/login" component={Login} />
+          <Route path="/statistics" component={Statistics} />
         </Switch>
       </Router>
     </>

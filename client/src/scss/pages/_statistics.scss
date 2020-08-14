@@ -1,0 +1,18 @@
+.statistics {
+  background: #07122a;
+  justify-content: center;
+
+  &.item {
+    padding: 24px !important;
+  }
+
+  &.tabs {
+    display: flex;
+    flex-direction: row;
+    border-radius: 50px;
+    text-align: center;
+    margin: 0.6rem;
+
+    background-color: #394155;
+  }
+}
