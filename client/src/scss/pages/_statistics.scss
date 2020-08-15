@@ -11,27 +11,16 @@
     flex-direction: row;
     border-radius: 50px;
     text-align: center;
-    margin: 0.6rem;
+    margin: 1rem 0.6rem 0.6rem 0.6rem;
 
     background-color: #394155;
   }
-}
 
-/* Tabs : Material UI */
-
-.MuiAppBar-colorPrimary {
-  color: white !important;
-  background-color: #07122a !important;
-}
-
-.PrivateTabIndicator-colorSecondary-3 {
-  background-color: #07122a !important;
-}
-
-.MuiPaper-elevation4 {
-  box-shadow: none !important;
-}
-
-.MuiTab-root {
-  text-transform: none !important;
+  &.chart {
+    display: flex;
+    background: white;
+    border-radius: 14px 14px 0 0;
+    height: 18rem;
+    margin: 0.5rem 0 0 0;
+  }
 }

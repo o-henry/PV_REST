@@ -13,3 +13,4 @@ export { default as ButtonGroup } from "./molecules/ButtonGroup";
 /* organisms */
 export { default as Speech } from "./organisms/Speech";
 export { default as MenuList } from "./organisms/MenuList";
+export { default as Graph } from "./organisms/Graph";
