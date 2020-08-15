@@ -7,18 +7,23 @@ import { TextField, Count } from "@/components";
 const Card = () => {
   return (
     <>
-      <Grid item xs={6}>
-        <Paper className="card" elevation={0} />
-      </Grid>
-      <Grid item xs={6}>
-        <Paper className="card" elevation={0} />
-      </Grid>
-      <Grid item xs={6}>
-        <Paper className="card" elevation={0} />
-      </Grid>
-      <Grid item xs={6}>
-        <Paper className="card" elevation={0} />
-      </Grid>
+      <div className="card container">
+        <Grid item xs={6}>
+          <Paper className="card" elevation={0} />
+        </Grid>
+        <Grid item xs={6}>
+          <Paper className="card" elevation={0} />
+        </Grid>
+      </div>
+
+      <div className="card container">
+        <Grid item xs={6}>
+          <Paper className="card" elevation={0} />
+        </Grid>
+        <Grid item xs={6}>
+          <Paper className="card" elevation={0} />
+        </Grid>
+      </div>
     </>
   );
 };

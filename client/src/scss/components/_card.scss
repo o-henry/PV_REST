@@ -6,4 +6,9 @@
   margin: 6px;
 
   border-radius: 9px !important;
+
+  &.container {
+    display: flex;
+    padding: 0 !important;
+  }
 }

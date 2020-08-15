@@ -1,8 +1,9 @@
 import React from "react";
-import { IButton } from "@/interface";
-import { useStores } from "@/hooks";
 import { observer } from "mobx-react";
 import classNames from "classnames";
+
+import { IButton } from "@/interface";
+import { useStores } from "@/hooks";
 
 const Button = observer(
   ({ children, style }: IButton): React.ReactElement => {

@@ -16,3 +16,22 @@
     background-color: #394155;
   }
 }
+
+/* Tabs : Material UI */
+
+.MuiAppBar-colorPrimary {
+  color: white !important;
+  background-color: #07122a !important;
+}
+
+.PrivateTabIndicator-colorSecondary-3 {
+  background-color: #07122a !important;
+}
+
+.MuiPaper-elevation4 {
+  box-shadow: none !important;
+}
+
+.MuiTab-root {
+  text-transform: none !important;
+}
