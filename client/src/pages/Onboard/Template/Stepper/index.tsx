@@ -11,15 +11,15 @@ const StepperTemplate = ({ token, event }: any): React.ReactElement => {
       <Grid container>
         <Grid item xs={12}>
           <div className="fade_in">
-            <div className="step_bg_circle">
-              <div className="chat_container">
+            <div className="step circle">
+              <div className="step chat container">
                 <img className="chat" src={chat} alt="chat emoji" />
               </div>
-              <div className="text_container">
-                <TextField style="step_head">
+              <div className="step text">
+                <TextField style="step head">
                   섭취한 음식명을 말씀해주세요
                 </TextField>
-                <TextField style="step_body">
+                <TextField style="step body">
                   해당 음식의 칼로리 와 당 함량을 제공합니다.
                 </TextField>
               </div>
@@ -29,10 +29,14 @@ const StepperTemplate = ({ token, event }: any): React.ReactElement => {
                   시 작
                 </Link>
               ) : (
-                <Link className="login slide_right" to="/login">
+                <Link className="start slide_right" to="/login">
                   회 원 가 입
                 </Link>
               )}
+
+              <div className="step notification">
+                Google Chrome 브라우저에서 실행해주세요.
+              </div>
             </div>
           </div>
         </Grid>
