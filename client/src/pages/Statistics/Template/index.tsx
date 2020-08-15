@@ -2,7 +2,7 @@ import React from "react";
 
 import Grid from "@material-ui/core/Grid";
 
-import { ButtonGroup, MenuList, Graph } from "@/components";
+import { ButtonGroup, MenuList, Graph, Menu } from "@/components";
 
 const StatisticsTemplate = ({
   value,
@@ -10,6 +10,7 @@ const StatisticsTemplate = ({
 }: any): React.ReactElement => {
   return (
     <div className="statistics">
+      <Menu />
       <Grid className="statistics item" container>
         <Grid className="statistics tabs" item xs={12}>
           <ButtonGroup />
@@ -18,7 +19,7 @@ const StatisticsTemplate = ({
         <MenuList value={value} handleChange={handleChange} />
 
         <Grid className="statistics chart" item xs={12}>
-          {/* <Graph /> */}
+          <Graph />
         </Grid>
       </Grid>
     </div>

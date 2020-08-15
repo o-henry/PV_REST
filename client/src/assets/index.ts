@@ -13,3 +13,6 @@ export { default as burger } from "./pngfuel.com.png";
 export { default as radio } from "./radio.svg";
 export { default as radio_ing } from "./radio1.svg";
 export { default as mute } from "./mute.svg";
+
+/* menu */
+export { default as menu } from "./menu.svg";

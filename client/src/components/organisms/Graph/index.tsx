@@ -29,7 +29,7 @@ const Graph = () => {
       width="99%"
       height="95%"
       className="chart"
-      chartType="Bar"
+      chartType="ColumnChart"
       loader={<CircularProgress />}
       data={data}
       options={options}

@@ -1,1 +1,1 @@
-export { IText, IButton, ICount } from "./style";
+export { IText, IButton } from "./style";

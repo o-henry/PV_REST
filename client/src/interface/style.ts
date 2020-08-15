@@ -10,8 +10,6 @@ export interface IProps {
 
 export interface IText extends IProps {}
 
-export interface ICount extends IProps {}
-
 export interface IButton extends IProps {
   /**
    * @onclick : click events
