@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { observer } from "mobx-react";
 
 import { BannerTemplate, StepperTemplate } from "@/pages";
@@ -9,9 +9,15 @@ const Onboard = observer(({ token }: any | string) => {
 
   const { event } = useStores();
 
-  setTimeout(() => {
+  const timer = setTimeout(() => {
     setShow(true);
   }, 1500);
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [timer]);
 
   return (
     <>

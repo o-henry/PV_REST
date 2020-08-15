@@ -16,4 +16,5 @@ export interface IButton extends IProps {
    */
 
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  prop?: any;
 }

@@ -7,7 +7,7 @@ export function kakaoAPI() {
     console.log("Kakao Test:", window.Kakao.isInitialized());
   }
 
-  function requestKakao() {
+  async function requestKakao() {
     window.Kakao.API.request({
       url: "/v2/user/me",
       success: function (response: any) {
@@ -23,8 +23,8 @@ export function kakaoAPI() {
     });
   }
 
-  function loginKakao() {
-    window.Kakao.Auth.login({
+  async function loginKakao() {
+    await window.Kakao.Auth.login({
       scope: "age_range,gender",
       success: function (response: any) {
         console.log("response: ", response);

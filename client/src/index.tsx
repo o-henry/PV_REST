@@ -20,6 +20,6 @@ setTimeout(() => {
     </Provider>,
     document.getElementById("root")
   );
-
+  clearTimeout(2000);
   loader.parentNode.removeChild(loader);
 }, 1500);

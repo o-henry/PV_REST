@@ -26,9 +26,18 @@ const App = ({ hideLoader }: any) => {
       <Router>
         <Switch>
           <Route exact path="/" component={() => <Onboard token={token} />} />
-          <Route path="/main" component={Main} />
-          <Route path="/login" component={Login} />
-          <Route path="/statistics" component={Statistics} />
+
+          <Route path="/login">
+            <Login />
+          </Route>
+
+          <PrivateRoute path="/main">
+            <Main />
+          </PrivateRoute>
+
+          <PrivateRoute path="/statistics">
+            <Statistics />
+          </PrivateRoute>
         </Switch>
       </Router>
     </>
@@ -51,11 +60,7 @@ function PrivateRoute({ children, ...rest }: any): React.ReactElement {
     <Route
       {...rest}
       render={({ location }) =>
-        isAuthenticated ? (
-          <Main />
-        ) : (
-          <Redirect to={{ pathname: "/login", state: { from: location } }} />
-        )
+        isAuthenticated ? children : <Redirect to="/login" />
       }
     />
   );

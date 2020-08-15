@@ -4,7 +4,7 @@ import { Button } from "@/components";
 import { observer } from "mobx-react";
 import { useStores } from "@/hooks";
 
-const LoginButton = observer(() => {
+const LoginButton = observer(({ prop }: any) => {
   const { event } = useStores();
 
   event.isClicked = false;
