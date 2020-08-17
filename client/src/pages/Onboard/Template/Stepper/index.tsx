@@ -2,10 +2,12 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
 
-import { TextField, Button } from "@/components";
+import { TextField } from "@/components";
 import { chat } from "@/assets";
 
-const StepperTemplate = ({ token, event }: any): React.ReactElement => {
+const StepperTemplate = (): React.ReactElement => {
+  const token = localStorage.getItem("token");
+
   return (
     <>
       <Grid container>

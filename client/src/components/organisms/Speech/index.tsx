@@ -1,22 +1,24 @@
 //@ts-nocheck
 import React, { useState, useEffect } from "react";
-import { SpeechButton } from "@/components";
 import { observer } from "mobx-react";
+
+import { SpeechButton } from "@/components";
 import { useStores } from "@/hooks";
 import { createFood } from "@/api/foods";
+import { isChrome } from "@/utils/browser";
 
 const Speech = observer(() => {
   const { event } = useStores();
   const [words, setWords] = useState("");
 
-  const SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
-
-  if (!SpeechRecognition) {
-    alert(
+  if (!isChrome) {
+    console.log("check this out");
+    return alert(
       "음성 인식이 작동하지 않습니다. Google Chrome 브라우저에서 다시 실행해주세요."
     );
-    return;
   }
+
+  const SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
 
   const recognition = new SpeechRecognition();
 

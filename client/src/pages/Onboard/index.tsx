@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { observer } from "mobx-react";
 
 import { BannerTemplate, StepperTemplate } from "@/pages";
-import { useStores } from "@/hooks";
 
-const Onboard = observer(({ token }: any | string) => {
+const Onboard = () => {
   const [show, setShow] = useState(false);
-
-  const { event } = useStores();
 
   const timer = setTimeout(() => {
     setShow(true);
@@ -19,15 +15,7 @@ const Onboard = observer(({ token }: any | string) => {
     };
   }, [timer]);
 
-  return (
-    <>
-      {show ? (
-        <StepperTemplate token={token} event={event} />
-      ) : (
-        <BannerTemplate />
-      )}
-    </>
-  );
-});
+  return <>{show ? <StepperTemplate /> : <BannerTemplate />}</>;
+};
 
 export default Onboard;

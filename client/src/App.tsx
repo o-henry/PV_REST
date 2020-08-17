@@ -1,5 +1,5 @@
 //@ts-nocheck
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,8 +9,6 @@ import {
 
 import { Onboard, Main, Login, Statistics } from "@/pages";
 import { kakaoAPI } from "@/utils/kakao.api";
-
-const token = window.localStorage.getItem("token");
 
 const App = ({ hideLoader }: any) => {
   const kakao = kakaoAPI();
@@ -25,19 +23,13 @@ const App = ({ hideLoader }: any) => {
     <>
       <Router>
         <Switch>
-          <Route exact path="/" component={() => <Onboard token={token} />} />
+          <Route exact path="/" component={Onboard} />
 
-          <Route path="/login">
-            <Login />
-          </Route>
+          <Route path="/login" component={Login} />
 
-          <PrivateRoute path="/main">
-            <Main />
-          </PrivateRoute>
+          <PrivateRoute path="/main" component={Main} />
 
-          <PrivateRoute path="/statistics">
-            <Statistics />
-          </PrivateRoute>
+          <PrivateRoute path="/statistics" component={Statistics} />
         </Switch>
       </Router>
     </>
@@ -47,20 +39,25 @@ const App = ({ hideLoader }: any) => {
 export default App;
 
 /* Auth Routing */
-function PrivateRoute({ children, ...rest }: any): React.ReactElement {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  console.log("***********", isAuthenticated, token);
-
-  useEffect(() => {
-    token && setIsAuthenticated(true);
-  }, [token, isAuthenticated]);
+function PrivateRoute({
+  component: Component,
+  ...rest
+}: any): React.ReactElement {
+  const isAuthenticated = localStorage.getItem("token");
 
   return (
     <Route
       {...rest}
-      render={({ location }) =>
-        isAuthenticated ? children : <Redirect to="/login" />
+      render={({ props }) =>
+        isAuthenticated ? (
+          <Component {...rest} {...props} />
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+            }}
+          />
+        )
       }
     />
   );
