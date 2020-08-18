@@ -14,5 +14,8 @@ export { default as radio } from "./radio.svg";
 export { default as radio_ing } from "./radio1.svg";
 export { default as mute } from "./mute.svg";
 
+/* chart */
+export { default as pie } from "./piechart.svg";
+
 /* menu */
 export { default as menu } from "./menu.svg";

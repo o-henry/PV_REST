@@ -1,61 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import { observer } from "mobx-react";
 import { Link } from "react-router-dom";
 
-import Dialog from "@material-ui/core/Dialog";
-import Toolbar from "@material-ui/core/Toolbar";
-import CloseIcon from "@material-ui/icons/Close";
-import Slide from "@material-ui/core/Slide";
-import { TransitionProps } from "@material-ui/core/transitions";
-
-import { menu } from "@/assets";
+import { menu, pie, radio } from "@/assets";
 import { Button } from "@/components";
 import { useStores } from "@/hooks";
 
-const Transition = React.forwardRef(function Transition(
-  props: TransitionProps & { children?: React.ReactElement },
-  ref: React.Ref<unknown>
-) {
-  return <Slide direction="right" ref={ref} {...props} />;
-});
+import SpeedDial from "@material-ui/lab/SpeedDial";
+import SpeedDialAction from "@material-ui/lab/SpeedDialAction";
+import BarChart from "@material-ui/icons/BarChart";
+import Mic from "@material-ui/icons/Mic";
 
-const FullScreenDialog = observer(
-  (): React.ReactElement => {
-    const { event } = useStores();
+const actions = [
+  { icon: <BarChart />, name: "Chart" },
+  { icon: <Mic />, name: "Mic" },
+];
 
-    return (
-      <div className="menu">
-        <Button style="menu">
-          <img src={menu} alt="menu_button" />
-        </Button>
-        <Dialog
-          fullScreen
-          open={event.isClicked}
-          TransitionComponent={Transition}
-        >
-          <Toolbar className="menu toolbar">
-            <Button style="menu close">
-              <CloseIcon />
-            </Button>
-          </Toolbar>
-          <div className="menu link container">
-            <Button>
-              <Link className="menu link" to="/main">
-                말하기
-              </Link>
-            </Button>
-          </div>
-          <div className="menu link container">
-            <Button>
-              <Link className="menu link" to="/statistics">
-                통계 보기
-              </Link>
-            </Button>
-          </div>
-        </Dialog>
-      </div>
-    );
-  }
-);
+export default function OpenIconSpeedDial() {
+  const [open, setOpen] = useState(false);
 
-export default FullScreenDialog;
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  return (
+    <div className="menu">
+      <SpeedDial
+        ariaLabel="SpeedDial openIcon example"
+        className="menu dial"
+        icon={<img src={menu} alt="menu" />}
+        onClose={handleClose}
+        onOpen={handleOpen}
+        open={open}
+        direction={"right"}
+      >
+        {actions.map((action) => (
+          <SpeedDialAction
+            className="menu action"
+            key={action.name}
+            icon={action.icon}
+            tooltipTitle={action.name}
+            onClick={handleClose}
+          />
+        ))}
+      </SpeedDial>
+    </div>
+  );
+}

@@ -2,6 +2,9 @@
 import React, { useState, useEffect } from "react";
 import { observer } from "mobx-react";
 
+import Grid from "@material-ui/core/Grid";
+import Alert from "@material-ui/lab/Alert";
+
 import { SpeechButton } from "@/components";
 import { useStores } from "@/hooks";
 import { createFood } from "@/api/foods";
@@ -12,9 +15,17 @@ const Speech = observer(() => {
   const [words, setWords] = useState("");
 
   if (!isChrome) {
-    console.log("check this out");
-    return alert(
-      "음성 인식이 작동하지 않습니다. Google Chrome 브라우저에서 다시 실행해주세요."
+    return (
+      <>
+        <Grid container>
+          <Grid item xs={12}>
+            <Alert variant="filled" severity="error">
+              음성 인식이 작동하지 않습니다. Google Chrome 브라우저에서 다시
+              실행해주세요.
+            </Alert>
+          </Grid>
+        </Grid>
+      </>
     );
   }
 

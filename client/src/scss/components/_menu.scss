@@ -1,22 +1,17 @@
 .menu {
-  &.toolbar {
-    margin: 0 0 1rem 0;
+  height: 70px;
+  padding: 0.4rem 0 0 0.6rem;
+  transform: translateZ(0px);
+
+  &.dial {
   }
 
-  &.link {
-    margin: 0 3rem 0 3rem;
-
-    &.container {
-      margin: 0 0 2rem 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 50%;
-    }
+  &.action {
+    display: flex;
+    justify-content: center;
   }
+}
 
-  &.link:hover {
-    cursor: pointer;
-    color: red;
-  }
+.MuiFab-primary {
+  background-color: #07122a !important;
 }
