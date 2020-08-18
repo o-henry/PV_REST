@@ -6,10 +6,10 @@ import { burger } from "@/assets";
 
 const LoginTemplate = () => {
   return (
-    <>
+    <div className="login">
       <Grid container>
-        <Grid className="login_container" item xs={12}>
-          <div className="fade_in">
+        <Grid item xs={12}>
+          <div className="login fade_in">
             <img className="login_banner" src={burger} alt="banner" />
             <TextField style="login_banner_head"> HUNGER </TextField>
             <TextField style="login_banner_body">
@@ -19,7 +19,7 @@ const LoginTemplate = () => {
           </div>
         </Grid>
       </Grid>
-    </>
+    </div>
   );
 };
 export default LoginTemplate;

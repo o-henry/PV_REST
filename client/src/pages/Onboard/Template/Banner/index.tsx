@@ -6,10 +6,10 @@ import { main } from "@/assets";
 
 const BannerTemplate = (): React.ReactElement => {
   return (
-    <>
+    <div className="onboard">
       <Grid container>
-        <Grid className="onboard_container" item xs={12}>
-          <div className="fade_in">
+        <Grid item xs={12}>
+          <div className="onboard fade_in">
             <img src={main} alt="onboard_page" />
             <TextField style="onboard_footer">
               CREATED BY <br /> HENRY
@@ -17,7 +17,7 @@ const BannerTemplate = (): React.ReactElement => {
           </div>
         </Grid>
       </Grid>
-    </>
+    </div>
   );
 };
 

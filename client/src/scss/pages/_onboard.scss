@@ -1,4 +1,4 @@
-.onboard_container {
+.onboard {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,10 +6,6 @@
 }
 
 .fade_in {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   height: 100%;
 
   animation: fadein 2s;

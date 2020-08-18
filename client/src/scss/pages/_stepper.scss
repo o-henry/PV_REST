@@ -1,4 +1,9 @@
-.step {
+.stepper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   &.circle {
     height: 15rem;
     width: 15rem;

@@ -14,6 +14,7 @@ const MenuList = ({ value, handleChange }: any) => {
       <TabContext value={value}>
         <AppBar position="static">
           <TabList
+            className="tab"
             onChange={handleChange}
             aria-label="simple tabs example"
             centered

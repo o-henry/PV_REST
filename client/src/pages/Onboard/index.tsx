@@ -7,7 +7,7 @@ const Onboard = () => {
 
   const timer = setTimeout(() => {
     setShow(true);
-  }, 1500);
+  }, 1000);
 
   useEffect(() => {
     return () => {

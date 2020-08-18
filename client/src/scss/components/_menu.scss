@@ -2,16 +2,26 @@
   height: 70px;
   padding: 0.4rem 0 0 0.6rem;
   transform: translateZ(0px);
+  z-index: 10;
 
   &.dial {
-  }
-
-  &.action {
-    display: flex;
-    justify-content: center;
   }
 }
 
 .MuiFab-primary {
   background-color: #07122a !important;
+}
+
+.MuiSvgIcon-root {
+  padding-top: 0.5rem !important;
+  color: #07122a !important;
+
+  &.MuiSvgIcon-fontSizeInherit {
+    color: white !important;
+    padding: 0 !important;
+  }
+}
+
+.MuiFab-root {
+  box-shadow: none !important;
 }

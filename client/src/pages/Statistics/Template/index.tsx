@@ -9,7 +9,7 @@ const StatisticsTemplate = ({
   handleChange,
 }: any): React.ReactElement => {
   return (
-    <div className="statistics">
+    <div className="statistics fade_in">
       <Menu />
       <Grid className="statistics item" container>
         <Grid className="statistics tabs" item xs={12}>

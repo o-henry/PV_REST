@@ -17,23 +17,27 @@ const Graph = () => {
 
   const options = {
     title: "섭취량 통계",
-    chartArea: { width: "90%" },
     hAxis: {
       minValue: 0,
     },
     colors: ["#FF5959"],
+    legend: { position: "none" },
+    axes: {
+      x: {
+        0: { side: "top", label: "CALORIE" }, // Top x-axis.
+      },
+    },
   };
 
   return (
     <Chart
-      width="99%"
-      height="95%"
+      width="96%"
+      height="90%"
       className="chart"
-      chartType="ColumnChart"
+      chartType="Bar"
       loader={<CircularProgress />}
       data={data}
       options={options}
-      legendToggle
     />
   );
 };

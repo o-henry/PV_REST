@@ -1,19 +1,29 @@
 import React, { useState } from "react";
-import { observer } from "mobx-react";
 import { Link } from "react-router-dom";
-
-import { menu, pie, radio } from "@/assets";
-import { Button } from "@/components";
-import { useStores } from "@/hooks";
 
 import SpeedDial from "@material-ui/lab/SpeedDial";
 import SpeedDialAction from "@material-ui/lab/SpeedDialAction";
 import BarChart from "@material-ui/icons/BarChart";
 import Mic from "@material-ui/icons/Mic";
 
+import { menu } from "@/assets";
+
+const withLink = (
+  to:
+    | string
+    | import("history").LocationDescriptorObject<{}>
+    | ((
+        location: import("history").Location<{}>
+      ) => import("history").History.LocationDescriptor<{}>),
+  children: {}
+) => <Link to={to}>{children}</Link>;
+
 const actions = [
-  { icon: <BarChart />, name: "Chart" },
-  { icon: <Mic />, name: "Mic" },
+  {
+    icon: withLink("/main", <Mic />),
+    name: "Mic",
+  },
+  { icon: withLink("/statistics", <BarChart />), name: "Chart" },
 ];
 
 export default function OpenIconSpeedDial() {
@@ -40,7 +50,6 @@ export default function OpenIconSpeedDial() {
       >
         {actions.map((action) => (
           <SpeedDialAction
-            className="menu action"
             key={action.name}
             icon={action.icon}
             tooltipTitle={action.name}

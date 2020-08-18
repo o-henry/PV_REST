@@ -14,6 +14,7 @@
   &.main_head {
     margin: 3rem 0 0 0;
     color: white !important;
+    z-index: 10;
   }
 
   &.onboard_footer {
@@ -27,18 +28,16 @@
     bottom: 0px;
   }
 
-  &.step {
-    &.body {
-      color: #6e6f8b !important;
-      font-size: 0.9rem;
-      line-height: 1.5rem;
-      padding: 0 0.3rem 0 0.6rem;
-    }
+  &.step_body {
+    color: #6e6f8b !important;
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+    padding: 0 0.3rem 0 0.6rem;
+  }
 
-    &.head {
-      text-align: center;
-      font-weight: bold;
-    }
+  &.step_head {
+    text-align: center;
+    font-weight: bold;
   }
 
   &.calorie {

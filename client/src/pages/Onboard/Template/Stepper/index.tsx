@@ -9,19 +9,19 @@ const StepperTemplate = (): React.ReactElement => {
   const token = localStorage.getItem("token");
 
   return (
-    <>
+    <div className="stepper">
       <Grid container>
         <Grid item xs={12}>
-          <div className="fade_in">
-            <div className="step circle">
-              <div className="step chat container">
+          <div className="stepper fade_in">
+            <div className="stepper circle">
+              <div className="stepper chat container">
                 <img className="chat" src={chat} alt="chat emoji" />
               </div>
-              <div className="step text">
-                <TextField style="step head">
+              <div className="stepper text">
+                <TextField style="step_head">
                   섭취한 음식명을 말씀해주세요
                 </TextField>
-                <TextField style="step body">
+                <TextField style="step_body">
                   해당 음식의 칼로리 와 당 함량을 제공합니다.
                 </TextField>
               </div>
@@ -36,14 +36,14 @@ const StepperTemplate = (): React.ReactElement => {
                 </Link>
               )}
 
-              <div className="step notification">
+              <div className="stepper notification">
                 Google Chrome 브라우저에서 실행해주세요.
               </div>
             </div>
           </div>
         </Grid>
       </Grid>
-    </>
+    </div>
   );
 };
 
