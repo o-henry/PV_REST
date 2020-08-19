@@ -1,5 +1,6 @@
 import { JsonController, Post, Body } from "routing-controllers";
 import { OpenAPI, ResponseSchema } from "routing-controllers-openapi";
+import { Inject } from "typedi";
 
 import { User } from "@models/User";
 import { UserService } from "@services/user.services";
@@ -8,7 +9,8 @@ import { UserResponse, CreateUserBody } from "@dto/user.dto";
 @JsonController("/users")
 @OpenAPI({ security: [{ bearerAuth: [] }] })
 export class UserController {
-  constructor(private userService: UserService) {}
+  @Inject()
+  userService: UserService;
 
   @Post()
   @ResponseSchema(UserResponse)

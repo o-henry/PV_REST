@@ -1,5 +1,3 @@
-import { User } from "./User";
-
 import {
   Entity,
   Column,
@@ -9,6 +7,8 @@ import {
   JoinColumn,
 } from "typeorm";
 import { IsNotEmpty } from "class-validator";
+
+import { User } from "./User";
 
 /**
  * @param { id } : PK

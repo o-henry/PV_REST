@@ -1,6 +1,12 @@
 import { Food } from "./Food";
 
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  JoinColumn,
+} from "typeorm";
 import { IsNotEmpty } from "class-validator";
 
 /**
