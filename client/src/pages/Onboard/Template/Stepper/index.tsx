@@ -17,28 +17,28 @@ const StepperTemplate = (): React.ReactElement => {
               <div className="stepper chat container">
                 <img className="chat" src={chat} alt="chat emoji" />
               </div>
-              <div className="stepper text">
-                <TextField style="step_head">
-                  섭취한 음식명을 말씀해주세요
-                </TextField>
-                <TextField style="step_body">
-                  해당 음식의 칼로리 와 당 함량을 제공합니다.
-                </TextField>
-              </div>
+            </div>
+            <div className="stepper text">
+              <TextField style="step_head">
+                섭취한 음식명을 말씀해주세요
+              </TextField>
+              <TextField style="step_body">
+                해당 음식의 칼로리 와 당 함량을 제공합니다.
+              </TextField>
+            </div>
 
-              {token ? (
-                <Link className="start slide_right" to="/main">
-                  시 작
-                </Link>
-              ) : (
-                <Link className="start slide_right" to="/login">
-                  회 원 가 입
-                </Link>
-              )}
+            {token ? (
+              <Link className="start slide_right" to="/main">
+                시 작
+              </Link>
+            ) : (
+              <Link className="start slide_right" to="/login">
+                회 원 가 입
+              </Link>
+            )}
 
-              <div className="stepper notification">
-                Google Chrome 브라우저에서 실행해주세요.
-              </div>
+            <div className="stepper notification">
+              Google Chrome 브라우저에서 실행해주세요.
             </div>
           </div>
         </Grid>

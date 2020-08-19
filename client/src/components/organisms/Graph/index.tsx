@@ -22,6 +22,7 @@ const Graph = () => {
     },
     colors: ["#FF5959"],
     legend: { position: "none" },
+
     axes: {
       x: {
         0: { side: "top", label: "CALORIE" }, // Top x-axis.

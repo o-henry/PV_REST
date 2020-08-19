@@ -1,11 +1,7 @@
-export enum Provider {
-  GOOGLE = "google",
-  KAKAO = "kakao",
-  NAVER = "naver",
-  LOCAL = "local",
-}
-
 export interface IUser {
-  // provider: Provider;
+  id: number;
   sns: number;
+  name: string;
+  gender: string;
+  age: string;
 }
