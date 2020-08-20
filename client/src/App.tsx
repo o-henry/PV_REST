@@ -7,16 +7,9 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import { Onboard, Main, Login, Statistics } from "@/pages";
-import { kakaoAPI } from "@/utils/kakao.api";
+import { Onboard, Main, Login, SignUp, Statistics } from "@/pages";
 
 const App = ({ hideLoader }: any) => {
-  const kakao = kakaoAPI();
-
-  useEffect(() => {
-    kakao.initKakao();
-  }, []);
-
   useEffect(hideLoader, []);
 
   return (
@@ -26,6 +19,8 @@ const App = ({ hideLoader }: any) => {
           <Route exact path="/" component={Onboard} />
 
           <Route path="/login" component={Login} />
+
+          <Route path="/signup" component={SignUp} />
 
           <PrivateRoute path="/main" component={Main} />
 

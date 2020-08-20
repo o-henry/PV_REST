@@ -32,7 +32,7 @@ const StepperTemplate = (): React.ReactElement => {
                 시 작
               </Link>
             ) : (
-              <Link className="start slide_right" to="/login">
+              <Link className="start slide_right" to="/signup">
                 회 원 가 입
               </Link>
             )}

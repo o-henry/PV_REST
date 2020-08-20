@@ -6,6 +6,10 @@ export { default as Main } from "./Main/index";
 export { default as LoginTemplate } from "./Login/Template/index";
 export { default as Login } from "./Login/index";
 
+/* Signup page */
+export { default as SignUpTemplate } from "./SignUp/Template/index";
+export { default as SignUp } from "./SignUp/index";
+
 /* onboard page */
 export { default as BannerTemplate } from "./Onboard/Template/Banner/index";
 export { default as StepperTemplate } from "./Onboard/Template/Stepper/index";

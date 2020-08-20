@@ -12,12 +12,12 @@ if (envFound.error) {
 
 export default {
   /**
-   * Your favorite port
+   * @param port
    */
   port: process.env.PORT,
 
   /**
-   * Typeorm db
+   * @param Typeorm db
    */
   typeorm: {
     connection: process.env.TYPEORM_CONNECTION,
@@ -29,31 +29,21 @@ export default {
   },
 
   /**
-   * food opensource
+   * @param food opensource
    */
   foods: {
     url: process.env.FOOD_URL,
   },
 
   /**
-   * Used by winston logger
+   * @param Used by winston logger
    */
   logs: {
     level: process.env.LOG_LEVEL || "info",
   },
 
   /**
-   * Swagger
-   */
-  swagger: {
-    name: process.env.DOCS_NAME,
-    version: process.env.DOCS_VERSION,
-    description: process.env.DOCS_DESCRIPTION,
-    host: process.env.DOCS_HOST,
-  },
-
-  /**
-   * Kakao
+   * @param Kakao
    */
   kakao: {
     id: process.env.KAKAO_REST_KEY,
@@ -62,7 +52,15 @@ export default {
   },
 
   /**
-   * API configs
+   * @param Front
+   */
+  endpoint: {
+    redirect: process.env.FRONT_REDIRECT,
+    login: process.env.FRONT_LOGIN,
+  },
+
+  /**
+   * @param API configs
    */
   api: {
     versioning: "/v1",

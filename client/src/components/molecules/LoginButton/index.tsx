@@ -1,7 +1,7 @@
 import React from "react";
-import { Button } from "@/components";
-
 import { observer } from "mobx-react";
+
+import { Button } from "@/components";
 import { useStores } from "@/hooks";
 
 const LoginButton = observer(({ prop }: any) => {
@@ -11,7 +11,7 @@ const LoginButton = observer(({ prop }: any) => {
 
   return (
     <>
-      <Button style="kakao">카카오 로그인</Button>
+      <Button style="kakao">로그인</Button>
     </>
   );
 });

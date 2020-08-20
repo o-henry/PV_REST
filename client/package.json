@@ -64,6 +64,5 @@
     "ts-loader": "^7.0.5",
     "typescript": "^3.9.5",
     "webpack-dev-server": "^3.11.0"
-  },
-  "proxy": "http://localhost:8080"
+  }
 }
