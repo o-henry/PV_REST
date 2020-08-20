@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 
 import Grid from "@material-ui/core/Grid";
 
+import { TextField } from "@/components";
+
 const SignUpTemplate = (): React.ReactElement => {
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = (data: any) => console.log(data);
@@ -12,6 +14,7 @@ const SignUpTemplate = (): React.ReactElement => {
     <div className="signup">
       <Grid container>
         <Grid item xs={12}>
+          <TextField style="login_banner_head">HUNGER</TextField>
           <div className="signup form">
             <form onSubmit={handleSubmit(onSubmit)}>
               <div>
@@ -19,7 +22,7 @@ const SignUpTemplate = (): React.ReactElement => {
                   required
                   className="input"
                   type="text"
-                  placeholder="ID"
+                  placeholder="이름"
                   name="이름"
                   ref={register({
                     required: true,
@@ -69,16 +72,22 @@ const SignUpTemplate = (): React.ReactElement => {
                 <input
                   required
                   className="input"
+                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
                   type="password"
                   placeholder="비밀번호"
-                  name="비밀번호"
+                  name="password"
                   ref={register({
                     required: true,
                   })}
                 />
+                <div className="requirements">
+                  6자 이상 영문 대 소문자, 숫자를 사용 해주세요.
+                </div>
               </div>
 
-              <input type="submit" />
+              <div>
+                <input className="submit" value="회원가입" type="submit" />
+              </div>
             </form>
           </div>
         </Grid>

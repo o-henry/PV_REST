@@ -1,5 +1,5 @@
 .input {
-  padding: 1rem 1rem 1rem 3rem;
+  padding: 1rem 1rem 1rem 1.7rem;
   margin: 0.4rem;
   width: 12rem;
 
@@ -7,26 +7,67 @@
 
   border: 1px solid gray;
   border-radius: 6px;
+}
 
+.submit {
+  background: #0ce8a2;
+  border: none;
+  border-radius: 4px;
+  width: 15rem;
+  padding: 0.7rem;
+  margin: 1rem 0 0 0;
+  letter-spacing: 0.2rem;
+  font-size: 0.9rem;
   font-family: "Poppins", S-CoreDream-2ExtraLight, Open Sans, sans-serif !important;
 }
 
 form {
+  div > #password {
+    opacity: 0.3;
+    font-weight: bold;
+    position: absolute;
+    top: 22px;
+    left: 20px;
+  }
+
   div > input[type="text"],
   div > input[type="number"],
   div > input[type="password"] {
     // show success!
     &:valid {
-      background: url("../assets/tic.svg");
-      background-size: 22px;
-      background-repeat: no-repeat;
-      background-position: 16px 15px;
+      border: 1px solid #22f554;
+      font-family: "Poppins", S-CoreDream-2ExtraLight, Open Sans, sans-serif !important;
 
       // continue to hide the label
       & + label {
         opacity: 0;
       }
     }
+
+    &:invalid:not(:focus):not(:placeholder-shown) {
+      border: red 1px solid;
+      & + label {
+        opacity: 0;
+      }
+    }
+
+    &:invalid:focus:not(:placeholder-shown) {
+      & ~ .requirements {
+        max-height: 200px;
+        padding: 5px 30px 20px 50px;
+      }
+    }
+  }
+
+  .requirements {
+    padding: 0 30px 0 50px;
+    color: #999;
+    max-height: 0;
+    transition: 0.28s;
+    overflow: hidden;
+    color: red;
+    font-size: 0.6rem;
+    font-weight: bold;
   }
 }
 
