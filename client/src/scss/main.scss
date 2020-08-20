@@ -81,7 +81,7 @@ a {
 @import "abstract/reset", "abstract/utils";
 
 /* common */
-@import "common/img", "common/button";
+@import "common/img", "common/button", "common/input";
 
 /* components */
 @import "components/text", "components/count", "components/card",
@@ -89,4 +89,4 @@ a {
 
 /* pages */
 @import "pages/login", "pages/main", "pages/onboard", "pages/app",
-  "pages/stepper", "pages/statistics";
+  "pages/stepper", "pages/statistics", "pages/signup";

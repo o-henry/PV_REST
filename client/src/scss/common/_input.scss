@@ -1,0 +1,37 @@
+.input {
+  padding: 1rem 1rem 1rem 3rem;
+  margin: 0.4rem;
+  width: 12rem;
+
+  letter-spacing: 0.1rem;
+
+  border: 1px solid gray;
+  border-radius: 6px;
+
+  font-family: "Poppins", S-CoreDream-2ExtraLight, Open Sans, sans-serif !important;
+}
+
+form {
+  div > input[type="text"],
+  div > input[type="number"],
+  div > input[type="password"] {
+    // show success!
+    &:valid {
+      background: url("../assets/tic.svg");
+      background-size: 22px;
+      background-repeat: no-repeat;
+      background-position: 16px 15px;
+
+      // continue to hide the label
+      & + label {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.radio {
+  &.button {
+    margin: 0 0.6rem 0.2rem 0;
+  }
+}

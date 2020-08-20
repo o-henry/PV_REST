@@ -1,0 +1,19 @@
+.signup {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+
+  &.form {
+    height: 100%;
+  }
+
+  &.radio {
+    margin: 0.5rem 2.5rem 0.5rem 2.5rem;
+    flex-direction: row;
+
+    &.inner {
+      margin: 0rem 2rem 0rem 2rem;
+    }
+  }
+}
