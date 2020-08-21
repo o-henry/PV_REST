@@ -1,5 +1,3 @@
-import { Food } from "./Food";
-
 import {
   Entity,
   Column,
@@ -8,6 +6,10 @@ import {
   JoinColumn,
 } from "typeorm";
 import { IsNotEmpty } from "class-validator";
+import { Exclude } from "class-transformer";
+import * as bcrypt from "bcrypt";
+
+import { Food } from "./Food";
 
 /**
  * @param { age } : user age
@@ -20,16 +22,32 @@ import { IsNotEmpty } from "class-validator";
 
 @Entity()
 export class User {
+  public static hashPassword(password: string): Promise<string> {
+    return new Promise((resolve, reject) => {
+      bcrypt.hash(
+        password,
+        10,
+        (err: any, hash: string | PromiseLike<string>) => {
+          if (err) {
+            return reject(err);
+          }
+          resolve(hash);
+        }
+      );
+    });
+  }
+
   @PrimaryGeneratedColumn("uuid")
   public id!: number;
 
   @IsNotEmpty()
   @Column()
-  public sns!: number;
+  @Exclude()
+  public password: string;
 
   @IsNotEmpty()
-  @Column({ type: "uuid", length: 30 })
-  public name!: string;
+  @Column()
+  public username!: string;
 
   @IsNotEmpty()
   @Column()
