@@ -3,19 +3,20 @@ import { OrmRepository } from "typeorm-typedi-extensions";
 
 import { User } from "@models/User";
 import { UserRepository } from "@repositories/user.repository";
+import { LoginUser } from "@dto/user.dto";
 
 @Service()
 export class AuthService {
   constructor(@OrmRepository() private userRepository: UserRepository) {}
 
-  public async validateUser(username: string, password: string): Promise<User> {
+  public async validateUser(loginUser: LoginUser): Promise<User> {
     const user = await this.userRepository.findOne({
       where: {
-        username,
+        nickname: loginUser.nickname,
       },
     });
 
-    if (await User.comparePassword(user, password)) {
+    if (await User.comparePassword(user, loginUser.password)) {
       return user;
     }
 
@@ -41,7 +42,7 @@ export class AuthService {
   }
 
   public async saveRefreshToken(user: User, token: string): Promise<void> {
-    user.refreshToekn = token;
+    user.refreshToken = token;
     await this.userRepository.save(user);
   }
 }

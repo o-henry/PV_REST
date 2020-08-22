@@ -4,6 +4,7 @@ import { createExpressServer, useContainer } from "routing-controllers";
 import { MicroframeworkLoader } from "microframework-w3tec";
 
 import config from "@config/index";
+import { Authentication } from "@util/Authenticate";
 
 // its important to set container before any operation you do with routing-controllers,
 // including importing controllers
@@ -19,6 +20,9 @@ export const expressLoader: MicroframeworkLoader = () => {
     // specify controllers & middlewares
     controllers: [`${__dirname}/../api/controllers/*.[jt]s`],
     middlewares: [`${__dirname}/../api/middlewares/*.[jt]s`],
+
+    // Authorization features
+    currentUserChecker: Authentication.currentUserChecker,
   });
 
   // run express application on port

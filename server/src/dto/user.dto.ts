@@ -1,6 +1,7 @@
 import { Type } from "class-transformer";
 import { IsNotEmpty, IsUUID, ValidateNested } from "class-validator";
 
+import { User } from "@models/User";
 import { FoodResponse } from "@dto/food.dto";
 
 class BaseUser {
@@ -26,7 +27,29 @@ export class UserResponse extends BaseUser {
   public foods: FoodResponse[];
 }
 
-export class CreateUserBody extends BaseUser {
+export class CreateUser extends BaseUser {
+  @IsNotEmpty()
+  public password: string;
+
+  public toEntity() {
+    const { id, name, age, gender, password } = this;
+
+    const user = new User();
+
+    user.nickname = id;
+    user.name = name;
+    user.age = age;
+    user.gender = gender;
+    user.password = password;
+
+    return user;
+  }
+}
+
+export class LoginUser {
+  @IsNotEmpty()
+  public nickname: string;
+
   @IsNotEmpty()
   public password: string;
 }

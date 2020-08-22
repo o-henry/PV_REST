@@ -40,11 +40,11 @@ export class User {
   }
 
   @PrimaryGeneratedColumn("uuid")
-  public id!: string;
+  public id!: number;
 
   @IsNotEmpty()
   @Column()
-  public username!: string;
+  public nickname!: string;
 
   @IsNotEmpty()
   @Column()
@@ -64,7 +64,7 @@ export class User {
   public age!: string;
 
   @Column({ name: "refresh_token", nullable: true, select: false })
-  refreshToekn: string;
+  refreshToken: string;
 
   @BeforeInsert()
   public async hashPassword(): Promise<void> {

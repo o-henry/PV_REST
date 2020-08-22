@@ -1,28 +1,25 @@
+import {
+  ExpressMiddlewareInterface,
+  Middleware,
+  Req,
+  Res,
+} from "routing-controllers";
 import { Request, Response, NextFunction } from "express";
-import jwt from "jsonwebtoken";
+import { Authentication } from "@util/Authenticate";
 
-import { User } from "@models/User";
-import config from "@config/index";
+@Middleware({ type: "before" })
+export class AuthMiddleware implements ExpressMiddlewareInterface {
+  constructor() {}
 
-export class Authentication {
-  static verifyToken(res: Response, token: string) {
-    try {
-      const data = jwt.verify(token, config.jwt.secret, {
-        algorithms: ["HS512"],
-      });
+  use(@Req() request: Request, @Res() response: Response, next: NextFunction) {
+    const jwt: string = request.headers.authorization as string;
 
-      return data;
-    } catch (error) {
-      if (error.name === "TokenExpireError") {
-        return res.status(419).json({
-          code: 419,
-          message: "토큰이 만료되었습니다.",
-        });
-      }
-      return res.status(401).json({
-        code: 401,
-        message: "유효하지 않은 토큰입니다.",
-      });
+    if (jwt !== undefined) {
+      const bearerToken = jwt.replace(/Bearer\s/, "");
+      const token = Authentication.refreshToken(bearerToken);
+      response.setHeader("authorization", `Bearer ${token}`);
     }
+
+    next();
   }
 }
