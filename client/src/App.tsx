@@ -1,5 +1,6 @@
 //@ts-nocheck
 import React, { useEffect } from "react";
+import { observer } from "mobx-react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,6 +9,7 @@ import {
 } from "react-router-dom";
 
 import { Onboard, Main, Login, SignUp, Statistics } from "@/pages";
+import { useStores } from "@/hooks";
 
 const App = ({ hideLoader }: any) => {
   useEffect(hideLoader, []);
@@ -34,26 +36,25 @@ const App = ({ hideLoader }: any) => {
 export default App;
 
 /* Auth Routing */
-function PrivateRoute({
-  component: Component,
-  ...rest
-}: any): React.ReactElement {
-  const isAuthenticated = localStorage.getItem("token");
+const PrivateRoute = observer(
+  ({ component: Component, ...rest }: any): React.ReactElement => {
+    const { event } = useStores();
 
-  return (
-    <Route
-      {...rest}
-      render={({ props }) =>
-        isAuthenticated ? (
-          <Component {...rest} {...props} />
-        ) : (
-          <Redirect
-            to={{
-              pathname: "/signup",
-            }}
-          />
-        )
-      }
-    />
-  );
-}
+    return (
+      <Route
+        {...rest}
+        render={({ props }) =>
+          event.isSignUp || event.isLogin ? (
+            <Component {...rest} {...props} />
+          ) : (
+            <Redirect
+              to={{
+                pathname: "/login",
+              }}
+            />
+          )
+        }
+      />
+    );
+  }
+);

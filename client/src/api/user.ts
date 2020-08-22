@@ -1,8 +1,1 @@
 import { xhrAPI } from "@/utils/axios";
-
-export const loginUser = async (data: any) => {
-  await xhrAPI(process.env.REACT_APP_BASE_URL)
-    .post(`${process.env.REACT_APP_AUTH_LOGIN}`, data)
-    .then((res) => console.log("response login", res))
-    .catch((error) => console.error("error", error));
-};

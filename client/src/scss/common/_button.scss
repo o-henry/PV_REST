@@ -2,11 +2,12 @@
   width: 10rem;
 
   &.login {
-    color: white;
-    background: #2a2907;
-    border-radius: 4px;
-    padding: 0.8rem;
+    background: #84bb7e6e;
     width: 15rem;
+    font-weight: bold;
+    letter-spacing: 0.4rem;
+    color: black;
+    font-family: "Poppins", S-CoreDream-2ExtraLight, Open Sans, sans-serif !important;
 
     margin: 2rem 0 0 0;
   }
@@ -54,6 +55,7 @@
 .start {
   color: black;
   font-weight: bold;
+  font-size: 0.8rem;
 
   display: flex !important;
   justify-content: center;
@@ -62,7 +64,7 @@
   border: 1px solid #6e6f8b;
   border-radius: 5px;
   width: 12rem;
-  padding: 11px 19px;
+  padding: 16px 19px;
   display: inline-block;
   cursor: pointer;
 
@@ -84,4 +86,21 @@
 
 .swal-button {
   background-color: #84bb7e6e !important;
+}
+
+.button {
+  &.signup {
+    text-align: right;
+    font-size: 0.8rem;
+    padding: 1rem 1rem 1rem 1rem;
+    letter-spacing: -0.05rem;
+    justify-content: flex-end;
+    width: 14rem;
+  }
+}
+
+.link_hover {
+  font-family: $scoreextra;
+  font-weight: bolder;
+  color: #0095f6;
 }

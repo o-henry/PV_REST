@@ -3,6 +3,10 @@ import { observable, action } from "mobx";
 export class EventStore {
   @observable isClicked = false;
 
+  @observable isSignUp = false;
+
+  @observable isLogin = false;
+
   @action
   onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();

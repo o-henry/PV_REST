@@ -1,19 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 import Grid from "@material-ui/core/Grid";
 
-import { LoginButton, TextField } from "@/components";
+import { TextField } from "@/components";
 import { burger } from "@/assets";
-import { loginUser } from "@/api/user";
 
-const LoginTemplate = () => {
+const LoginTemplate = ({ onSubmit }: any) => {
   const { register, handleSubmit, errors } = useForm();
-
-  const onSubmit = (data: any) => {
-    console.log("data", data);
-    loginUser(data);
-  };
 
   return (
     <div className="login">
@@ -50,6 +45,11 @@ const LoginTemplate = () => {
               />
 
               <input className="input button" value="로그인" type="submit" />
+              <div className="button signup">
+                <Link className="link_hover" to="/signup">
+                  회 원 가 입
+                </Link>
+              </div>
             </form>
           </div>
         </Grid>

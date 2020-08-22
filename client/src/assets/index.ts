@@ -5,6 +5,7 @@ export { default as main } from "./main-c.svg";
 export { default as pointer } from "./pointer.svg";
 export { default as chat } from "./chat.svg";
 export { default as saypeople } from "./chat1.svg";
+export { default as character } from "./character.svg";
 
 /* banner */
 export { default as burger } from "./pngfuel.com.png";

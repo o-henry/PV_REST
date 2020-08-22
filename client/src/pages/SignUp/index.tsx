@@ -1,36 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { withRouter, RouteComponentProps } from "react-router-dom";
+import { observer } from "mobx-react";
 import swal from "sweetalert";
 
 import { SignUpTemplate } from "@/pages";
 import { xhrAPI } from "@/utils/axios";
+import { useStores } from "@/hooks";
 
-const SignUp = ({ history }: RouteComponentProps) => {
-  const [isSignUp, setIsSignUp] = useState(false);
+const SignUp = observer(({ history }: RouteComponentProps) => {
+  const { event } = useStores();
 
   const onSubmit = async (data: any) => {
     await xhrAPI(process.env.REACT_APP_BASE_URL)
       .post(`${process.env.REACT_APP_AUTH_SIGNUP}`, data)
       .then((res) => {
         if (res.data.accessToken) {
-          setIsSignUp(true);
+          event.isSignUp = true;
         }
       })
       .catch((error) => console.error("error", error));
   };
 
   useEffect(() => {
-    if (isSignUp) {
+    if (event.isSignUp) {
       swal("Thank You!", "회원가입 되셨습니다!", "success");
       history.push("/");
     }
-  }, [history, isSignUp]);
+  }, [history, event.isSignUp]);
 
   return (
     <>
       <SignUpTemplate onSubmit={onSubmit} />
     </>
   );
-};
+});
 
 export default withRouter(SignUp);
