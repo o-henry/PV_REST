@@ -17,7 +17,7 @@ export class User {
     return new Promise((resolve, reject) => {
       bcrypt.hash(
         password,
-        10,
+        12,
         (err: any, hash: string | PromiseLike<string>) => {
           if (err) {
             return reject(err);

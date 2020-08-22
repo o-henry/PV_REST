@@ -4,94 +4,25 @@ import jwt from "jsonwebtoken";
 import { User } from "@models/User";
 import config from "@config/index";
 
-const extractAccessToken = (req: Request) => {
-  if (
-    req.headers.authorization &&
-    req.headers.authorization.split(" ")[0] === "Bearer"
-  ) {
-    return req.headers.authorization.split(" ")[1];
-  }
-};
+export class Authentication {
+  static verifyToken(res: Response, token: string) {
+    try {
+      const data = jwt.verify(token, config.jwt.secret, {
+        algorithms: ["HS512"],
+      });
 
-/**
- * RefreshToken을 추출한다.
- * @param req
- */
-const extractRefreshToken = (req: Request) => {
-  if (req.body.refresh_token && req.body.grant_type === "refresh_token") {
-    return req.body.refresh_token;
-  }
-};
-
-/**
- * JWT AccessToken을 체크한다.
- * @param req
- * @param res
- * @param next
- */
-export const checkAccessToken = (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  const token = extractAccessToken(req);
-  let jwtPayload;
-
-  try {
-    jwtPayload = jwt.verify(token, config.jwt.secret);
-    res.locals.jwtPayload = jwtPayload;
-  } catch (error) {
-    return res.status(401).send({ message: "Invalid or Missing JWT token" });
-  }
-
-  next();
-};
-
-/**
- * JWT RefreshToken을 체크한다.
- * @param req
- * @param res
- * @param next
- */
-export const checkRefreshToken = (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  const token = extractRefreshToken(req);
-  let jwtPayload;
-
-  try {
-    jwtPayload = jwt.verify(token, env.app.jwtRefreshSecret);
-    res.locals.jwtPayload = jwtPayload;
-    res.locals.token = token;
-  } catch (error) {
-    return res.status(401).send({ message: "Invalid or Missing JWT token" });
-  }
-
-  next();
-};
-
-/**
- * JWT AccessToken을 만든다.
- * @param user
- */
-export const generateAccessToken = (user: User) => {
-  return jwt.sign(
-    { userId: user.id, userName: user.realName, userEmail: user.email },
-    env.app.jwtAccessSecret,
-    {
-      expiresIn: "30m",
+      return data;
+    } catch (error) {
+      if (error.name === "TokenExpireError") {
+        return res.status(419).json({
+          code: 419,
+          message: "토큰이 만료되었습니다.",
+        });
+      }
+      return res.status(401).json({
+        code: 401,
+        message: "유효하지 않은 토큰입니다.",
+      });
     }
-  );
-};
-
-/**
- * JWT RefreshToken을 만든다.
- * @param user
- */
-export const generateRefreshToken = (user: User) => {
-  return jwt.sign({ userId: user.id }, env.app.jwtRefreshSecret, {
-    expiresIn: "7d",
-  });
-};
+  }
+}
