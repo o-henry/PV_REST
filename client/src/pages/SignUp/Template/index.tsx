@@ -1,17 +1,13 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+// import { withRouter, RouteComponentProps } from "react-router-dom";
 
 import Grid from "@material-ui/core/Grid";
 
 import { TextField } from "@/components";
-import { createUser } from "@/api/user";
 
-const SignUpTemplate = (): React.ReactElement => {
+const SignUpTemplate = ({ onSubmit }: any): React.ReactElement => {
   const { register, handleSubmit, errors } = useForm();
-
-  const onSubmit = (data: any) => {
-    createUser(data);
-  };
 
   return (
     <div className="signup">

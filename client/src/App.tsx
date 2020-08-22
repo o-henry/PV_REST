@@ -49,7 +49,7 @@ function PrivateRoute({
         ) : (
           <Redirect
             to={{
-              pathname: "/login",
+              pathname: "/signup",
             }}
           />
         )

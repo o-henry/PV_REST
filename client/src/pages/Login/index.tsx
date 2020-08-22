@@ -14,16 +14,6 @@ const Login = observer(() => {
 
   const { event } = useStores();
 
-  useEffect(() => {
-    const getCsrfToken = async () => {
-      const { data } = await axios.get("/v1/csrf-token");
-      axios.defaults.headers.post["X-CSRF-Token"] = data.csrfToken;
-
-      console.log("data", data);
-    };
-    getCsrfToken();
-  }, []);
-
   return (
     <>
       <LoginTemplate />
