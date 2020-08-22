@@ -53,9 +53,10 @@ export class AuthController {
   @Post("/register")
   @ResponseSchema(UserResponse)
   public async create(@Body() user: CreateUser) {
-    const check = await this.userService.check(user.name);
+    const check = await this.userService.check(user.id);
 
     if (check) {
+      console.log("이미 등록 된 아이디 랍니다.");
       return {
         error: true,
         message: "이미 등록된 아이디 입니다.",

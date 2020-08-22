@@ -31,7 +31,8 @@ export class CreateUser extends BaseUser {
   @IsNotEmpty()
   public password: string;
 
-  public toEntity() {
+  @IsNotEmpty()
+  public toEntity(): User {
     const { id, name, age, gender, password } = this;
 
     const user = new User();

@@ -8,8 +8,7 @@ import { CreateUser } from "@dto/user.dto";
 
 @Service()
 export class UserService {
-  @OrmRepository()
-  private userRepository: UserRepository;
+  constructor(@OrmRepository() private userRepository: UserRepository) {}
 
   public find(): Promise<User[]> {
     return this.userRepository.find({ relations: ["foods"] });
@@ -24,9 +23,9 @@ export class UserService {
     return await this.userRepository.save(user);
   }
 
-  public async check(nickname: string): Promise<boolean> {
+  public async check(id: string): Promise<boolean> {
     const user = await this.userRepository.findOne({
-      where: { nickname: nickname },
+      where: { nickname: id },
     });
 
     return user ? true : false;
