@@ -1,7 +1,13 @@
-import { Application } from "express";
+import express, { Application } from "express";
 import { Container } from "typedi";
-import { createExpressServer, useContainer } from "routing-controllers";
+import {
+  createExpressServer,
+  useContainer,
+  useExpressServer,
+} from "routing-controllers";
 import { MicroframeworkLoader } from "microframework-w3tec";
+import csrf from "csurf";
+import cookieParser from "cookie-parser";
 
 import config from "@config/index";
 import { Authentication } from "@util/Authenticate";
@@ -11,8 +17,23 @@ import { Authentication } from "@util/Authenticate";
 useContainer(Container);
 
 export const expressLoader: MicroframeworkLoader = () => {
-  // creates express app, registers all controller routes and returns you express app instance
-  const app: Application = createExpressServer({
+  const app: Application = express();
+
+  // protect CSRF attacks.
+  const csrfProtection = csrf({
+    cookie: true,
+  });
+
+  app.use(cookieParser());
+
+  app.use(csrfProtection);
+
+  app.get("/", (req, res) => {
+    res.cookie("XSRF-TOKEN", req.csrfToken());
+    res.json({});
+  });
+
+  useExpressServer(app, {
     cors: true,
     classTransformer: true,
     routePrefix: config.api.versioning,
@@ -25,8 +46,26 @@ export const expressLoader: MicroframeworkLoader = () => {
     currentUserChecker: Authentication.currentUserChecker,
   });
 
-  // run express application on port
   app.listen(config.port, (err) => {
     console.log(`Server Listening on port : ${config.port}`);
   });
 };
+
+// // creates express app, registers all controller routes and returns you express app instance
+// const app: express.Application = createExpressServer({
+//   cors: true,
+//   classTransformer: true,
+//   routePrefix: config.api.versioning,
+
+//   // specify controllers & middlewares
+//   controllers: [`${__dirname}/../api/controllers/*.[jt]s`],
+//   middlewares: [`${__dirname}/../api/middlewares/*.[jt]s`],
+
+//   // Authorization features
+//   currentUserChecker: Authentication.currentUserChecker,
+// });
+
+// // run express application on port
+// app.listen(config.port, (err) => {
+//   console.log(`Server Listening on port : ${config.port}`);
+// });

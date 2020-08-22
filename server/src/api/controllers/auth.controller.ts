@@ -43,10 +43,8 @@ export class AuthController {
     }
 
     const accessToken = Authentication.generateToken(user.id);
-
-    return {
-      accessToken: accessToken,
-    };
+    res.cookie("token", accessToken, { httpOnly: true });
+    res.json({ accessToken });
   }
 
   @HttpCode(200)
@@ -56,7 +54,6 @@ export class AuthController {
     const check = await this.userService.check(user.id);
 
     if (check) {
-      console.log("이미 등록 된 아이디 랍니다.");
       return {
         error: true,
         message: "이미 등록된 아이디 입니다.",

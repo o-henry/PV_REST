@@ -66,6 +66,9 @@ export default {
     secret: process.env.JWT_SECRET,
   },
 
+  csrf: {
+    protect: process.env.PROTECT,
+  },
   /**
    * @param API configs
    */

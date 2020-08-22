@@ -12,7 +12,7 @@ export class AuthService {
   public async validateUser(loginUser: LoginUser): Promise<User> {
     const user = await this.userRepository.findOne({
       where: {
-        nickname: loginUser.nickname,
+        nickname: loginUser.id,
       },
     });
 

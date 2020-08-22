@@ -49,7 +49,7 @@ export class CreateUser extends BaseUser {
 
 export class LoginUser {
   @IsNotEmpty()
-  public nickname: string;
+  public id: string;
 
   @IsNotEmpty()
   public password: string;
