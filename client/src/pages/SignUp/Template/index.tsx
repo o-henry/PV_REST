@@ -4,11 +4,14 @@ import { useForm } from "react-hook-form";
 import Grid from "@material-ui/core/Grid";
 
 import { TextField } from "@/components";
+import { createUser } from "@/api/user";
 
 const SignUpTemplate = (): React.ReactElement => {
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data: any) => console.log(data);
-  console.log(errors);
+
+  const onSubmit = (data: any) => {
+    createUser(data);
+  };
 
   return (
     <div className="signup">
@@ -23,7 +26,7 @@ const SignUpTemplate = (): React.ReactElement => {
                   className="input"
                   type="text"
                   placeholder="아이디"
-                  name="아이디"
+                  name="id"
                   pattern="^(?!\d+$)\w{5,10}$"
                   ref={register({
                     required: true,
@@ -38,7 +41,7 @@ const SignUpTemplate = (): React.ReactElement => {
                 <input
                   required
                   className="input"
-                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$"
                   type="password"
                   placeholder="비밀번호"
                   name="password"
@@ -47,7 +50,7 @@ const SignUpTemplate = (): React.ReactElement => {
                   })}
                 />
                 <div className="requirements">
-                  6자 이상 영문 대 소문자, 숫자를 사용해주세요.
+                  8자 이상 영문 대 ・ 소문자, 숫자, 특수문자를 사용해주세요.
                 </div>
               </div>
 
@@ -57,7 +60,7 @@ const SignUpTemplate = (): React.ReactElement => {
                   className="input"
                   type="text"
                   placeholder="이름"
-                  name="이름"
+                  name="name"
                   pattern="^[가-힣a-zA-Z]+$"
                   ref={register({
                     required: true,
@@ -71,12 +74,11 @@ const SignUpTemplate = (): React.ReactElement => {
                   className="input"
                   type="number"
                   placeholder="나이"
-                  name="나이"
+                  name="age"
+                  min="1"
+                  max="99"
                   ref={register({
                     required: true,
-                    max: 99,
-                    min: 0,
-                    maxLength: 2,
                   })}
                 />
               </div>
@@ -86,7 +88,7 @@ const SignUpTemplate = (): React.ReactElement => {
                   <input
                     className="radio button"
                     required
-                    name="성별"
+                    name="gender"
                     type="radio"
                     value="Female"
                     ref={register({ required: true })}
@@ -98,7 +100,7 @@ const SignUpTemplate = (): React.ReactElement => {
                   <input
                     className="radio button"
                     required
-                    name="성별"
+                    name="gender"
                     type="radio"
                     value="Male"
                     ref={register({ required: true })}

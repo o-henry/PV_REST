@@ -1,24 +1,15 @@
 import {
+  BeforeInsert,
   Entity,
   Column,
   PrimaryGeneratedColumn,
   OneToMany,
-  JoinColumn,
 } from "typeorm";
 import { IsNotEmpty } from "class-validator";
 import { Exclude } from "class-transformer";
 import * as bcrypt from "bcrypt";
 
 import { Food } from "./Food";
-
-/**
- * @param { age } : user age
- * @param { gender } : user gender
- * @param { sns } : user sns id
- * @param { name } : user name
- * @param { id } : sns id
- * @param { provider } : sns login ex) kakao ..
- */
 
 @Entity()
 export class User {
@@ -37,8 +28,23 @@ export class User {
     });
   }
 
+  public static comparePassword(
+    user: User,
+    password: string
+  ): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      bcrypt.compare(password, user.password, (err, res) => {
+        resolve(res === true);
+      });
+    });
+  }
+
   @PrimaryGeneratedColumn("uuid")
-  public id!: number;
+  public id!: string;
+
+  @IsNotEmpty()
+  @Column()
+  public username!: string;
 
   @IsNotEmpty()
   @Column()
@@ -46,8 +52,8 @@ export class User {
   public password: string;
 
   @IsNotEmpty()
-  @Column()
-  public username!: string;
+  @Column({ name: "name" })
+  public name: string;
 
   @IsNotEmpty()
   @Column()
@@ -56,6 +62,14 @@ export class User {
   @IsNotEmpty()
   @Column()
   public age!: string;
+
+  @Column({ name: "refresh_token", nullable: true, select: false })
+  refreshToekn: string;
+
+  @BeforeInsert()
+  public async hashPassword(): Promise<void> {
+    this.password = await User.hashPassword(this.password);
+  }
 
   @OneToMany((type) => Food, (food) => food.user)
   public foods!: Food[];

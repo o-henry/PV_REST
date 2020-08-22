@@ -60,6 +60,13 @@ export default {
   },
 
   /**
+   * @param JWT
+   */
+  jwt: {
+    secret: process.env.JWT_SECRET,
+  },
+
+  /**
    * @param API configs
    */
   api: {

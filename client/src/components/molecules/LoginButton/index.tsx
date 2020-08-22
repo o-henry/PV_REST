@@ -11,7 +11,7 @@ const LoginButton = observer(({ prop }: any) => {
 
   return (
     <>
-      <Button style="kakao">로그인</Button>
+      <Button style="login">로그인</Button>
     </>
   );
 });

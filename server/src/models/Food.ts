@@ -10,21 +10,13 @@ import { IsNotEmpty } from "class-validator";
 
 import { User } from "./User";
 
-/**
- * @param { id } : PK
- * @param { calorie } : NUTR_CONT1
- * @param { sugar } : NUTR_CONT5
- * @param { natrium } : NUTR_CONT6
- * @param { carbohydrate } : NUTR_CONT2
- */
-
 @Entity()
 export class Food {
   @PrimaryGeneratedColumn("uuid")
   public id!: string;
 
   @IsNotEmpty()
-  @Column({ type: "uuid", length: 30 })
+  @Column()
   public name!: string;
 
   @IsNotEmpty()
@@ -44,7 +36,7 @@ export class Food {
   public carbohydrate!: number;
 
   @IsNotEmpty()
-  @CreateDateColumn()
+  @CreateDateColumn({ name: "created_at" })
   public createdDate!: Date;
 
   @Column({ name: "user_id", nullable: true })

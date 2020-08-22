@@ -10,6 +10,7 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "module": "commonjs",
+    "noImplicitAny": false,
     "pretty": true,
     "baseUrl": "./src",
     "sourceMap": true,
