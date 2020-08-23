@@ -14,6 +14,16 @@ const showLoader = () => loader.classList.remove("loader--hide");
 
 const hideLoader = () => loader.classList.add("loader--hide");
 
+const loadUser = () => {
+  try {
+    const user = localStorage.getItem("user");
+    if (!user) return;
+  } catch (e) {
+    console.log("localStorage is not working");
+  }
+};
+
+loadUser();
 setTimeout(() => {
   ReactDOM.render(
     <Provider event={event}>

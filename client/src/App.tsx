@@ -44,7 +44,7 @@ const PrivateRoute = observer(
       <Route
         {...rest}
         render={({ props }) =>
-          event.isSignUp || event.isLogin ? (
+          localStorage.getItem("user") ? (
             <Component {...rest} {...props} />
           ) : (
             <Redirect

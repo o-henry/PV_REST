@@ -1,0 +1,45 @@
+{
+  "name": "api-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf ./build && tsc",
+    "start:dev": "nodemon",
+    "start": "npm run build && node src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/cors": "^2.8.7",
+    "axios": "^0.20.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "microframework-w3tec": "^0.6.3",
+    "module-alias": "^2.2.2",
+    "nodemon": "^2.0.4",
+    "rimraf": "^3.0.2",
+    "routing-controllers": "^0.9.0-alpha.6",
+    "ts-node": "^9.0.0",
+    "typedi": "^0.8.0",
+    "typescript": "^4.0.2"
+  },
+  "_moduleAliases": {
+    "@config": "src/config",
+    "@services": "src/services",
+    "@api": "src/api",
+    "@controllers": "src/api/controllers",
+    "@middlewares": "src/api/middlewares",
+    "@interface": "src/interface",
+    "@util": "src/util",
+    "@models": "src/models",
+    "@loaders": "src/loaders",
+    "@providers": "src/providers",
+    "@repositories": "src/repositories",
+    "@dto": "src/dto"
+  }
+}

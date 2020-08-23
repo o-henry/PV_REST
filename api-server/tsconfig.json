@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "lib": ["es2017", "esnext.asynciterable"],
+    "types": ["reflect-metadata"],
+    "typeRoots": ["./types", "./node_modules/@types"],
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "noImplicitAny": false,
+    "pretty": true,
+    "baseUrl": "./src",
+    "sourceMap": true,
+    "outDir": "./build",
+    "allowJs": true,
+    "noEmit": false,
+    "esModuleInterop": true,
+    "paths": {
+      "@interface/*": ["interface/*"],
+      "@api/*": ["api/*"],
+      "@config/*": ["config/*"],
+      "@controllers/*": ["api/controllers/*"],
+      "@services/*": ["services/*"],
+      "@util/*": ["util/*"],
+      "@models/*": ["models/*"],
+      "@loaders/*": ["loaders/*"],
+      "@middlewares/*": ["api/middlewares/*"],
+      "@providers/*": ["providers/*"],
+      "@repositories/*": ["repositories/*"],
+      "@dto/*": ["dto/*"]
+    }
+  },
+  "include": ["./src/**/*", "./tests/*/*.ts", "src"],
+  "exclude": ["node_modules"]
+}

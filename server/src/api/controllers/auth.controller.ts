@@ -43,8 +43,13 @@ export class AuthController {
     }
 
     const accessToken = Authentication.generateToken(user.id);
-    res.cookie("token", accessToken, { httpOnly: true });
-    res.json({ accessToken });
+    // res.cookie("token", accessToken, { httpOnly: true });
+    // res.json({ accessToken });
+    // res.end();
+
+    return {
+      accessToken: accessToken,
+    };
   }
 
   @HttpCode(200)

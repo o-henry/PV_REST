@@ -1,5 +1,6 @@
-import { IsNotEmpty, IsNumber, IsUUID, ValidateNested } from "class-validator";
+import { IsNotEmpty, IsUUID, ValidateNested } from "class-validator";
 
+import { Food } from "@models/Food";
 import { UserResponse } from "@dto/user.dto";
 
 class BaseFood {
@@ -13,4 +14,18 @@ export class FoodResponse extends BaseFood {
 
   @ValidateNested()
   public user: UserResponse;
+}
+
+export class CrateFood extends BaseFood {
+  @IsNotEmpty()
+  public calorie: number;
+
+  @IsNotEmpty()
+  public sugar: number;
+
+  @IsNotEmpty()
+  public natrium: number;
+
+  @IsNotEmpty()
+  public carbohydrate!: number;
 }

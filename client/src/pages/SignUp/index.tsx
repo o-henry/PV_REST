@@ -25,6 +25,11 @@ const SignUp = observer(({ history }: RouteComponentProps) => {
     if (event.isSignUp) {
       swal("Thank You!", "회원가입 되셨습니다!", "success");
       history.push("/");
+      try {
+        localStorage.setItem("user", JSON.stringify(event.isSignUp));
+      } catch (e) {
+        console.log("localStorage is not working");
+      }
     }
   }, [history, event.isSignUp]);
 

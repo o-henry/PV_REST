@@ -26,20 +26,28 @@ const StepperTemplate = observer(
                   섭취한 음식명을 말씀해주세요
                 </TextField>
                 <TextField style="step_body">
-                  해당 음식의 칼로리 와 당 함량을 제공합니다.
+                  음식의 칼로리 와 당 함량을 제공합니다
                 </TextField>
               </div>
 
-              <Link className="start slide_right" to="/login">
-                로 그 인
-              </Link>
-
+              <div>
+                {localStorage.getItem("user") ? (
+                  <Link className="start slide_right" to="/main">
+                    시 작 하 기
+                  </Link>
+                ) : (
+                  <Link className="start slide_right" to="/login">
+                    로 그 인
+                  </Link>
+                )}
+              </div>
               <div className="stepper notification">
                 Google Chrome 브라우저에서 실행해주세요.
               </div>
 
               <div className="stepper contact">
                 <a
+                  className="stepper hover"
                   target="_blank"
                   rel="noopener noreferrer"
                   href="mailto:c.henry.9209@gmail.com"
