@@ -37,7 +37,7 @@ export class Food {
 
   @IsNotEmpty()
   @CreateDateColumn({ name: "created_at" })
-  public createdDate!: Date;
+  public createdDate?: Date;
 
   @Column({ name: "user_id", nullable: true })
   public userId!: string;

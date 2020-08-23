@@ -28,5 +28,12 @@ exports.default = {
     foods: {
         url: process.env.FOOD_URL,
     },
+    /**
+     * @param main api
+     */
+    main: {
+        url: process.env.MAIN_SERVER,
+        foods: process.env.FOOD_ENDPOINT,
+    },
 };
 //# sourceMappingURL=index.js.map

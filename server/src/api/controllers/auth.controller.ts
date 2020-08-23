@@ -1,12 +1,4 @@
-import {
-  JsonController,
-  Post,
-  UseBefore,
-  Get,
-  Res,
-  Body,
-  HttpCode,
-} from "routing-controllers";
+import { JsonController, Post, Res, Body, HttpCode } from "routing-controllers";
 import { OpenAPI, ResponseSchema } from "routing-controllers-openapi";
 import { Response } from "express";
 

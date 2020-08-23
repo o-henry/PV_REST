@@ -33,6 +33,6 @@
       "@dto/*": ["dto/*"]
     }
   },
-  "include": ["./src/**/*", "src"],
-  "exclude": ["node_modules"]
+  "include": ["./src/**/*", "src", "**/*.spec.ts"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }

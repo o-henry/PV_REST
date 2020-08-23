@@ -12,30 +12,14 @@ const Login = observer(({ history }: RouteComponentProps) => {
   const { event } = useStores();
 
   const onSubmit = async (data: any) => {
-    await axios
-      .post(
-        `${process.env.REACT_APP_BASE_URL}${process.env.REACT_APP_AUTH_LOGIN}`,
-        data
-      )
+    await xhrAPI(process.env.REACT_APP_BASE_URL)
+      .post(`${process.env.REACT_APP_AUTH_LOGIN}`, data)
       .then((res) => {
-        console.log("@@@", res);
         if (res.data.accessToken) {
           event.isLogin = true;
-
-          axios.defaults.headers.common[
-            "Authorization"
-          ] = `Bearer ${res.data.accessToken}`;
         }
       })
       .catch((error) => console.error("error", error));
-    // await xhrAPI(process.env.REACT_APP_BASE_URL)
-    //   .post(`${process.env.REACT_APP_AUTH_LOGIN}`, data)
-    //   .then((res) => {
-    //     if (res.data.accessToken) {
-    //       event.isLogin = true;
-    //     }
-    //   })
-    //   .catch((error) => console.error("error", error));
   };
 
   useEffect(() => {

@@ -4,13 +4,14 @@ import { BadRequestError, NotFoundError } from "routing-controllers";
 
 import { Food } from "@models/Food";
 import { FoodRepository } from "@repositories/food.repository";
+import { CreateFood } from "@dto/food.dto";
 
 @Service()
 export class FoodService {
-  @OrmRepository()
-  private foodRepository: FoodRepository;
+  constructor(@OrmRepository() private foodRepository: FoodRepository) {}
 
-  public async create(food: Food): Promise<Food> {
+  public async create(createfood: CreateFood): Promise<Food> {
+    const food = createfood.toEntity();
     return await this.foodRepository.save(food);
   }
 }
