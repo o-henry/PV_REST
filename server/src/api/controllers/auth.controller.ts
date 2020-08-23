@@ -28,26 +28,21 @@ export class AuthController {
   public async login(@Body() loginUser: LoginUser, @Res() res: Response) {
     const user = await this.authService.validateUser(loginUser);
 
-    if (!user) {
-      return res.status(401).send({
-        message: "유효하지 않은 사용자 이름 또는 비밀번호 입니다.",
-      });
-    }
+    if (!user)
+      return res
+        .status(401)
+        .send({ message: "유효하지 않은 사용자 이름 또는 비밀번호 입니다." });
 
     const accessToken = Authentication.generateToken(user.id);
-    // res.cookie("token", accessToken, { httpOnly: true });
-    // res.json({ accessToken });
-    // res.end();
 
-    return {
-      accessToken: accessToken,
-    };
+    res.cookie("token", accessToken, { httpOnly: true });
+    return res.status(201).json({ accessToken });
   }
 
   @HttpCode(200)
   @Post("/register")
   @ResponseSchema(UserResponse)
-  public async create(@Body() user: CreateUser) {
+  public async create(@Body() user: CreateUser, @Res() res: Response) {
     const check = await this.userService.check(user.id);
 
     if (check) {
@@ -60,9 +55,7 @@ export class AuthController {
     const newUser = await this.userService.create(user);
     const accessToken = Authentication.generateToken(newUser.id);
 
-    return {
-      user,
-      accessToken: accessToken,
-    };
+    res.cookie("token", accessToken, { httpOnly: true });
+    return res.status(201).json({ accessToken });
   }
 }

@@ -16,8 +16,8 @@ export class AuthMiddleware implements ExpressMiddlewareInterface {
 
     if (jwt !== undefined) {
       const bearerToken = jwt.replace(/Bearer\s/, "");
-      const token = Authentication.refreshToken(bearerToken);
-      response.setHeader("authorization", `Bearer ${token}`);
+      // const token = Authentication.refreshToken(bearerToken);
+      response.setHeader("authorization", `Bearer ${bearerToken}`);
     }
 
     next();

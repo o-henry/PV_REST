@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import "./scss/main.scss";
 import { Provider } from "mobx-react";
+import { CookiesProvider } from "react-cookie";
 
 import { EventStore } from "@/store";
 
@@ -26,9 +27,11 @@ const loadUser = () => {
 loadUser();
 setTimeout(() => {
   ReactDOM.render(
-    <Provider event={event}>
-      <App hideLoader={hideLoader} showLoader={showLoader} />
-    </Provider>,
+    <CookiesProvider>
+      <Provider event={event}>
+        <App hideLoader={hideLoader} showLoader={showLoader} />
+      </Provider>
+    </CookiesProvider>,
     document.getElementById("root")
   );
   clearTimeout(2000);
