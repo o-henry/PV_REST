@@ -19,7 +19,10 @@ export class FoodController {
 
     {
       if (data) {
-        return await fetch.postFoodData(preprocess(data, body.name));
+        return await fetch.postFoodData(
+          preprocess(data, body.name),
+          body.token
+        );
       }
     }
   }

@@ -1,6 +1,11 @@
 import express, { Application } from "express";
 import { Container } from "typedi";
-import { useContainer, useExpressServer } from "routing-controllers";
+import {
+  useContainer,
+  useExpressServer,
+  UnauthorizedError,
+  Action,
+} from "routing-controllers";
 import { MicroframeworkLoader } from "microframework-w3tec";
 
 import config from "@config/index";
@@ -21,6 +26,9 @@ export const expressLoader: MicroframeworkLoader = () => {
 
     // Authorization features
     currentUserChecker: Authentication.currentUserChecker,
+    authorizationChecker: async (action: Action, roles: string[]) => {
+      throw new UnauthorizedError("You're not authorized");
+    },
 
     // specify controllers & middlewares
     controllers: [`${__dirname}/../api/controllers/*.[jt]s`],

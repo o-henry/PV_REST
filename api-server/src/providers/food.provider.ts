@@ -10,7 +10,7 @@ export class FoodProvider extends BaseProvider {
   }
 
   async getIngredients(query: string) {
-    this.setInstance(config.foods.url);
+    this.setInstance(config.foods.url, {});
 
     const response = await this.getInstance()?.get(
       `/json/1/500/DESC_KOR=${query}`
