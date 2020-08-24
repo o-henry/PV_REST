@@ -9,8 +9,8 @@ export abstract class BaseProvider {
     this.instance = null;
   }
 
-  setInstance(url: string, headers: object) {
-    this.instance = xhrAPI(url, headers);
+  setInstance(url: string) {
+    this.instance = xhrAPI(url);
     this.instance.interceptors.response.use(
       (response) => response,
       (error) => Promise.reject(error)

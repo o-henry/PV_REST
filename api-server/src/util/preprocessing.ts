@@ -23,7 +23,9 @@ export const preprocess = (foods: any, target: string) => {
     }
   }
 
-  console.log("@@@@@@", food);
-
-  return food;
+  if (food.length == 1) {
+    return food[0];
+  } else {
+    return food;
+  }
 };

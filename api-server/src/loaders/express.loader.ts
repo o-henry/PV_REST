@@ -11,6 +11,7 @@ export const expressLoader: MicroframeworkLoader = () => {
   const app: Application = createExpressServer({
     cors: true,
     classTransformer: true,
+    defaultErrorHandler: false,
     routePrefix: config.api.versioning,
 
     // specify controllers & middlewares

@@ -65,6 +65,7 @@ export class Authentication {
       Authentication.getUserIdByToken(token).userId
     );
 
+    console.log("r u check ?");
     action.request.query.user = user;
     return user;
   }

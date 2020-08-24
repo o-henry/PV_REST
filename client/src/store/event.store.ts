@@ -7,6 +7,8 @@ export class EventStore {
 
   @observable isLogin = false;
 
+  @observable token = "";
+
   @action
   onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -14,5 +16,11 @@ export class EventStore {
 
     /* isTrue ? */
     console.log("isTrue? :", this.isClicked);
+  };
+
+  @action
+  changeToken = (accessToken: string) => {
+    this.token = accessToken;
+    return this.token;
   };
 }

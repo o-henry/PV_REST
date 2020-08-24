@@ -29,12 +29,9 @@ export class FoodResponse extends BaseFood {
 }
 
 export class CreateFood extends BaseFood {
-  @IsUUID()
-  public userId: string;
-
   @IsNotEmpty()
   public toEntity(): Food {
-    const { userId, name, calorie, sugar, natrium, carbohydrate } = this;
+    const { name, calorie, sugar, natrium, carbohydrate } = this;
 
     const food = new Food();
 
@@ -43,7 +40,6 @@ export class CreateFood extends BaseFood {
     food.sugar = sugar;
     food.natrium = natrium;
     food.carbohydrate = carbohydrate;
-    food.userId = userId;
 
     return food;
   }

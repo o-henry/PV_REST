@@ -30,7 +30,8 @@
       "@middlewares/*": ["api/middlewares/*"],
       "@providers/*": ["providers/*"],
       "@repositories/*": ["repositories/*"],
-      "@dto/*": ["dto/*"]
+      "@dto/*": ["dto/*"],
+      "@auth/*": ["auth/*"]
     }
   },
   "include": [

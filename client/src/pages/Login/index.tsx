@@ -13,8 +13,10 @@ const Login = observer(({ history }: RouteComponentProps) => {
     await xhrAPI(process.env.REACT_APP_BASE_URL)
       .post(`${process.env.REACT_APP_AUTH_LOGIN}`, data)
       .then((res) => {
+        console.log("res", res);
         if (res.data.accessToken) {
           event.isLogin = true;
+          localStorage.setItem("token", res.data.accessToken);
         }
       })
       .catch((error) => console.error("error", error));

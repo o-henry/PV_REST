@@ -4,7 +4,7 @@ import { Response } from "express";
 
 import { AuthService } from "@services/auth.services";
 import { UserService } from "@services/user.services";
-import { Authentication } from "auth/Authenticate";
+import { Authentication } from "@auth/Authenticate";
 import { CreateUser, LoginUser, UserResponse } from "@dto/user.dto";
 
 @JsonController("/auth")
@@ -34,6 +34,9 @@ export class AuthController {
         .send({ message: "유효하지 않은 사용자 이름 또는 비밀번호 입니다." });
 
     const accessToken = Authentication.generateToken(user.id);
+    res.locals.userId = user.id;
+
+    console.log("locals", res.locals.userId);
 
     return res.status(201).json({ accessToken });
   }
@@ -47,7 +50,7 @@ export class AuthController {
     if (check) {
       return {
         error: true,
-        message: "이미 등록된 아이디 입니다.",
+        message: "This ID is already registered.",
       };
     }
 

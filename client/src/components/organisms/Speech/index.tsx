@@ -7,8 +7,8 @@ import Alert from "@material-ui/lab/Alert";
 
 import { SpeechButton } from "@/components";
 import { useStores } from "@/hooks";
-import { createFood } from "@/api/foods";
 import { isChrome } from "@/utils/browser";
+import { createFood } from "@/api/foods";
 
 const Speech = observer(() => {
   const { event } = useStores();

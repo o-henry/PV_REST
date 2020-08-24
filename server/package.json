@@ -75,6 +75,7 @@
     "@loaders": "src/loaders",
     "@providers": "src/providers",
     "@repositories": "src/repositories",
-    "@dto": "src/dto"
+    "@dto": "src/dto",
+    "@auth": "src/auth"
   }
 }

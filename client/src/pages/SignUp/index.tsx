@@ -16,6 +16,7 @@ const SignUp = observer(({ history }: RouteComponentProps) => {
       .then((res) => {
         if (res.data.accessToken) {
           event.isSignUp = true;
+          localStorage.setItem("token", res.data.accessToken);
         }
       })
       .catch((error) => console.error("error", error));
