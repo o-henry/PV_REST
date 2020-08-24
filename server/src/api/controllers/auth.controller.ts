@@ -4,7 +4,7 @@ import { Response } from "express";
 
 import { AuthService } from "@services/auth.services";
 import { UserService } from "@services/user.services";
-import { Authentication } from "@util/Authenticate";
+import { Authentication } from "auth/Authenticate";
 import { CreateUser, LoginUser, UserResponse } from "@dto/user.dto";
 
 @JsonController("/auth")
@@ -35,7 +35,6 @@ export class AuthController {
 
     const accessToken = Authentication.generateToken(user.id);
 
-    res.cookie("token", accessToken, { httpOnly: true });
     return res.status(201).json({ accessToken });
   }
 
@@ -55,7 +54,6 @@ export class AuthController {
     const newUser = await this.userService.create(user);
     const accessToken = Authentication.generateToken(newUser.id);
 
-    res.cookie("token", accessToken, { httpOnly: true });
     return res.status(201).json({ accessToken });
   }
 }

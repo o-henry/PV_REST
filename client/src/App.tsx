@@ -1,5 +1,5 @@
 //@ts-nocheck
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { observer } from "mobx-react";
 import {
   BrowserRouter as Router,
@@ -9,7 +9,6 @@ import {
 } from "react-router-dom";
 
 import { Onboard, Main, Login, SignUp, Statistics } from "@/pages";
-import { useStores } from "@/hooks";
 
 const App = ({ hideLoader }: any) => {
   useEffect(hideLoader, []);
@@ -38,8 +37,6 @@ export default App;
 /* Auth Routing */
 const PrivateRoute = observer(
   ({ component: Component, ...rest }: any): React.ReactElement => {
-    const { event } = useStores();
-
     return (
       <Route
         {...rest}

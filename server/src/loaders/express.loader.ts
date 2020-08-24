@@ -1,20 +1,22 @@
-import { Application } from "express";
+import express, { Application } from "express";
 import { Container } from "typedi";
-import { createExpressServer, useContainer } from "routing-controllers";
+import { useContainer, useExpressServer } from "routing-controllers";
 import { MicroframeworkLoader } from "microframework-w3tec";
 
 import config from "@config/index";
-import { Authentication } from "@util/Authenticate";
+import { Authentication } from "auth/Authenticate";
 
 // its important to set container before any operation you do with routing-controllers,
 // including importing controllers
 useContainer(Container);
 
 export const expressLoader: MicroframeworkLoader = () => {
-  const app: Application = createExpressServer({
+  const app: Application = express();
+
+  useExpressServer(app, {
     cors: true,
-    defaultErrorHandler: false,
     classTransformer: true,
+    defaultErrorHandler: false,
     routePrefix: config.api.versioning,
 
     // specify controllers & middlewares
@@ -25,7 +27,6 @@ export const expressLoader: MicroframeworkLoader = () => {
     currentUserChecker: Authentication.currentUserChecker,
   });
 
-  // run express application on port
   app.listen(config.port, (err) => {
     console.log(`Server Listening on port : ${config.port}`);
   });

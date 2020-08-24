@@ -91,5 +91,12 @@ module.exports = {
   /* Router */
   devServer: {
     historyApiFallback: true,
+    // proxy: {
+    //   "/": "http://localhost:8000",
+    // },
+    // open: true,
+    // compress: true,
+    // hot: true,
+    // port: 3000,
   },
 };

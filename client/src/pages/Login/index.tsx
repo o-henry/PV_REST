@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 import { observer } from "mobx-react";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 
-import axios from "axios";
-
 import { LoginTemplate } from "@/pages";
 import { useStores } from "@/hooks";
 import { xhrAPI } from "@/utils/axios";
