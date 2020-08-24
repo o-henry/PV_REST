@@ -6,7 +6,7 @@ import { UserService } from "@services/user.services";
 import config from "@config/index";
 
 export interface Itoken {
-  userId: number;
+  userId: string;
   iat: number;
   exp: number;
 }
@@ -18,7 +18,7 @@ export class Authentication {
     );
   }
 
-  static generateToken(userId: number): string {
+  static generateToken(userId: string): string {
     return jwt.sign({ userId }, config.jwt.secret, {
       algorithm: "HS512",
       expiresIn: "1d",
@@ -65,7 +65,6 @@ export class Authentication {
       Authentication.getUserIdByToken(token).userId
     );
 
-    console.log("r u check ?");
     action.request.query.user = user;
     return user;
   }

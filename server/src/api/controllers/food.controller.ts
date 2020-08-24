@@ -26,8 +26,8 @@ export class FoodController {
     @Res() res: Response
   ) {
     try {
-      console.log("fffff", user, food);
-      // await this.foodService.create(food, res.locals.userId);
+      console.log("fffff", user, food, user.id, typeof user.id);
+      await this.foodService.create(food, user.id);
     } catch (e) {
       console.log("errrrrrrrrrrr", e);
     }

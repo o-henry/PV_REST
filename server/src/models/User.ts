@@ -40,7 +40,7 @@ export class User {
   }
 
   @PrimaryGeneratedColumn("uuid")
-  public id!: number;
+  public id!: string;
 
   @IsNotEmpty()
   @Column()

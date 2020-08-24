@@ -14,7 +14,7 @@ export class UserService {
     return this.userRepository.find({ relations: ["foods"] });
   }
 
-  public findOne(id: number): Promise<User> {
+  public findOne(id: string): Promise<User> {
     return this.userRepository.findOne({ id });
   }
 
