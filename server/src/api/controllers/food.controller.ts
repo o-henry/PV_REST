@@ -25,13 +25,7 @@ export class FoodController {
     @CurrentUser({ required: true }) user: User,
     @Res() res: Response
   ) {
-    try {
-      console.log("fffff", user, food, user.id, typeof user.id);
-      await this.foodService.create(food, user.id);
-    } catch (e) {
-      console.log("errrrrrrrrrrr", e);
-    }
-
+    await this.foodService.create(food, user.id);
     return res.send("success");
   }
 }

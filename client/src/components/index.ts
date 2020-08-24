@@ -14,3 +14,4 @@ export { default as Speech } from "./organisms/Speech";
 export { default as MenuList } from "./organisms/Tab";
 export { default as Graph } from "./organisms/Graph";
 export { default as Menu } from "./organisms/Menu";
+export { default as Loader } from "./organisms/Loader";

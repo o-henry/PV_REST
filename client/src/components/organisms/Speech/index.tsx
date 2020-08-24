@@ -5,7 +5,7 @@ import { observer } from "mobx-react";
 import Grid from "@material-ui/core/Grid";
 import Alert from "@material-ui/lab/Alert";
 
-import { SpeechButton } from "@/components";
+import { SpeechButton, Loader } from "@/components";
 import { useStores } from "@/hooks";
 import { isChrome } from "@/utils/browser";
 import { createFood } from "@/api/foods";
@@ -73,7 +73,6 @@ const Speech = observer(() => {
   useEffect(() => {
     endListening();
     console.log("==========", words);
-    // input이 들어오면 요청 하도록 조건 추가
     if (!event.isClicked && words !== "") {
       createFood(words);
     }
@@ -81,7 +80,7 @@ const Speech = observer(() => {
 
   return (
     <>
-      <SpeechButton />
+      {!event.isClicked ? <SpeechButton /> : <Loader />}
       {runSpeech()}
       {words}
     </>
