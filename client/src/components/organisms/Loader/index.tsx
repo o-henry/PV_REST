@@ -7,7 +7,7 @@ const Loader = observer(({ recognition }: any) => {
   const { event } = useStores();
 
   const startListen = () => {
-    return recognition.startListening();
+    return recognition.startListening({ language: "ko" });
   };
 
   const keepListen = setTimeout(() => {

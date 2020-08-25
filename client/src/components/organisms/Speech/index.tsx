@@ -19,7 +19,19 @@ const Speech = observer(() => {
     clearTranscriptOnListen: true,
   });
 
-  const [words, setWords] = useState("");
+  const [sayNo, setSayNo] = useState(false);
+
+  const handleChange = () => {
+    setSayNo(true);
+  };
+
+  const sendFood = () => {
+    createFood(transcript);
+  };
+
+  useEffect(() => {
+    setSayNo(false);
+  }, [event.isClicked]);
 
   if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
     return (
@@ -38,23 +50,31 @@ const Speech = observer(() => {
 
   return (
     <>
-      {/* <button
-        onClick={() => SpeechRecognition.startListening({ language: "ko" })}
-      >
-        Start
-      </button>
-      <button onClick={() => SpeechRecognition.stopListening}>Stop</button>
-      <button onClick={resetTranscript}>Reset</button>
-      <p className="">{transcript}</p> */}
-
       <div className="speech container ">
         {!event.isClicked ? (
           <SpeechButton />
         ) : (
           <>
             <Loader recognition={SpeechRecognition} />
-            <p className="">{transcript}</p>
           </>
+        )}
+
+        {!sayNo ? (
+          <div className="main container body">
+            {transcript && (
+              <>
+                말씀 하신 음식이 "{transcript}" 가 맞나요?
+                <div>
+                  <button onClick={sendFood}>네</button>
+                  <button onClick={handleChange}>아니오</button>
+                </div>
+              </>
+            )}
+          </div>
+        ) : (
+          <div className="main container body">
+            {sayNo && "다시 말씀 해 주세요"}
+          </div>
         )}
       </div>
     </>
