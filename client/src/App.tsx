@@ -10,9 +10,7 @@ import {
 
 import { Onboard, Main, Login, SignUp, Statistics } from "@/pages";
 
-const App = ({ hideLoader }: any) => {
-  useEffect(hideLoader, []);
-
+const App = () => {
   return (
     <>
       <Router>
@@ -23,9 +21,9 @@ const App = ({ hideLoader }: any) => {
 
           <Route path="/signup" component={SignUp} />
 
-          <PrivateRoute path="/main" component={Main} />
+          <Route path="/main" component={Main} />
 
-          <PrivateRoute path="/statistics" component={Statistics} />
+          <Route path="/statistics" component={Statistics} />
         </Switch>
       </Router>
     </>

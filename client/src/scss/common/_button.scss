@@ -105,3 +105,9 @@
   font-weight: bolder;
   color: #0095f6;
 }
+
+.link {
+  &.container {
+    margin-top: 1rem;
+  }
+}

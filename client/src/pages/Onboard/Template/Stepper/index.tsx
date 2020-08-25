@@ -30,7 +30,7 @@ const StepperTemplate = observer(
                 </TextField>
               </div>
 
-              <div>
+              <div className="link container">
                 {localStorage.getItem("user") ? (
                   <Link className="start slide_right" to="/main">
                     시 작 하 기
@@ -44,20 +44,17 @@ const StepperTemplate = observer(
               <div className="stepper notification">
                 Google Chrome 브라우저에서 실행해주세요.
               </div>
-
-              <div className="stepper contact">
-                <a
-                  className="stepper hover"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="mailto:c.henry.9209@gmail.com"
-                >
-                  문의하기
-                </a>
-              </div>
             </div>
           </Grid>
         </Grid>
+        <a
+          className="footer"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="mailto:c.henry.9209@gmail.com"
+        >
+          문의하기
+        </a>
       </div>
     );
   }

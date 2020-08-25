@@ -44,7 +44,10 @@ const LoginTemplate = ({ onSubmit }: any) => {
                 })}
               />
 
-              <input className="input button" value="로그인" type="submit" />
+              <button className="input button">
+                <input className="mobile" value="로그인" type="submit" />
+              </button>
+
               <div className="button signup">
                 <Link className="link_hover" to="/signup">
                   회 원 가 입

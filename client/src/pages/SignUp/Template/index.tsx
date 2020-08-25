@@ -105,9 +105,9 @@ const SignUpTemplate = ({ onSubmit }: any): React.ReactElement => {
                   </div>
                 </div>
 
-                <div>
-                  <input className="submit" value="회원가입" type="submit" />
-                </div>
+                <button className="input button">
+                  <input className="mobile" value="회원가입" type="submit" />
+                </button>
               </form>
             </div>
           </div>

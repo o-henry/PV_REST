@@ -18,6 +18,17 @@
   }
 }
 
+.mobile {
+  background: #07122a;
+  color: white;
+  border: none;
+  font-size: 0.9rem;
+  box-shadow: none;
+  -webkit-tap-highlight-color: none;
+  letter-spacing: 0.2rem;
+  font-family: "Poppins", S-CoreDream-2ExtraLight, Open Sans, sans-serif !important;
+}
+
 .submit {
   // background: #39ff236e;
   background: #07122a;
@@ -85,6 +96,7 @@ form {
 
 .radio {
   &.button {
-    margin: 0 0.6rem 0.2rem 0;
+    margin: 0.34rem 0.6rem 0.2rem 0;
+    border-radius: 50%;
   }
 }

@@ -10,7 +10,6 @@ import Alert from "@material-ui/lab/Alert";
 
 import { SpeechButton, Loader } from "@/components";
 import { useStores } from "@/hooks";
-import { isChrome } from "@/utils/browser";
 import { createFood } from "@/api/foods";
 
 const Speech = observer(() => {
@@ -22,7 +21,7 @@ const Speech = observer(() => {
 
   const [words, setWords] = useState("");
 
-  if (!SpeechRecognition.browserSupportsSpeechRecognition() || !isChrome) {
+  if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
     return (
       <>
         <Grid container>
