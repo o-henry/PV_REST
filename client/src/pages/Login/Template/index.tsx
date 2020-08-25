@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import Grid from "@material-ui/core/Grid";
 
 import { TextField } from "@/components";
-import { burger } from "@/assets";
+import { burger, bg } from "@/assets";
 
 const LoginTemplate = ({ onSubmit }: any) => {
   const { register, handleSubmit, errors } = useForm();
@@ -15,7 +15,7 @@ const LoginTemplate = ({ onSubmit }: any) => {
       <Grid container>
         <Grid item xs={12}>
           <div className="login fade_in">
-            <img className="login_banner" src={burger} alt="banner" />
+            <img className="login_banner" src={bg} alt="banner" />
             <TextField style="login_banner_head"> HUNGER </TextField>
             <TextField style="login_banner_body">
               손쉬운 칼로리 & 당 관리
@@ -35,7 +35,7 @@ const LoginTemplate = ({ onSubmit }: any) => {
               <input
                 required
                 className="input"
-                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$"
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,12}$"
                 type="password"
                 placeholder="비밀번호"
                 name="password"

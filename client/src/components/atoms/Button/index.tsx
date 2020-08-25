@@ -6,12 +6,15 @@ import { IButton } from "@/interface";
 import { useStores } from "@/hooks";
 
 const Button = observer(
-  ({ children, style }: IButton): React.ReactElement => {
+  ({ prop, children, style }: IButton): React.ReactElement => {
     const { event } = useStores();
 
     return (
       <>
-        <button className={classNames("Button", style)} onClick={event.onClick}>
+        <button
+          className={classNames("Button", style)}
+          onClick={prop ? prop && event.onClick : event.onClick}
+        >
           {children}
         </button>
       </>

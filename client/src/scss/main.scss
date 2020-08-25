@@ -9,6 +9,8 @@ body,
   width: 100% !important;
   max-width: 100vw;
   min-height: 100vh;
+
+  overflow-y: hidden;
 }
 
 * {
@@ -73,7 +75,7 @@ h3 {
 }
 
 p {
-  padding-bottom: 2rem !important;
+  padding-bottom: 1rem !important;
 }
 
 a:link {
@@ -98,7 +100,7 @@ a {
 /* components */
 @import "components/text", "components/count", "components/card",
   "components/menulist", "components/graph", "components/menu", "components/tab",
-  "components/loader";
+  "components/loader", "components/speech";
 
 /* pages */
 @import "pages/login", "pages/main", "pages/onboard", "pages/app",

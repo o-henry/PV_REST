@@ -1,0 +1,14 @@
+.speech {
+  &.container {
+    display: flex;
+    justify-content: center;
+    align-content: flex-end;
+    align-items: flex-end;
+    padding: 0 0 5rem 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  &.content {
+  }
+}

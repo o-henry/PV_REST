@@ -23,7 +23,10 @@ const actions = [
     icon: withLink("/main", <Mic />),
     name: "Mic",
   },
-  { icon: withLink("/statistics", <BarChart />), name: "Chart" },
+  {
+    icon: withLink("/statistics", <BarChart />),
+    name: "Chart",
+  },
 ];
 
 export default function OpenIconSpeedDial() {

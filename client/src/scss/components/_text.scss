@@ -2,6 +2,7 @@
   /* login page */
   &.login_banner_head {
     font-size: 1.8rem;
+    padding: 1rem 0 0 0;
     font-family: $oswald !important;
   }
 
@@ -12,7 +13,7 @@
 
   /* main page */
   &.main_head {
-    margin: 3rem 0 0 0;
+    margin: 1rem 0 0 0;
     color: white !important;
     z-index: 10;
   }

@@ -25,6 +25,7 @@ const loadUser = () => {
 };
 
 loadUser();
+
 setTimeout(() => {
   ReactDOM.render(
     <CookiesProvider>
@@ -36,4 +37,4 @@ setTimeout(() => {
   );
   clearTimeout(2000);
   loader.parentNode.removeChild(loader);
-}, 1500);
+}, 1000);

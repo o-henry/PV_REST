@@ -1,6 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { observer } from "mobx-react";
 
-const Loader = () => {
+import { useStores } from "@/hooks";
+
+const Loader = observer(({ recognition }: any) => {
+  const { event } = useStores();
+
+  const startListen = () => {
+    return recognition.startListening();
+  };
+
+  const keepListen = setTimeout(() => {
+    recognition.stopListening();
+
+    event.isClicked = false;
+  }, 2000);
+
+  useEffect(() => {
+    startListen();
+  }, []);
+
+  useEffect(() => {
+    keepListen;
+    return () => {
+      clearTimeout(keepListen);
+    };
+  }, [keepListen]);
+
   return (
     <>
       <div className="google-loader">
@@ -11,6 +37,6 @@ const Loader = () => {
       </div>
     </>
   );
-};
+});
 
 export default Loader;

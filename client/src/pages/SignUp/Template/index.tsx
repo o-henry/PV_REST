@@ -37,7 +37,7 @@ const SignUpTemplate = ({ onSubmit }: any): React.ReactElement => {
                   <input
                     required
                     className="input"
-                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$"
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,12}$"
                     type="password"
                     placeholder="비밀번호"
                     name="password"
@@ -46,7 +46,7 @@ const SignUpTemplate = ({ onSubmit }: any): React.ReactElement => {
                     })}
                   />
                   <div className="requirements">
-                    8자 이상 영문 대 ・ 소문자, 숫자, 특수문자를 사용해주세요.
+                    8자 이상 영문 대 ・ 소문자, 숫자를 사용해주세요.
                   </div>
                 </div>
 

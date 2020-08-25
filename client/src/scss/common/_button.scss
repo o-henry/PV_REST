@@ -15,10 +15,11 @@
   &.speech {
     border-radius: 50%;
     display: inline-block;
-    height: 15rem;
-    width: 15rem;
+    height: 4rem;
+    width: 4rem;
     background-color: white;
-    position: fixed;
+    cursor: pointer;
+    // position: fixed;
   }
 
   &.intake {

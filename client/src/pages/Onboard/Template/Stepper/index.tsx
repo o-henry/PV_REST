@@ -26,7 +26,7 @@ const StepperTemplate = observer(
                   섭취한 음식명을 말씀해주세요
                 </TextField>
                 <TextField style="step_body">
-                  음식의 칼로리 와 당 함량을 제공합니다
+                  칼로리 와 당 함량을 제공합니다
                 </TextField>
               </div>
 

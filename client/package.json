@@ -23,6 +23,8 @@
     "@material-ui/lab": "^4.0.0-alpha.56",
     "@types/d3": "^5.7.2",
     "@types/js-cookie": "^2.2.6",
+    "@types/react-speech-recognition": "^3.1.0",
+    "@types/regenerator-runtime": "^0.13.0",
     "babel-loader": "^8.1.0",
     "babel-preset-minify": "^0.5.1",
     "clsx": "^1.1.1",
@@ -35,6 +37,8 @@
     "react-dom": "^16.13.1",
     "react-google-charts": "^3.0.15",
     "react-hook-form": "^5.7.2",
+    "react-speech-recognition": "^3.2.1",
+    "regenerator-runtime": "^0.13.7",
     "sweetalert": "^2.1.2",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"

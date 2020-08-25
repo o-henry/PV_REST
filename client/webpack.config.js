@@ -90,7 +90,10 @@ module.exports = {
 
   /* Router */
   devServer: {
+    host: "0.0.0.0",
     historyApiFallback: true,
+    disableHostCheck: true,
+
     // proxy: {
     //   "/": "http://localhost:8000",
     // },

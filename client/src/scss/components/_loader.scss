@@ -6,22 +6,22 @@ $colors-list: $blue $red $yellow $green;
 
 .google-loader {
   position: absolute;
-  top: 50%;
+  // top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 240px;
-  height: 240px;
+  // height: 240px;
   display: flex;
   justify-content: center;
   align-items: center;
   span {
     display: inline-block;
     margin-top: 10px;
-    height: 20px;
-    width: 20px;
+    height: 15px;
+    width: 15px;
     border-radius: 50%;
     &:not(:first-child) {
-      margin-left: 10px;
+      margin-left: 9px;
     }
   }
   @each $current-color in $colors-list {

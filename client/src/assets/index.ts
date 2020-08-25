@@ -9,6 +9,7 @@ export { default as character } from "./character.svg";
 
 /* banner */
 export { default as burger } from "./pngfuel.com.png";
+export { default as bg } from "./bg.png";
 
 /* mic */
 export { default as radio } from "./radio.svg";

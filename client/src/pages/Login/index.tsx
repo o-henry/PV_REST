@@ -23,8 +23,8 @@ const Login = observer(({ history }: RouteComponentProps) => {
   };
 
   useEffect(() => {
-    if (event.isLogin) {
-      history.push("/main");
+    if (localStorage.getItem("token")) {
+      history.push("/");
       try {
         localStorage.setItem("user", JSON.stringify(event.isLogin));
       } catch (e) {
