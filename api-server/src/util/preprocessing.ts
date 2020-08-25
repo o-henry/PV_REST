@@ -1,4 +1,4 @@
-export const preprocess = (foods: any, target: string) => {
+export const preprocess = async (foods: any, target: string) => {
   let food = [];
   let count = 0;
 

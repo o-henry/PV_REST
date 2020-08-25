@@ -8,16 +8,16 @@ class BaseFood {
   public name: string;
 
   @IsNotEmpty()
-  public calorie: number;
+  public calorie: number | undefined;
 
   @IsNotEmpty()
-  public sugar: number;
+  public sugar: number | undefined;
 
   @IsNotEmpty()
-  public natrium: number;
+  public natrium: number | undefined;
 
   @IsNotEmpty()
-  public carbohydrate!: number;
+  public carbohydrate!: number | undefined;
 }
 
 export class FoodResponse extends BaseFood {

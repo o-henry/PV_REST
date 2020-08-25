@@ -21,19 +21,19 @@ export class Food {
 
   @IsNotEmpty()
   @Column()
-  public calorie!: number;
+  public calorie!: number | undefined;
 
   @IsNotEmpty()
   @Column()
-  public sugar!: number;
+  public sugar!: number | undefined;
 
   @IsNotEmpty()
   @Column()
-  public natrium!: number;
+  public natrium!: number | undefined;
 
   @IsNotEmpty()
   @Column()
-  public carbohydrate!: number;
+  public carbohydrate!: number | undefined;
 
   @IsNotEmpty()
   @CreateDateColumn({ name: "created_at" })

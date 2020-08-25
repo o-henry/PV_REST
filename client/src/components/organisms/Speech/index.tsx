@@ -4,30 +4,69 @@ import { observer } from "mobx-react";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
+import { usePromiseTracker, trackPromise } from "react-promise-tracker";
 
 import Grid from "@material-ui/core/Grid";
 import Alert from "@material-ui/lab/Alert";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 import { SpeechButton, Loader } from "@/components";
 import { useStores } from "@/hooks";
-import { createFood } from "@/api/foods";
+import { xhrAPI } from "@/utils/axios";
 
 const Speech = observer(() => {
   const { event } = useStores();
+  const { promiseInProgress } = usePromiseTracker();
 
   const { transcript, resetTranscript } = useSpeechRecognition({
     clearTranscriptOnListen: true,
   });
 
   const [sayNo, setSayNo] = useState(false);
+  const [sayYes, setSayYes] = useState(false);
+  const [status, setStatus] = useState(false);
+  const [words, setWords] = useState("");
 
-  const handleChange = () => {
-    setSayNo(true);
+  const handleYes = () => {
+    setSayYes(true);
   };
 
-  const sendFood = () => {
-    createFood(transcript);
+  const handleNo = () => {
+    setSayNo(!sayNo);
   };
+
+  const sendDataToMainServer = async (data: any) => {
+    await xhrAPI(process.env.REACT_APP_BASE_URL, localStorage.getItem("token"))
+      .post(`${process.env.REACT_APP_FOOD}`, data)
+      .then((res) => {
+        console.log("메인 서버 로부터의 응답: ", res);
+      });
+  };
+
+  const createFood = async (transcript: any) => {
+    await trackPromise(
+      xhrAPI(process.env.REACT_APP_API_URL)
+        .post(`${process.env.REACT_APP_FOOD}`, {
+          name: transcript,
+        })
+        .then((res) => {
+          console.log(res);
+
+          if (res.status === 200) {
+            sendDataToMainServer(res.data.convert);
+
+            setStatus(true);
+          }
+
+          setWords(res.data.convert);
+        })
+    );
+  };
+
+  useEffect(() => {
+    sayYes && createFood(transcript);
+    setSayYes(false);
+  }, [sayYes]);
 
   useEffect(() => {
     setSayNo(false);
@@ -60,13 +99,13 @@ const Speech = observer(() => {
         )}
 
         {!sayNo ? (
-          <div className="main container body">
+          <div className={"main container body"}>
             {transcript && (
               <>
-                말씀 하신 음식이 "{transcript}" 가 맞나요?
+                말씀 하신 음식이 "{transcript}" 가(이) 맞나요?
                 <div>
-                  <button onClick={sendFood}>네</button>
-                  <button onClick={handleChange}>아니오</button>
+                  <button onClick={handleYes}>네</button>
+                  <button onClick={handleNo}>아니오</button>
                 </div>
               </>
             )}
@@ -75,6 +114,18 @@ const Speech = observer(() => {
           <div className="main container body">
             {sayNo && "다시 말씀 해 주세요"}
           </div>
+        )}
+
+        {promiseInProgress ? (
+          <div className="main container data">
+            <CircularProgress />
+          </div>
+        ) : (
+          ""
+        )}
+
+        {status && (
+          <div className="main container res">해당 음식이 저장되었습니다.</div>
         )}
       </div>
     </>
