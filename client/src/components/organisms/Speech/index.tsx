@@ -16,16 +16,17 @@ import { xhrAPI } from "@/utils/axios";
 
 const Speech = observer(() => {
   const { event } = useStores();
+
   const { promiseInProgress } = usePromiseTracker();
 
-  const { transcript, resetTranscript } = useSpeechRecognition({
+  const { transcript } = useSpeechRecognition({
     clearTranscriptOnListen: true,
   });
 
+  let manyFoods: any[] = [];
   const [sayNo, setSayNo] = useState(false);
   const [sayYes, setSayYes] = useState(false);
   const [status, setStatus] = useState(false);
-  const [words, setWords] = useState("");
 
   const handleYes = () => {
     setSayYes(true);
@@ -39,7 +40,9 @@ const Speech = observer(() => {
     await xhrAPI(process.env.REACT_APP_BASE_URL, localStorage.getItem("token"))
       .post(`${process.env.REACT_APP_FOOD}`, data)
       .then((res) => {
-        console.log("메인 서버 로부터의 응답: ", res);
+        if (res.status === 200) {
+          setStatus(true);
+        }
       });
   };
 
@@ -50,15 +53,15 @@ const Speech = observer(() => {
           name: transcript,
         })
         .then((res) => {
-          console.log(res);
+          console.log("response", res);
 
           if (res.status === 200) {
-            sendDataToMainServer(res.data.convert);
-
-            setStatus(true);
+            if (Array.isArray(res.data.convert)) {
+              manyFoods = res.data.convert;
+            } else {
+              sendDataToMainServer(res.data.convert);
+            }
           }
-
-          setWords(res.data.convert);
         })
     );
   };
@@ -127,6 +130,13 @@ const Speech = observer(() => {
         {status && (
           <div className="main container res">해당 음식이 저장되었습니다.</div>
         )}
+
+        {!manyFoods.length &&
+          manyFoods.map((food, i) => {
+            <div className="main container res" key={i}>
+              {food}
+            </div>;
+          })}
       </div>
     </>
   );
