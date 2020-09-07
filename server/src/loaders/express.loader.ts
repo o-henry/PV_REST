@@ -37,5 +37,8 @@ export const expressLoader: MicroframeworkLoader = () => {
 
   app.listen(config.port, (err) => {
     console.log(`Server Listening on port : ${config.port}`);
+    if (err) {
+      console.log("SERVER ERROR", err);
+    }
   });
 };

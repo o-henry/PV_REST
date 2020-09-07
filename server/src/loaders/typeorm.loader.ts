@@ -28,6 +28,6 @@ export const typeormLoader: MicroframeworkLoader = async () => {
       Logger.info("DB 연결에 성공하셨습니다.");
     }
   } catch (error) {
-    Logger.error(error);
+    Logger.error("DB 연결 실패", error);
   }
 };

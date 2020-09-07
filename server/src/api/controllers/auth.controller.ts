@@ -28,6 +28,7 @@ export class AuthController {
   public async login(@Body() loginUser: LoginUser, @Res() res: Response) {
     const user = await this.authService.validateUser(loginUser);
 
+    console.log(user);
     if (!user)
       return res
         .status(401)

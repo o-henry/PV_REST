@@ -90,7 +90,7 @@ module.exports = {
 
   /* Router */
   devServer: {
-    host: "0.0.0.0",
+    // host: "0.0.0.0",
     historyApiFallback: true,
     disableHostCheck: true,
 
