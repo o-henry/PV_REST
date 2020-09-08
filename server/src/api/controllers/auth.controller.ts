@@ -4,6 +4,7 @@ import { Response } from "express";
 
 import { AuthService } from "@services/auth.services";
 import { UserService } from "@services/user.services";
+import { xhrUser } from "@providers/firebase.provider";
 import { Authentication } from "@auth/Authenticate";
 import { CreateUser, LoginUser, UserResponse } from "@dto/user.dto";
 
@@ -25,18 +26,21 @@ export class AuthController {
       },
     },
   })
-  public async login(@Body() loginUser: LoginUser, @Res() res: Response) {
-    const user = await this.authService.validateUser(loginUser);
+  public async login(@Body() body: any, @Res() res: Response) {
+    console.log("body", body);
+    xhrUser();
+    // const user = await this.authService.validateUser(loginUser);
 
-    console.log(user);
-    if (!user)
-      return res
-        .status(401)
-        .send({ message: "유효하지 않은 사용자 이름 또는 비밀번호 입니다." });
+    // console.log(user);
+    // if (!user)
+    //   return res
+    //     .status(401)
+    //     .send({ message: "유효하지 않은 사용자 이름 또는 비밀번호 입니다." });
 
-    const accessToken = Authentication.generateToken(user.id);
+    // const accessToken = Authentication.generateToken(user.id);
 
-    return res.status(201).json({ accessToken });
+    // return res.status(201).json({ accessToken });
+    return res.status(200).json("...");
   }
 
   @HttpCode(200)

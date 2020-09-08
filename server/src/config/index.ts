@@ -69,6 +69,15 @@ export default {
   csrf: {
     protect: process.env.PROTECT,
   },
+
+  /**
+   * @param Firebase
+   */
+  firebase: {
+    api: process.env.FB_API_KEY,
+    id: process.env.FB_PROJECT_ID,
+  },
+
   /**
    * @param API configs
    */
