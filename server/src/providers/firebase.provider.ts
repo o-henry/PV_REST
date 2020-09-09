@@ -1,32 +1,38 @@
 import * as admin from "firebase-admin";
 
-// import firebase from "firebase/app";
-// import "firebase/auth";
+import config from "@config/index";
 
-// import config from "@config/index";
+// Initializing for Identify User
+const defaultConfig = {
+  credential: admin.credential.applicationDefault(),
+  projectId: config.firebase.id,
+};
 
-// const firebaseConfig = {
-//   apiKey: config.firebase.api,
-//   projectId: config.firebase.id,
-//   authDomain: `${config.firebase.id}.firebaseapp.com`,
-// };
+admin.initializeApp(defaultConfig);
 
-// firebase.initializeApp(firebaseConfig);
+export default admin;
 
-// const auth = firebase.auth();
+// // idToken comes from client
+// export const verify = (idToken: string) => {
+//   const token = idToken.split("Bearer ")[1];
 
-// const user = auth.currentUser;
-
-// console.log("user", user);
-
-// export const xhrUser = () => {
-//   auth.onAuthStateChanged((user) => {
-//     if (user) {
-//       console.log("WELCOME", user);
-//       var uid = user.uid;
-//       console.log("@@@", uid);
-//     } else {
-//       console.log("NO INFORMATION");
-//     }
-//   });
+//   admin
+//     .auth()
+//     .verifyIdToken(token)
+//     .then((decodedToken) => {
+//       const uid = decodedToken.uid;
+//       if (uid) {
+//         console.log("**********", uid);
+//         return uid;
+//         // admin
+//         //   .auth()
+//         //   .getUser(uid)
+//         //   .then((userRecord) => {
+//         //     console.log("Successfully fetched user data:", userRecord);
+//         //   });
+//       } else {
+//         console.error("Login Error");
+//       }
+//     })
+//     .catch((error) => console.log("error", error));
 // };

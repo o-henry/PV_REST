@@ -31,15 +31,13 @@ export class FoodResponse extends BaseFood {
 export class CreateFood extends BaseFood {
   @IsNotEmpty()
   public toEntity(): Food {
-    const { name, calorie, sugar, natrium, carbohydrate } = this;
-
     const food = new Food();
 
-    food.name = name;
-    food.calorie = calorie;
-    food.sugar = sugar;
-    food.natrium = natrium;
-    food.carbohydrate = carbohydrate;
+    // food.name = name;
+    // food.calorie = calorie;
+    // food.sugar = sugar;
+    // food.natrium = natrium;
+    // food.carbohydrate = carbohydrate;
 
     return food;
   }

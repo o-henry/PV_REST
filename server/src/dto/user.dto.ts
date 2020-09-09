@@ -27,24 +27,31 @@ export class UserResponse extends BaseUser {
   public foods: FoodResponse[];
 }
 
+export class SaveUser extends BaseUser {
+  @IsNotEmpty()
+  public toEntity(): User {
+    return;
+  }
+}
+
 export class CreateUser extends BaseUser {
   @IsNotEmpty()
   public password: string;
 
-  @IsNotEmpty()
-  public toEntity(): User {
-    const { id, name, age, gender, password } = this;
+  // @IsNotEmpty()
+  // public toEntity(): User {
+  //   const { id, name, age, gender, password } = this;
 
-    const user = new User();
+  //   const user = new User();
 
-    user.nickname = id;
-    user.name = name;
-    user.age = age;
-    user.gender = gender;
-    user.password = password;
+  //   user.nickname = id;
+  //   user.name = name;
+  //   user.age = age;
+  //   user.gender = gender;
+  //   user.password = password;
 
-    return user;
-  }
+  //   return user;
+  // }
 }
 
 export class LoginUser {

@@ -16,9 +16,9 @@ export class AuthService {
       },
     });
 
-    if (await User.comparePassword(user, loginUser.password)) {
-      return user;
-    }
+    // if (await User.comparePassword(user, loginUser.password)) {
+    //   return user;
+    // }
 
     return undefined;
   }
@@ -42,7 +42,9 @@ export class AuthService {
   }
 
   public async saveRefreshToken(user: User, token: string): Promise<void> {
-    user.refreshToken = token;
-    await this.userRepository.save(user);
+    // user.refreshToken = token;
+    // await this.userRepository.save(user);
+
+    return;
   }
 }

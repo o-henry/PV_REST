@@ -11,10 +11,14 @@ import { CreateFood } from "@dto/food.dto";
 export class FoodService {
   constructor(@OrmRepository() private foodRepository: FoodRepository) {}
 
-  public async create(createfood: CreateFood, userId: string): Promise<Food> {
-    const food = createfood.toEntity();
+  public async create(userId: string): Promise<Food> {
+    console.log("userId", userId);
+    // const food = createfood.toEntity();
+    const food = new Food();
     food.userId = userId;
 
     return await this.foodRepository.save(food);
   }
 }
+
+// createfood: CreateFood,

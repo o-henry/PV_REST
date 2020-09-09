@@ -19,8 +19,9 @@ export class UserService {
   }
 
   public async create(createuser: CreateUser): Promise<User> {
-    const user = createuser.toEntity();
-    return await this.userRepository.save(user);
+    // const user = createuser.toEntity();
+    // return await this.userRepository.save(user);
+    return;
   }
 
   public async check(id: string): Promise<boolean> {

@@ -76,6 +76,7 @@ export default {
   firebase: {
     api: process.env.FB_API_KEY,
     id: process.env.FB_PROJECT_ID,
+    user: process.env.FB_PEOPLE_API,
   },
 
   /**
