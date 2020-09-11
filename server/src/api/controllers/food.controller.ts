@@ -24,7 +24,6 @@ export class FoodController {
     @HeaderParam("authorization") token: string
   ) {
     console.log("********************", food);
-
     admin
       .auth()
       .verifyIdToken(token.split("Bearer ")[1])
