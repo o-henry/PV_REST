@@ -1,13 +1,5 @@
-import {
-  BeforeInsert,
-  Entity,
-  Column,
-  PrimaryGeneratedColumn,
-  OneToMany,
-} from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 import { IsNotEmpty } from "class-validator";
-
-import { Food } from "./Food";
 
 @Entity()
 export class User {
@@ -25,7 +17,4 @@ export class User {
   @IsNotEmpty()
   @Column()
   public age!: string;
-
-  // @OneToMany((type) => Food, (food) => food.user)
-  // public foods!: Food[];
 }

@@ -1,10 +1,8 @@
 import { Service } from "typedi";
 import { OrmRepository } from "typeorm-typedi-extensions";
-import { BadRequestError, NotFoundError } from "routing-controllers";
 
 import { User } from "@models/User";
 import { UserRepository } from "@repositories/user.repository";
-import { CreateUser } from "@dto/user.dto";
 
 @Service()
 export class UserService {
@@ -16,12 +14,6 @@ export class UserService {
 
   public findOne(id: string): Promise<User> {
     return this.userRepository.findOne({ id });
-  }
-
-  public async create(createuser: CreateUser): Promise<User> {
-    // const user = createuser.toEntity();
-    // return await this.userRepository.save(user);
-    return;
   }
 
   public async check(id: string): Promise<boolean> {

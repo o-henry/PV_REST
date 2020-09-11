@@ -1,19 +1,16 @@
 import {
-  Get,
   Post,
   Body,
   Res,
   JsonController,
-  CurrentUser,
   HeaderParam,
 } from "routing-controllers";
-import { OpenAPI, ResponseSchema } from "routing-controllers-openapi";
+import { OpenAPI } from "routing-controllers-openapi";
 import { Response } from "express";
 
 import { FoodService } from "@services/food.services";
 import admin from "@providers/firebase.provider";
-import { User } from "@models/User";
-import { FoodResponse, CreateFood } from "@dto/food.dto";
+import { CreateFood } from "@dto/food.dto";
 
 @JsonController("/foods")
 @OpenAPI({ security: [{ bearerAuth: [] }] })
@@ -21,14 +18,12 @@ export class FoodController {
   constructor(private foodService: FoodService) {}
 
   @Post()
-  // @ResponseSchema(FoodResponse)
   public async create(
-    // @Body() food: CreateFood,
-    @HeaderParam("authorization") token: string,
-    // @CurrentUser({ required: true }) user: User,
-    @Res() res: Response
+    @Body() food: CreateFood,
+    @Res() res: Response,
+    @HeaderParam("authorization") token: string
   ) {
-    console.log("@@@@@@@@@token@@@@@@@@", token);
+    console.log("********************", food);
 
     admin
       .auth()
@@ -36,8 +31,7 @@ export class FoodController {
       .then((decodedToken) => {
         const uid = decodedToken.uid;
         if (uid) {
-          console.log("**********", uid);
-          this.foodService.create(uid);
+          this.foodService.create(food, uid);
         } else {
           console.error("Login Error");
         }

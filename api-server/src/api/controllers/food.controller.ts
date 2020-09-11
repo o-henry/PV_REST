@@ -13,7 +13,6 @@ export class FoodController {
     @Res() res: Response
   ) {
     const xhr = new FoodProvider();
-    const fetch = new ServerProvider();
 
     /**
      * @param filtering
@@ -23,10 +22,6 @@ export class FoodController {
 
     {
       if (data) {
-        // return await fetch.postFoodData(
-        //   preprocess(data, body.name),
-        //   body.token
-        // );
         let convert = await preprocess(data, body.name);
         return res.send({ convert });
       } else {
