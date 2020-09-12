@@ -3,14 +3,6 @@ export const preprocess = async (foods: any, target: string) => {
   let count = 0;
 
   for (let i = 0; i < foods.length; i++) {
-    // {
-    //   name: '코카콜라',
-    //   calorie: '112',
-    //   sugar: '27',
-    //   natrium: '',
-    //   carbohydrate: ''
-    // }
-
     if (foods[i].DESC_KOR === target) {
       let calorie = foods[i]["NUTR_CONT1"];
       let sugar = foods[i]["NUTR_CONT5"];
