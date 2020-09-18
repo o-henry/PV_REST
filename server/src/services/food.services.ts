@@ -15,4 +15,12 @@ export class FoodService {
 
     return await this.foodRepository.save(food);
   }
+
+  public find(userId: string): Promise<Food[]> {
+    return this.foodRepository.find({
+      where: {
+        userId: userId,
+      },
+    });
+  }
 }

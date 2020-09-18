@@ -1,5 +1,6 @@
 import {
   Post,
+  Get,
   Body,
   Res,
   JsonController,
@@ -16,6 +17,28 @@ import { CreateFood } from "@dto/food.dto";
 @OpenAPI({ security: [{ bearerAuth: [] }] })
 export class FoodController {
   constructor(private foodService: FoodService) {}
+
+  @Get()
+  public async find(
+    @HeaderParam("authorization") token: string,
+    @Res() res: Response
+  ) {
+    let uid: string;
+
+    await admin
+      .auth()
+      .verifyIdToken(token.split("Bearer ")[1])
+      .then((decodedToken) => {
+        uid = decodedToken.uid;
+      });
+
+    if (uid) {
+      const foods = await this.foodService.find(uid);
+      return res.status(200).send(foods);
+    } else {
+      console.error("Can't Find User");
+    }
+  }
 
   @Post()
   public async create(

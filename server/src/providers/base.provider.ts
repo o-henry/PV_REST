@@ -9,7 +9,7 @@ export abstract class BaseProvider {
     this.instance = null;
   }
 
-  setInstance(url: string, headers: object) {
+  setInstance(url: string, headers: any) {
     this.instance = xhrAPI(url, headers);
     this.instance.interceptors.response.use(
       (response) => response,

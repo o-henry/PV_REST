@@ -3,12 +3,8 @@ import {
   Column,
   PrimaryGeneratedColumn,
   CreateDateColumn,
-  ManyToOne,
-  JoinColumn,
 } from "typeorm";
 import { IsNotEmpty } from "class-validator";
-
-import { User } from "./User";
 
 @Entity()
 export class Food {

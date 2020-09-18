@@ -2,7 +2,6 @@ import { Post, JsonController, Body, Res } from "routing-controllers";
 import { Response } from "express";
 
 import { FoodProvider } from "@providers/food.provider";
-import { ServerProvider } from "@providers/server.provider";
 import { preprocess } from "@util/preprocessing";
 
 @JsonController("/foods")
