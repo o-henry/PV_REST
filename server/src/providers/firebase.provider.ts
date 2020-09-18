@@ -10,4 +10,11 @@ const defaultConfig = {
 
 admin.initializeApp(defaultConfig);
 
-export default admin;
+export async function Auth(token: string) {
+  return await admin
+    .auth()
+    .verifyIdToken(token.split("Bearer ")[1])
+    .then((decodedToken) => {
+      return decodedToken.uid;
+    });
+}

@@ -10,7 +10,8 @@ import { OpenAPI } from "routing-controllers-openapi";
 import { Response } from "express";
 
 import { FoodService } from "@services/food.services";
-import admin from "@providers/firebase.provider";
+// import admin from "@providers/firebase.provider";
+import { Auth } from "@providers/firebase.provider";
 import { CreateFood } from "@dto/food.dto";
 
 @JsonController("/foods")
@@ -23,17 +24,10 @@ export class FoodController {
     @HeaderParam("authorization") token: string,
     @Res() res: Response
   ) {
-    let uid: string;
+    const id = await Auth(token);
 
-    await admin
-      .auth()
-      .verifyIdToken(token.split("Bearer ")[1])
-      .then((decodedToken) => {
-        uid = decodedToken.uid;
-      });
-
-    if (uid) {
-      const foods = await this.foodService.find(uid);
+    if (id) {
+      const foods = await this.foodService.find(id);
       return res.status(200).send(foods);
     } else {
       console.error("Can't Find User");
@@ -47,18 +41,13 @@ export class FoodController {
     @HeaderParam("authorization") token: string
   ) {
     console.log("********************", food);
-    admin
-      .auth()
-      .verifyIdToken(token.split("Bearer ")[1])
-      .then((decodedToken) => {
-        const uid = decodedToken.uid;
-        if (uid) {
-          this.foodService.create(food, uid);
-        } else {
-          console.error("Login Error");
-        }
-      })
-      .catch((error) => console.log("error", error));
+    const id = await Auth(token);
+
+    if (id) {
+      await this.foodService.create(food, id);
+    } else {
+      console.error("Login Error");
+    }
 
     return res.status(200).send("success");
   }
