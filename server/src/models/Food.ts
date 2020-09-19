@@ -32,7 +32,7 @@ export class Food {
   public carbohydrate!: number | undefined;
 
   @IsNotEmpty()
-  @CreateDateColumn({ name: "created_at" })
+  @CreateDateColumn({ name: "created_at", type: "datetime" })
   public createdDate?: Date;
 
   @Column({ name: "user_id", nullable: true })

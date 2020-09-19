@@ -10,7 +10,6 @@ import { OpenAPI } from "routing-controllers-openapi";
 import { Response } from "express";
 
 import { FoodService } from "@services/food.services";
-// import admin from "@providers/firebase.provider";
 import { Auth } from "@providers/firebase.provider";
 import { CreateFood } from "@dto/food.dto";
 
@@ -28,6 +27,23 @@ export class FoodController {
 
     if (id) {
       const foods = await this.foodService.find(id);
+      return res.status(200).send(foods);
+    } else {
+      console.error("Can't Find User");
+    }
+  }
+
+  @Get("/weeks")
+  public async findByWeek(
+    @HeaderParam("authorization") token: string,
+    @Res() res: Response
+  ) {
+    const id = await Auth(token);
+
+    if (id) {
+      const foods = await this.foodService.findByWeek(id);
+
+      console.log(foods);
       return res.status(200).send(foods);
     } else {
       console.error("Can't Find User");

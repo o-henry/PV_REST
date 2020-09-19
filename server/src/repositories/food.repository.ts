@@ -1,6 +1,6 @@
-import { Food } from "@models/Food";
+import { EntityRepository, Repository, MoreThan, LessThan } from "typeorm";
 
-import { EntityRepository, Repository } from "typeorm";
+import { Food } from "@models/Food";
 
 @EntityRepository(Food)
 export class FoodRepository extends Repository<Food> {}
