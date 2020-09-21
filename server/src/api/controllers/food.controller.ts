@@ -33,23 +33,6 @@ export class FoodController {
     }
   }
 
-  @Get("/weeks")
-  public async findByWeek(
-    @HeaderParam("authorization") token: string,
-    @Res() res: Response
-  ) {
-    const id = await Auth(token);
-
-    if (id) {
-      const foods = await this.foodService.findByWeek(id);
-
-      console.log(foods);
-      return res.status(200).send(foods);
-    } else {
-      console.error("Can't Find User");
-    }
-  }
-
   @Post()
   public async create(
     @Body() food: CreateFood,

@@ -2,7 +2,7 @@ import { Service } from "typedi";
 import { OrmRepository } from "typeorm-typedi-extensions";
 
 import { Food } from "@models/Food";
-import { FoodRepository } from "@repositories/food.repository";
+import { FoodRepository, AfterDate } from "@repositories/food.repository";
 import { CreateFood } from "@dto/food.dto";
 
 @Service()
@@ -20,25 +20,7 @@ export class FoodService {
     return this.foodRepository.find({
       where: {
         userId: userId,
-        createdDate: new Date(new Date().getTime() - 1 * 24 * 60 * 60000),
-      },
-    });
-  }
-
-  public findByWeek(userId: string): Promise<Food[]> {
-    return this.foodRepository.find({
-      where: {
-        userId: userId,
-        createdDate: new Date(new Date().getTime() - 7 * 24 * 60 * 60000),
-      },
-    });
-  }
-
-  public findByMonth(userId: string): Promise<Food[]> {
-    return this.foodRepository.find({
-      where: {
-        userId: userId,
-        createdDate: new Date(new Date().getTime() - 31 * 24 * 60 * 60000),
+        createdDate: AfterDate(new Date()),
       },
     });
   }
