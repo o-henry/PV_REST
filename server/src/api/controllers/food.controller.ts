@@ -27,6 +27,7 @@ export class FoodController {
 
     if (id) {
       const foods = await this.foodService.find(id);
+      console.log("@@@", foods);
       return res.status(200).send(foods);
     } else {
       console.error("Can't Find User");

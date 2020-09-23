@@ -2,7 +2,11 @@ import { Service } from "typedi";
 import { OrmRepository } from "typeorm-typedi-extensions";
 
 import { Food } from "@models/Food";
-import { FoodRepository, AfterDate } from "@repositories/food.repository";
+import {
+  FoodRepository,
+  BeforeDate,
+  AfterDate,
+} from "@repositories/food.repository";
 import { CreateFood } from "@dto/food.dto";
 
 @Service()
@@ -16,11 +20,11 @@ export class FoodService {
     return await this.foodRepository.save(food);
   }
 
-  public find(userId: string): Promise<Food[]> {
-    return this.foodRepository.find({
+  public async find(userId: string): Promise<Food[]> {
+    return await this.foodRepository.find({
       where: {
         userId: userId,
-        createdDate: AfterDate(new Date()),
+        createdDate: BeforeDate(new Date()),
       },
     });
   }

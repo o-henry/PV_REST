@@ -1,11 +1,10 @@
 import {
   EntityRepository,
   Repository,
-  MoreThan,
-  LessThan,
-  Between,
+  LessThanOrEqual,
+  MoreThanOrEqual,
 } from "typeorm";
-import { format, addDays } from "date-fns";
+import { format, isThisWeek, subDays, isMonday } from "date-fns";
 
 import { Food } from "@models/Food";
 
@@ -13,9 +12,34 @@ import { Food } from "@models/Food";
 export class FoodRepository extends Repository<Food> {}
 
 export const AfterDate = (date: Date) =>
-  MoreThan(format(date, "yyyy-MM-dd HH:MM:SS"));
+  MoreThanOrEqual(format(date, "yyyy-MM-dd"));
 
-export const BeforeDate = (date: Date) =>
-  LessThan(format(date, "yyyy-MM-dd HH:MM:SS"));
+export const BeforeDate = (date: Date) => {
+  let a = subDays(date, 7),
+    b = subDays(date, 6),
+    c = subDays(date, 5),
+    d = subDays(date, 4),
+    e = subDays(date, 3),
+    f = subDays(date, 2),
+    g = subDays(date, 1);
 
-export const Day = (date: Date) => Between(date, addDays(date, 1));
+  if (isMonday(a)) {
+    date = a;
+  } else if (isMonday(b)) {
+    date = b;
+  } else if (isMonday(c)) {
+    date = c;
+  } else if (isMonday(d)) {
+    date = d;
+  } else if (isMonday(e)) {
+    date = e;
+  } else if (isMonday(f)) {
+    date = f;
+  } else if (isMonday(g)) {
+    date = g;
+  }
+
+  if (isThisWeek(date, { weekStartsOn: 1 })) {
+    return MoreThanOrEqual(format(date, "yyyy-MM-dd"));
+  }
+};
