@@ -27,10 +27,25 @@ export class FoodController {
 
     if (id) {
       const foods = await this.foodService.find(id);
-      console.log("@@@", foods);
+      console.log("==== EAT : ", foods);
       return res.status(200).send(foods);
     } else {
       console.error("Can't Find User");
+    }
+  }
+
+  @Get("/:day")
+  public async findByDay(
+    @HeaderParam("authorization") token: string,
+    @Res() res: Response
+  ) {
+    const id = await Auth(token);
+
+    if (id) {
+      const foods = await this.foodService.findByDay(id);
+      return res.status(200).send(foods);
+    } else {
+      console.error("Can't find User");
     }
   }
 

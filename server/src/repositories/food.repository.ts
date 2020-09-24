@@ -1,9 +1,4 @@
-import {
-  EntityRepository,
-  Repository,
-  LessThanOrEqual,
-  MoreThanOrEqual,
-} from "typeorm";
+import { EntityRepository, Repository, MoreThanOrEqual } from "typeorm";
 import { format, isThisWeek, subDays, isMonday } from "date-fns";
 
 import { Food } from "@models/Food";
@@ -40,6 +35,7 @@ export const BeforeDate = (date: Date) => {
   }
 
   if (isThisWeek(date, { weekStartsOn: 1 })) {
+    console.log("Monday", date);
     return MoreThanOrEqual(format(date, "yyyy-MM-dd"));
   }
 };

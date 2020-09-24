@@ -40,4 +40,7 @@ export class Food {
 
   @Column({ name: "user_id", nullable: true })
   public userId!: string;
+
+  @Column()
+  public date!: number;
 }

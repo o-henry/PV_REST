@@ -1,5 +1,6 @@
 import { Service } from "typedi";
 import { OrmRepository } from "typeorm-typedi-extensions";
+import { getDay } from "date-fns";
 
 import { Food } from "@models/Food";
 import {
@@ -16,6 +17,7 @@ export class FoodService {
   public async create(createfood: CreateFood, userId: string): Promise<Food> {
     const food = createfood.toEntity();
     food.userId = userId;
+    food.date = getDay(new Date());
 
     return await this.foodRepository.save(food);
   }
@@ -25,6 +27,15 @@ export class FoodService {
       where: {
         userId: userId,
         createdDate: BeforeDate(new Date()),
+      },
+    });
+  }
+
+  public async findByDay(userId: string): Promise<Food[]> {
+    return await this.foodRepository.find({
+      where: {
+        userId: userId,
+        createdDate: AfterDate(new Date()),
       },
     });
   }
