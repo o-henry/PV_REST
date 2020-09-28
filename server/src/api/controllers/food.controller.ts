@@ -2,7 +2,9 @@ import {
   Post,
   Get,
   Body,
+  Delete,
   Res,
+  Param,
   JsonController,
   HeaderParam,
 } from "routing-controllers";
@@ -65,5 +67,10 @@ export class FoodController {
     }
 
     return res.status(200).send("success");
+  }
+
+  @Delete("/:id")
+  public async delete(@Param("id") id: string): Promise<void> {
+    return this.foodService.delete(id);
   }
 }

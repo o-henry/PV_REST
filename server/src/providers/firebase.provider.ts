@@ -18,3 +18,39 @@ export async function Auth(token: string) {
       return decodedToken.uid;
     });
 }
+
+export async function createFBToken(id: any, email: any, name: any) {
+  const userId = `kakao:${id}`;
+  await updateOrCreateUser(userId, email, name);
+  return await admin.auth().createCustomToken(userId, { provider: "KAKAO" });
+}
+
+export async function updateOrCreateUser(
+  userId: string,
+  email: any,
+  name: any
+) {
+  const updateParams = {
+    provider: "KAKAO",
+    displayName: name,
+  };
+
+  if (name) {
+    updateParams["displayName"] = name;
+  } else {
+    updateParams["displayName"] = email;
+  }
+
+  try {
+    return await admin.auth().updateUser(userId, updateParams);
+  } catch (error) {
+    if (error.code === "auth/user-not-found") {
+      updateParams["uid"] = userId;
+      if (email) {
+        updateParams["email"] = email;
+      }
+      return await admin.auth().createUser(updateParams);
+    }
+    throw error;
+  }
+}

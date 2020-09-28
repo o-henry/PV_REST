@@ -15,12 +15,4 @@ export class UserService {
   public findOne(id: string): Promise<User> {
     return this.userRepository.findOne({ id });
   }
-
-  public async check(id: string): Promise<boolean> {
-    const user = await this.userRepository.findOne({
-      where: { nickname: id },
-    });
-
-    return user ? true : false;
-  }
 }

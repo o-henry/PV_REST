@@ -18,7 +18,9 @@ export const BeforeDate = (date: Date) => {
     f = subDays(date, 2),
     g = subDays(date, 1);
 
-  if (isMonday(a)) {
+  if (isMonday(date)) {
+    date = date;
+  } else if (isMonday(a)) {
     date = a;
   } else if (isMonday(b)) {
     date = b;

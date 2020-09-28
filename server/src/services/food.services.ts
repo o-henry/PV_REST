@@ -39,4 +39,9 @@ export class FoodService {
       },
     });
   }
+
+  public async delete(id: string): Promise<void> {
+    await this.foodRepository.delete(id);
+    return;
+  }
 }
