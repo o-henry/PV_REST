@@ -18,7 +18,7 @@ export class FoodController {
      **/
 
     const data = await xhr.getIngredients(encodeURI(body.name));
-    // console.log("@@@@@@@api@@@@@@@@", data);
+    console.log("@@@@@@@api@@@@@@@@", data);
     {
       if (data) {
         let convert = await preprocess(data, body.name);

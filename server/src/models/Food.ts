@@ -6,7 +6,7 @@ import {
 } from "typeorm";
 import { IsNotEmpty } from "class-validator";
 
-@Entity()
+@Entity({ name: "food" })
 export class Food {
   @PrimaryGeneratedColumn("uuid")
   public id!: string;

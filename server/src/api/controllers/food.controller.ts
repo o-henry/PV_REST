@@ -36,7 +36,7 @@ export class FoodController {
     }
   }
 
-  @Get("/:day")
+  @Get("/day")
   public async findByDay(
     @HeaderParam("authorization") token: string,
     @Res() res: Response
@@ -48,6 +48,24 @@ export class FoodController {
       return res.status(200).send(foods);
     } else {
       console.error("Can't find User");
+    }
+  }
+
+  @Get("/:name")
+  public async findOne(
+    @HeaderParam("authorization") token: string,
+    @Param("name") name: string,
+    @Res() res: Response
+  ) {
+    const id = await Auth(token);
+
+    console.log("name", name);
+
+    if (id) {
+      const food = await this.foodService.findOneByName(name);
+      return res.status(200).send(food);
+    } else {
+      console.error("Can't find Id");
     }
   }
 

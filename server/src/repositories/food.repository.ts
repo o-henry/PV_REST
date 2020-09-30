@@ -4,10 +4,24 @@ import { format, isThisWeek, subDays, isMonday } from "date-fns";
 import { Food } from "@models/Food";
 
 @EntityRepository(Food)
-export class FoodRepository extends Repository<Food> {}
+export class FoodRepository extends Repository<Food> {
+  public async findOneByName(name: string) {
+    return this.createQueryBuilder("food")
+      .select([
+        "food.name",
+        "food.natrium",
+        "food.carbohydrate",
+        "food.sugar",
+        "food.calorie",
+        "food.date",
+      ])
+      .where("food.name = :name", { name })
+      .orderBy("food.createdDate", "DESC")
+      .getOne();
+  }
+}
 
 export const AfterDate = (date: Date) => {
-  console.log("date === ");
   return MoreThanOrEqual(format(date, "yyyy-MM-dd"));
 };
 

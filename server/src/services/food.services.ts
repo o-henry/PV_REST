@@ -23,7 +23,6 @@ export class FoodService {
   }
 
   public async find(userId: string): Promise<Food[]> {
-    // date별로 sorting 해야함
     return await this.foodRepository.find({
       where: {
         userId: userId,
@@ -39,6 +38,10 @@ export class FoodService {
         createdDate: AfterDate(new Date()),
       },
     });
+  }
+
+  public async findOneByName(name: string) {
+    return await this.foodRepository.findOneByName(name);
   }
 
   public async delete(id: string): Promise<void> {
