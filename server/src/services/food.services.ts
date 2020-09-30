@@ -1,6 +1,6 @@
 import { Service } from "typedi";
 import { OrmRepository } from "typeorm-typedi-extensions";
-import { getDay } from "date-fns";
+import { getDay, format } from "date-fns";
 
 import { Food } from "@models/Food";
 import {
@@ -23,6 +23,7 @@ export class FoodService {
   }
 
   public async find(userId: string): Promise<Food[]> {
+    // date별로 sorting 해야함
     return await this.foodRepository.find({
       where: {
         userId: userId,

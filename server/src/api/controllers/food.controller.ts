@@ -70,7 +70,8 @@ export class FoodController {
   }
 
   @Delete("/:id")
-  public async delete(@Param("id") id: string): Promise<void> {
-    return this.foodService.delete(id);
+  public async delete(@Param("id") id: string, @Res() res: Response) {
+    await this.foodService.delete(id);
+    return res.send(200).send("success delete");
   }
 }

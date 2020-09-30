@@ -6,8 +6,10 @@ import { Food } from "@models/Food";
 @EntityRepository(Food)
 export class FoodRepository extends Repository<Food> {}
 
-export const AfterDate = (date: Date) =>
-  MoreThanOrEqual(format(date, "yyyy-MM-dd"));
+export const AfterDate = (date: Date) => {
+  console.log("date === ");
+  return MoreThanOrEqual(format(date, "yyyy-MM-dd"));
+};
 
 export const BeforeDate = (date: Date) => {
   let a = subDays(date, 7),
