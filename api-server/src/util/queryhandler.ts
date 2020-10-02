@@ -2,7 +2,7 @@ export const handler = (query: string) => {
   switch (query) {
     //밥
     case "%EB%B0%A5":
-      query = "%EC%8C%80%EB%B0%A5";
+      query = "%ED%96%87%EB%B0%98%20%EC%9D%B4%EC%B2%9C%20%EC%8C%80%EB%B0%A5";
       break;
 
     //맥심

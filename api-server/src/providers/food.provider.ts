@@ -13,7 +13,7 @@ export class FoodProvider extends BaseProvider {
   async getIngredients(query: string) {
     this.setInstance(config.foods.url, {});
 
-    console.log("사용자가 말한 말: ", query);
+    console.log("사용자가 한 말: ", query);
 
     let convert = handler(query);
 

@@ -62,7 +62,6 @@ export class FoodController {
     if (id) {
       const food = await this.foodService.findOneByName(name, id);
 
-      console.log("푸드푸드", food);
       return res.status(200).send(food);
     } else {
       console.error("Can't find Id");
@@ -94,8 +93,6 @@ export class FoodController {
     @Res() res: Response
   ) {
     const id = await Auth(token);
-
-    console.log("@O@O@O@O@O@O@O@O@O@O@O", foodId);
 
     if (id) {
       const food = await this.foodService.findOneById(foodId, id);

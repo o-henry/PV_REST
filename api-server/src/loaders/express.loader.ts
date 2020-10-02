@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { Application } from "express";
 import { Container } from "typedi";
 import { createExpressServer, useContainer } from "routing-controllers";
@@ -20,7 +21,7 @@ export const expressLoader: MicroframeworkLoader = () => {
   });
 
   // run express application on port
-  app.listen(config.port, (err) => {
+  app.listen(config.port, (err: any) => {
     console.log(`Server Listening on port : ${config.port}`);
   });
 };
