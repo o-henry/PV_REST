@@ -5,7 +5,7 @@ import { Food } from "@models/Food";
 
 @EntityRepository(Food)
 export class FoodRepository extends Repository<Food> {
-  public async findOneByName(name: string) {
+  public async findOneByName(name: string, userId: string) {
     return this.createQueryBuilder("food")
       .select([
         "food.name",
@@ -15,7 +15,25 @@ export class FoodRepository extends Repository<Food> {
         "food.calorie",
         "food.date",
       ])
-      .where("food.name = :name", { name })
+      .where("food.userId = :userId", { userId })
+      .andWhere("food.name = :name", { name })
+      .orderBy("food.createdDate", "DESC")
+      .getOne();
+  }
+
+  public async findOneById(foodId: string, userId: string) {
+    return this.createQueryBuilder("food")
+      .select([
+        "food.name",
+        "food.natrium",
+        "food.carbohydrate",
+        "food.sugar",
+        "food.calorie",
+        "food.date",
+        "food.userId",
+      ])
+      .where("food.userId = :userId", { userId })
+      .andWhere("food.id = :foodId", { foodId })
       .orderBy("food.createdDate", "DESC")
       .getOne();
   }

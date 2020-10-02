@@ -29,7 +29,7 @@ export class FoodController {
 
     if (id) {
       const foods = await this.foodService.find(id);
-      console.log("==== EAT : ", foods);
+      // console.log("==== EAT : ", foods);
       return res.status(200).send(foods);
     } else {
       console.error("Can't Find User");
@@ -59,10 +59,10 @@ export class FoodController {
   ) {
     const id = await Auth(token);
 
-    console.log("name", name);
-
     if (id) {
-      const food = await this.foodService.findOneByName(name);
+      const food = await this.foodService.findOneByName(name, id);
+
+      console.log("푸드푸드", food);
       return res.status(200).send(food);
     } else {
       console.error("Can't find Id");
@@ -87,9 +87,39 @@ export class FoodController {
     return res.status(200).send("success");
   }
 
+  @Get("/day/:id")
+  public async findOneById(
+    @HeaderParam("authorization") token: string,
+    @Param("id") foodId: string,
+    @Res() res: Response
+  ) {
+    const id = await Auth(token);
+
+    console.log("@O@O@O@O@O@O@O@O@O@O@O", foodId);
+
+    if (id) {
+      const food = await this.foodService.findOneById(foodId, id);
+      console.log("before delete food", food);
+      return res.status(200).send(food);
+    } else {
+      console.error("Can't find Id");
+    }
+  }
+
   @Delete("/:id")
-  public async delete(@Param("id") id: string, @Res() res: Response) {
-    await this.foodService.delete(id);
-    return res.send(200).send("success delete");
+  public async delete(
+    @HeaderParam("authorization") token: string,
+    @Param("id") foodId: string,
+    @Res() res: Response
+  ) {
+    const id = await Auth(token);
+
+    if (id) {
+      await this.foodService.delete(foodId, id);
+    } else {
+      console.error("Can't find Id");
+    }
+
+    return res.status(200).send("success delete");
   }
 }

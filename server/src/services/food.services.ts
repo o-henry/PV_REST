@@ -1,6 +1,6 @@
 import { Service } from "typedi";
 import { OrmRepository } from "typeorm-typedi-extensions";
-import { getDay, format } from "date-fns";
+import { getDay } from "date-fns";
 
 import { Food } from "@models/Food";
 import {
@@ -40,12 +40,20 @@ export class FoodService {
     });
   }
 
-  public async findOneByName(name: string) {
-    return await this.foodRepository.findOneByName(name);
+  public async findOneByName(name: string, userId: string) {
+    return await this.foodRepository.findOneByName(name, userId);
   }
 
-  public async delete(id: string): Promise<void> {
-    await this.foodRepository.delete(id);
-    return;
+  public async findOneById(foodId: string, userId: string) {
+    return await this.foodRepository.findOneById(foodId, userId);
+  }
+
+  public async delete(foodId: string, userId: string): Promise<void> {
+    const deleteFood = await this.foodRepository.findOneById(foodId, userId);
+
+    if (deleteFood.userId == userId) {
+      await this.foodRepository.delete({ id: foodId });
+      return;
+    }
   }
 }
