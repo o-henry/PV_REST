@@ -22,6 +22,9 @@ exports.default = {
     api: {
         versioning: "/v1",
     },
+    logs: {
+        level: process.env.LOG_LEVEL || "info",
+    },
     /**
      * @param food opensource
      */

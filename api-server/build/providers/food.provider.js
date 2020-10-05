@@ -16,6 +16,7 @@ exports.FoodProvider = void 0;
 const base_provider_1 = require("@providers/base.provider");
 const index_1 = __importDefault(require("@config/index"));
 const typedi_1 = require("typedi");
+const queryhandler_1 = require("@util/queryhandler");
 let FoodProvider = class FoodProvider extends base_provider_1.BaseProvider {
     constructor() {
         super();
@@ -23,7 +24,8 @@ let FoodProvider = class FoodProvider extends base_provider_1.BaseProvider {
     async getIngredients(query) {
         var _a;
         this.setInstance(index_1.default.foods.url, {});
-        const response = await ((_a = this.getInstance()) === null || _a === void 0 ? void 0 : _a.get(`/json/1/500/DESC_KOR=${query}`));
+        let convert = queryhandler_1.handler(query);
+        const response = await ((_a = this.getInstance()) === null || _a === void 0 ? void 0 : _a.get(`/json/1/500/DESC_KOR=${convert}`));
         return response === null || response === void 0 ? void 0 : response.data.I2790.row;
     }
 };

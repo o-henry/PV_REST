@@ -10,8 +10,10 @@ class ServerProvider extends base_provider_1.BaseProvider {
     constructor() {
         super();
     }
-    async postFoodData(data) {
-        this.setInstance(index_1.default.main.url, {});
+    async postFoodData(data, token) {
+        this.setInstance(index_1.default.main.url, {
+            Authorization: `Bearer ${token}`,
+        });
         const request = await this.getInstance().post(index_1.default.main.foods, data);
         return request.config.data;
     }

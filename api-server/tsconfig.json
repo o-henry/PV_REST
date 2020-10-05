@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2017",
-    "lib": ["es2017", "esnext.asynciterable"],
+    "lib": ["es2017", "esnext.asynciterable", "es6", "es5", "DOM"],
     "types": ["reflect-metadata"],
     "typeRoots": ["./types", "./node_modules/@types"],
     "allowSyntheticDefaultImports": true,
