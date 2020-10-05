@@ -10,18 +10,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaseService = void 0;
-var typedi_1 = require("typedi");
-var typeorm_1 = require("typeorm");
-var BaseService = /** @class */ (function () {
-    function BaseService(repo) {
-        this.repository = typeorm_1.getConnection().getRepository(repo);
-        this.repo = repo;
-    }
+const typedi_1 = require("typedi");
+const typeorm_1 = require("typeorm");
+let BaseService = /** @class */ (() => {
+    let BaseService = class BaseService {
+        constructor(repo) {
+            this.repository = typeorm_1.getConnection().getRepository(repo);
+            this.repo = repo;
+        }
+    };
     BaseService = __decorate([
         typedi_1.Service(),
         __metadata("design:paramtypes", [Object])
     ], BaseService);
     return BaseService;
-}());
+})();
 exports.BaseService = BaseService;
 //# sourceMappingURL=base.services.js.map

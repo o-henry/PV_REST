@@ -71,18 +71,18 @@
     "winston-daily-rotate-file": "^4.5.0"
   },
   "_moduleAliases": {
-    "@config": "src/config",
-    "@services": "src/services",
-    "@api": "src/api",
-    "@controllers": "src/api/controllers",
-    "@middlewares": "src/api/middlewares",
-    "@interface": "src/interface",
-    "@util": "src/util",
-    "@models": "src/models",
-    "@loaders": "src/loaders",
-    "@providers": "src/providers",
-    "@repositories": "src/repositories",
-    "@dto": "src/dto",
-    "@auth": "src/auth"
+    "@config": "build/config",
+    "@services": "build/services",
+    "@api": "build/api",
+    "@controllers": "build/api/controllers",
+    "@middlewares": "build/api/middlewares",
+    "@interface": "build/interface",
+    "@util": "build/util",
+    "@models": "build/models",
+    "@loaders": "build/loaders",
+    "@providers": "build/providers",
+    "@repositories": "build/repositories",
+    "@dto": "build/dto",
+    "@auth": "build/auth"
   }
 }

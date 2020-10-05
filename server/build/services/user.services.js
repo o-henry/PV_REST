@@ -13,18 +13,20 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserService = void 0;
-var typedi_1 = require("typedi");
-var typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
-var user_repository_1 = require("@repositories/user.repository");
-var UserService = /** @class */ (function () {
-    function UserService(userRepository) {
-        this.userRepository = userRepository;
-    }
-    UserService.prototype.find = function () {
-        return this.userRepository.find({ relations: ["foods"] });
-    };
-    UserService.prototype.findOne = function (id) {
-        return this.userRepository.findOne({ id: id });
+const typedi_1 = require("typedi");
+const typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
+const user_repository_1 = require("@repositories/user.repository");
+let UserService = /** @class */ (() => {
+    let UserService = class UserService {
+        constructor(userRepository) {
+            this.userRepository = userRepository;
+        }
+        find() {
+            return this.userRepository.find({ relations: ["foods"] });
+        }
+        findOne(id) {
+            return this.userRepository.findOne({ id });
+        }
     };
     UserService = __decorate([
         typedi_1.Service(),
@@ -32,6 +34,6 @@ var UserService = /** @class */ (function () {
         __metadata("design:paramtypes", [user_repository_1.UserRepository])
     ], UserService);
     return UserService;
-}());
+})();
 exports.UserService = UserService;
 //# sourceMappingURL=user.services.js.map

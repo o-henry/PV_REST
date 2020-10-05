@@ -10,11 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
-var typeorm_1 = require("typeorm");
-var class_validator_1 = require("class-validator");
-var User = /** @class */ (function () {
-    function User() {
-    }
+const typeorm_1 = require("typeorm");
+const class_validator_1 = require("class-validator");
+let User = /** @class */ (() => {
+    let User = class User {
+    };
     __decorate([
         typeorm_1.PrimaryGeneratedColumn("uuid"),
         __metadata("design:type", String)
@@ -38,6 +38,6 @@ var User = /** @class */ (function () {
         typeorm_1.Entity()
     ], User);
     return User;
-}());
+})();
 exports.User = User;
 //# sourceMappingURL=User.js.map

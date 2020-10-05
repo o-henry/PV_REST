@@ -10,18 +10,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SecurityMiddleware = void 0;
-var routing_controllers_1 = require("routing-controllers");
-var helmet_1 = __importDefault(require("helmet"));
-var SecurityMiddleware = /** @class */ (function () {
-    function SecurityMiddleware() {
-    }
-    SecurityMiddleware.prototype.use = function (req, res, next) {
-        return helmet_1.default()(req, res, next);
+const routing_controllers_1 = require("routing-controllers");
+const helmet_1 = __importDefault(require("helmet"));
+let SecurityMiddleware = /** @class */ (() => {
+    let SecurityMiddleware = class SecurityMiddleware {
+        use(req, res, next) {
+            return helmet_1.default()(req, res, next);
+        }
     };
     SecurityMiddleware = __decorate([
         routing_controllers_1.Middleware({ type: "before" })
     ], SecurityMiddleware);
     return SecurityMiddleware;
-}());
+})();
 exports.SecurityMiddleware = SecurityMiddleware;
 //# sourceMappingURL=security.middleware.js.map
