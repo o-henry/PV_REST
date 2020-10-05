@@ -71,7 +71,6 @@ export const BeforeDate = (date: Date) => {
   }
 
   if (isThisWeek(date, { weekStartsOn: 1 })) {
-    console.log("Monday", date);
     return MoreThanOrEqual(format(date, "yyyy-MM-dd"));
   }
 };

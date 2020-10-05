@@ -18,6 +18,7 @@ export const typeormLoader: MicroframeworkLoader = async () => {
     password: config.typeorm.password,
     database: config.typeorm.database,
     entities: ["src/models/*.*"],
+    logging: false,
     synchronize: true,
   };
 

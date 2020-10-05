@@ -8,4 +8,4 @@ import Logger from "@loaders/logger.loader";
 
 bootstrapMicroframework({
   loaders: [expressLoader, typeormLoader],
-}).catch((error) => Logger.error("LOADER ERROR: ", error));
+}).catch((error) => Logger.error("ENTRY LOADER ERROR: ", error));

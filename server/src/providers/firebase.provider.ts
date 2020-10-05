@@ -1,6 +1,7 @@
 import * as admin from "firebase-admin";
 
 import config from "@config/index";
+import Logger from "@loaders/logger.loader";
 
 // Initializing for Identify User
 const defaultConfig = {
@@ -16,6 +17,19 @@ export async function Auth(token: string) {
     .verifyIdToken(token.split("Bearer ")[1])
     .then((decodedToken) => {
       return decodedToken.uid;
+    });
+}
+
+export async function DelUser(uid: string) {
+  return await admin
+    .auth()
+    .deleteUser(uid.split("Bearer ")[1])
+    .then((res) => {
+      Logger.info("response: ", res);
+      return res;
+    })
+    .catch(function (error) {
+      Logger.info("Error deleting user:", error);
     });
 }
 

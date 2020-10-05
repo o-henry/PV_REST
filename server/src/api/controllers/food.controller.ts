@@ -12,6 +12,7 @@ import { OpenAPI } from "routing-controllers-openapi";
 import { Response } from "express";
 
 import { FoodService } from "@services/food.services";
+import Logger from "@loaders/logger.loader";
 import { Auth } from "@providers/firebase.provider";
 import { CreateFood } from "@dto/food.dto";
 
@@ -29,10 +30,9 @@ export class FoodController {
 
     if (id) {
       const foods = await this.foodService.find(id);
-      // console.log("==== EAT : ", foods);
       return res.status(200).send(foods);
     } else {
-      console.error("Can't Find User");
+      Logger.error("Can't Find User");
     }
   }
 
@@ -47,7 +47,7 @@ export class FoodController {
       const foods = await this.foodService.findByDay(id);
       return res.status(200).send(foods);
     } else {
-      console.error("Can't find User");
+      Logger.error("Can't find User");
     }
   }
 
@@ -61,10 +61,9 @@ export class FoodController {
 
     if (id) {
       const food = await this.foodService.findOneByName(name, id);
-
       return res.status(200).send(food);
     } else {
-      console.error("Can't find Id");
+      Logger.error("Can't find Id");
     }
   }
 
@@ -74,13 +73,12 @@ export class FoodController {
     @Res() res: Response,
     @HeaderParam("authorization") token: string
   ) {
-    console.log("********************", food);
     const id = await Auth(token);
 
     if (id) {
       await this.foodService.create(food, id);
     } else {
-      console.error("Login Error");
+      Logger.error("Login Error");
     }
 
     return res.status(200).send("success");
@@ -96,10 +94,9 @@ export class FoodController {
 
     if (id) {
       const food = await this.foodService.findOneById(foodId, id);
-      console.log("before delete food", food);
       return res.status(200).send(food);
     } else {
-      console.error("Can't find Id");
+      Logger.error("Can't find Id");
     }
   }
 
@@ -114,7 +111,7 @@ export class FoodController {
     if (id) {
       await this.foodService.delete(foodId, id);
     } else {
-      console.error("Can't find Id");
+      Logger.error("Can't find Id");
     }
 
     return res.status(200).send("success delete");

@@ -3,6 +3,7 @@ import { Response } from "express";
 
 import { FoodProvider } from "@providers/food.provider";
 import { preprocess } from "@util/preprocessing";
+import Logger from "@loaders/logger.loader";
 
 @JsonController("/foods")
 export class FoodController {
@@ -18,13 +19,12 @@ export class FoodController {
      **/
 
     const data = await xhr.getIngredients(encodeURI(body.name));
-    console.log("@@@@@@@api@@@@@@@@", data);
     {
       if (data) {
         let convert = await preprocess(data, body.name);
-
         return res.send({ convert });
       } else {
+        Logger.error("해당하는 음식을 찾지 못했습니다.");
         return res.send({ error: "Food data doesn't exist" });
       }
     }
