@@ -6,7 +6,7 @@
   "scripts": {
     "build": "rimraf ./build && tsc",
     "start:dev": "nodemon",
-    "start": "NODE_ENV=production npm run build && ts-node src/server.ts",
+    "start": "npm run build && node build/server.js",
     "test": "jest --verbose --coverage --forceExit --detectOpenHandles --watchAll --maxWorkers=1"
   },
   "repository": {

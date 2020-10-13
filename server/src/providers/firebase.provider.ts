@@ -25,7 +25,7 @@ export async function DelUser(uid: string) {
     .auth()
     .deleteUser(uid.split("Bearer ")[1])
     .then((res) => {
-      Logger.info("response: ", res);
+      Logger.info("response: ", res); 
       return res;
     })
     .catch(function (error) {

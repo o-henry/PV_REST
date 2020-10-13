@@ -19,9 +19,13 @@ export class FoodController {
      **/
 
     const data = await xhr.getIngredients(encodeURI(body.name));
+
+    console.log(data);
     {
       if (data) {
         let convert = await preprocess(data, body.name);
+        
+        console.log("convert", convert);
         return res.send({ convert });
       } else {
         Logger.error("해당하는 음식을 찾지 못했습니다.");
