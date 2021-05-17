@@ -1,35 +1,22 @@
 
+# Hunger
 
-# Server
+## About
+음성인식 기반 칼로리 / 당 등의 성분 제공 앱 입니다.
 
-## Requirements
+## Features
 
-- Typescript Setting [Reference](https://khalilstemmler.com/blogs/typescript/node-starter-project/)
+* React Native
+* Express
+* Typeorm
+* NCP / GCP
+* 식품안전나라 API
+* atomic design pattern
 
-- Absolute path setting [Reference](https://dev.to/larswaechter/path-aliases-with-typescript-in-nodejs-4353)
+## Design
 
-## Logging
+<img width="1076" alt="스크린샷 2021-05-17 오후 4 27 51" src="https://user-images.githubusercontent.com/48753593/118448326-d383b400-b72c-11eb-99ee-58455af6d9bf.png">
 
-- winston [Reference](https://thisdavej.com/using-winston-a-versatile-logging-library-for-node-js/)
+## Author
 
-- winston-daily-rotate-file [Reference](https://github.com/winstonjs/winston-daily-rotate-file#readme)
-
-## Test
-
-- jest
-
-## DB
-
-- Mysql
-
-- TypeORM ([Reference](https://typeorm.io/#/))
-
-## Structure
-
-- src/api/controllers - fetching | Request | Response
-
-- src/config - Environment variables and configuration related stuff
-
-- src/services - Business Logic
-
-- src/loaders - configure app
+[Henry](o-henry.github.io)
