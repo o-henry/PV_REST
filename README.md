@@ -20,3 +20,7 @@
 ## Author
 
 [Henry](https://o-henry.github.io/)
+
+
+### 비고
+Client 코드는 현재 리액트에서 React Native로 컨버팅 하였고, 해당 코드는 비공개 상태 입니다.
